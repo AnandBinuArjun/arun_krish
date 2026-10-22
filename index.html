@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  
+  <title>Arun &amp; Krish — 08 December 2026 · Cotswolds Wedding</title>
+  <meta name="description" content="Together with their families, Arun &amp; Krish request the pleasure of your company at their wedding on Tuesday, 8th December 2026 at The Orangery &amp; Manor Gardens, Cotswolds.">
+  <meta name="theme-color" content="#374623">
+
+  <!-- Open Graph / WhatsApp / Social Previews -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Arun &amp; Krish — 8 December 2026">
+  <meta property="og:description" content="An heirloom invitation: Arun &amp; Krish request the pleasure of your company. Tuesday, 8th December 2026. Cotswolds, England.">
+  <meta property="og:image" content="assets/images/hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Arun &amp; Krish — 8 December 2026">
+  <meta name="twitter:description" content="Tuesday, 8th December 2026 · The Orangery &amp; Manor Gardens, Cotswolds.">
+  <meta name="twitter:image" content="assets/images/hero.jpg">
+
+  <link rel="icon" type="image/svg+xml" href="assets/svg/monogram-crest.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Falling Rose Petals Canvas -->
+  <canvas id="petal-canvas" aria-hidden="true"></canvas>
+
+  <!-- Golden Sparkle Cursor Trail Canvas -->
+  <canvas id="sparkle-canvas" aria-hidden="true"></canvas>
+
+  <!-- ==========================================================================
+       STAGE 1: THE ENVELOPE (HERO UNBOXING EXPERIENCE)
+       ========================================================================== -->
+  <div id="envelope-stage" class="envelope-stage" role="dialog" aria-modal="true" aria-label="Wedding Invitation Envelope">
+    
+    <div id="envelope-wrapper" class="envelope-wrapper" tabindex="0" role="button" aria-label="Open wedding invitation envelope">
+      
+      <div class="envelope">
+        <!-- Botanical tissue liner inside -->
+        <div class="envelope-liner"></div>
+
+        <!-- Sliding Invitation Card Preview -->
+        <div class="envelope-card-preview">
+          <img src="assets/svg/monogram-crest.svg" alt="A &amp; K Crest" class="card-preview-monogram">
+          <span class="card-preview-text">Arun &amp; Krish</span>
+          <span style="font-family: var(--font-script); font-size: 1.5rem; color: var(--color-gold); margin-top: 4px;">Are Getting Married</span>
+        </div>
+
+        <!-- Pocket Lower Body -->
+        <div class="envelope-pocket"></div>
+
+        <!-- Addressed Guest Plate -->
+        <div class="envelope-address-plate">
+          <div id="envelope-guest-name" class="guest-calligraphy">The Honourable Guest</div>
+          <div class="guest-subtitle">Cordially Invited · Cotswolds, England</div>
+        </div>
+
+        <!-- Top Triangular Flap -->
+        <div class="envelope-flap">
+          <div class="envelope-flap-inner"></div>
+        </div>
+
+        <!-- 3D Wax Seal with Monogram & Lotus -->
+        <div id="wax-seal" class="wax-seal" title="Tap the seal to break it open">
+          <div class="wax-piece-left"></div>
+          <div class="wax-piece-right"></div>
+          <div class="wax-seal-inner">
+            <span style="font-size: 0.95rem; line-height: 1; color: var(--color-pink-soft); filter: drop-shadow(0 1px 2px rgba(0,0,0,0.4)); margin-bottom: 2px;">🪷</span>
+            <span class="wax-seal-initials">A &amp; K</span>
+            <span class="wax-seal-date">MMXXVI</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="envelope-prompt">
+      <p>A wedding invitation awaits.</p>
+      <div class="prompt-sub">
+        <span class="prompt-icon">❦</span> Tap the wax seal to open <span class="prompt-icon">❦</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ==========================================================================
+       SIDE NAVIGATION DOTS (POOJA & SAROOP STYLE)
+       ========================================================================== -->
+  <div class="side-nav-dots" aria-label="Quick Section Navigation">
+    <button class="nav-dot active" data-target="hero" title="Invitation"></button>
+    <button class="nav-dot" data-target="couple" title="The Couple"></button>
+    <button class="nav-dot" data-target="the-day" title="The Day Itself"></button>
+    <button class="nav-dot" data-target="countdown" title="Countdown"></button>
+    <button class="nav-dot" data-target="story" title="Our Story"></button>
+    <button class="nav-dot" data-target="schedule" title="Order of the Day"></button>
+    <button class="nav-dot" data-target="venue" title="The Venue &amp; Map"></button>
+    <button class="nav-dot" data-target="details" title="Dress Code"></button>
+    <button class="nav-dot" data-target="gallery" title="Gallery"></button>
+    <button class="nav-dot" data-target="rsvp" title="RSVP"></button>
+  </div>
+
+  <!-- ==========================================================================
+       TOP NAVIGATION BAR
+       ========================================================================== -->
+  <nav id="top-nav-bar" class="top-nav-bar" aria-label="Invitation Navigation">
+    <a href="#hero">Invitation</a>
+    <a href="#couple">The Couple</a>
+    <a href="#the-day">Details</a>
+    <a href="#story">Our Story</a>
+    <a href="#schedule">Order of the Day</a>
+    <a href="#venue">The Venue</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#rsvp">RSVP</a>
+  </nav>
+
+  <!-- ==========================================================================
+       FLOATING EQUALIZER MUSIC CONTROLLER (NENJIN EZHUTH)
+       ========================================================================== -->
+  <audio id="wedding-audio" loop preload="auto">
+    <source src="assets/audio/nenjin_ezhuth.webm" type="audio/webm">
+  </audio>
+
+  <div id="floating-audio-widget" class="floating-audio-widget" role="button" tabindex="0" title="Play 'Nenjin Ezhuth'">
+    <div class="audio-eq-bars">
+      <div class="audio-bar"></div>
+      <div class="audio-bar"></div>
+      <div class="audio-bar"></div>
+    </div>
+    <span class="audio-label">Nenjin Ezhuth</span>
+  </div>
+
+  <!-- ==========================================================================
+       MAIN CONTENT WRAPPER
+       ========================================================================== -->
+  <div id="page-wrapper" class="page-wrapper">
+
+    <!-- ==========================================================================
+         STAGE 2: EDITORIAL ARCHED HERO SECTION (POOJA & SAROOP REFERENCE ELEVATION)
+         ========================================================================== -->
+    <header id="hero" class="hero-editorial-section">
+      <div class="hero-editorial-grid">
+        
+        <!-- Left Column: Typography, Personalized Guest Pill, and Date/Venue Pill -->
+        <div class="hero-text-side">
+          <div id="hero-guest-greeting" class="section-subtitle" style="display: none; color: var(--color-gold-deep); margin-bottom: 0.5rem;"></div>
+          <span class="section-subtitle">We Are Getting Married</span>
+
+          <div class="hero-script-names">
+            <h1 class="hero-script-heading">Arun</h1>
+            <div class="hero-name-row">
+              <span class="hero-script-ampersand">&amp;</span>
+              <h1 class="hero-script-heading" style="display: inline;">Krish</h1>
+            </div>
+          </div>
+
+          <p class="hero-tagline-quote">Two hearts. One beautiful beginning.</p>
+
+          <!-- Pooja Reference Style Date & Venue Pill -->
+          <div class="date-venue-pill">
+            <div class="pill-col">
+              <div class="pill-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+              </div>
+              <div>
+                <span class="pill-meta-label">The Date</span>
+                <span class="pill-meta-value">Tuesday, 8 Dec 2026</span>
+              </div>
+            </div>
+
+            <div class="pill-col">
+              <div class="pill-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              </div>
+              <div>
+                <span class="pill-meta-label">The Venue</span>
+                <span class="pill-meta-value">The Orangery, Cotswolds</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+            <a href="#engraved-card" class="btn-primary">Explore Invitation ▾</a>
+            <a href="#rsvp" class="btn-secondary">Kindly Reply</a>
+          </div>
+        </div>
+
+        <!-- Right Column: Signature Roman Arched Portrait with Double Gold Rim (Pooja Style) -->
+        <div class="arched-portrait-frame">
+          <div class="arched-img-container">
+            <img src="assets/images/hero.jpg" alt="Arun &amp; Krish in English Garden" class="hero-photo-img" loading="eager">
+          </div>
+          <div class="arch-date-badge">08 · 12 · 2026</div>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- ==========================================================================
+         STAGE 2B: ENGRAVED LETTERPRESS HEIRLOOM CARD
+         ========================================================================== -->
+    <section id="engraved-card" class="section-container" style="padding-top: 2rem;">
+      <div class="hero-card-wrapper" style="margin: 0 auto;">
+        <article class="invitation-card">
+          
+          <!-- Botanical Corner Ornaments -->
+          <img src="assets/svg/botanical-corner.svg" alt="" class="botanical-corner corner-top-left" aria-hidden="true">
+          <img src="assets/svg/botanical-corner.svg" alt="" class="botanical-corner corner-top-right" aria-hidden="true">
+          <img src="assets/svg/botanical-corner.svg" alt="" class="botanical-corner corner-bottom-left" aria-hidden="true">
+          <img src="assets/svg/botanical-corner.svg" alt="" class="botanical-corner corner-bottom-right" aria-hidden="true">
+
+          <!-- Regal Monogram Crest -->
+          <div class="invitation-monogram-top">
+            <img src="assets/svg/monogram-crest.svg" alt="Arun and Krish Monogram" width="90" height="90">
+          </div>
+
+          <p class="invitation-parents">Together with their families</p>
+
+          <h2 class="invitation-names" style="margin: 1rem 0;">
+            <span class="name-groom">Arun</span>
+            <span class="names-ampersand">&amp;</span>
+            <span class="name-bride">Krish</span>
+          </h2>
+
+          <p class="invitation-request">
+            request the pleasure of your company<br>
+            at the celebration of their marriage
+          </p>
+
+          <div class="invitation-details-block">
+            <div class="invitation-date">Tuesday, the Eighth of December</div>
+            <div class="invitation-time">Two Thousand and Twenty-Six · Ten o’Clock in the Morning</div>
+            
+            <div class="invitation-venue">The Orangery &amp; Manor Gardens</div>
+            <div class="invitation-town">Cotswolds · Gloucestershire, England</div>
+            
+            <div class="invitation-reception-note">Reception to follow · Carriages at midnight</div>
+          </div>
+
+          <div style="margin-top: 2.5rem;">
+            <a href="#rsvp" class="btn-primary">Kindly Reply (R.S.V.P.)</a>
+          </div>
+
+        </article>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         THE COUPLE: THE BRIDE & THE GROOM PROFILES (POOJA & SAROOP STYLE)
+         ========================================================================== -->
+    <section id="couple" class="couple-profiles-section">
+      <header class="section-header">
+        <span class="section-subtitle">Together With Their Families</span>
+        <h2 class="section-title">The Bride &amp; The Groom</h2>
+        <div class="section-divider">
+          <span class="divider-line"></span>
+          <span class="divider-ornament">❦</span>
+          <span class="divider-line"></span>
+        </div>
+      </header>
+
+      <div class="couple-profiles-grid">
+        
+        <!-- The Bride Card -->
+        <div class="profile-card bride-card">
+          <div class="profile-avatar-circle">
+            <img src="assets/images/story-meeting.jpg" alt="Krish">
+          </div>
+          <span class="profile-role-tag">The Bride</span>
+          <h3 class="profile-full-name">Krish</h3>
+          <p class="profile-lineage">
+            Daughter of Mr. &amp; Mrs. S. Sharma<br>
+            Granddaughter of Late Sri. V. Sharma &amp; Smt. Kamala<br>
+            <em>Gloucestershire, England</em>
+          </p>
+        </div>
+
+        <!-- Center Ampersand -->
+        <div class="couple-center-ampersand">&amp;</div>
+
+        <!-- The Groom Card -->
+        <div class="profile-card groom-card">
+          <div class="profile-avatar-circle">
+            <img src="assets/images/story-countryside.jpg" alt="Arun">
+          </div>
+          <span class="profile-role-tag">The Groom</span>
+          <h3 class="profile-full-name">Arun</h3>
+          <p class="profile-lineage">
+            Son of Mr. &amp; Mrs. K. Anand<br>
+            Grandson of Late Sri. M. Anand &amp; Smt. Sarada<br>
+            <em>London, England</em>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         THE DAY ITSELF: 4-CARD OVERVIEW (POOJA & SAROOP STYLE)
+         ========================================================================== -->
+    <section id="the-day" class="section-container">
+      <header class="section-header">
+        <span class="section-subtitle">The Day Itself</span>
+        <h2 class="section-title">Wedding Details</h2>
+        <div class="section-divider">
+          <span class="divider-line"></span>
+          <span class="divider-ornament">❧</span>
+          <span class="divider-line"></span>
+        </div>
+      </header>
+
+      <div class="the-day-overview-grid">
+        
+        <div class="day-overview-card">
+          <div class="overview-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+          </div>
+          <span class="overview-tag">The Date</span>
+          <h4 class="overview-main">Tuesday</h4>
+          <p class="overview-sub">8 December 2026<br>Cotswolds, UK</p>
+        </div>
+
+        <div class="day-overview-card">
+          <div class="overview-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+          </div>
+          <span class="overview-tag">Ceremony</span>
+          <h4 class="overview-main">10:00 am</h4>
+          <p class="overview-sub">Exchange of vows in the Orangery<br>Kindly be seated by 9:45 am</p>
+        </div>
+
+        <div class="day-overview-card">
+          <div class="overview-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <span class="overview-tag">The Venue</span>
+          <h4 class="overview-main">The Orangery</h4>
+          <p class="overview-sub">Manor Gardens Estate<br>Bourton-on-the-Water</p>
+        </div>
+
+        <div class="day-overview-card">
+          <div class="overview-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          </div>
+          <span class="overview-tag">Reception</span>
+          <h4 class="overview-main">1:00 pm</h4>
+          <p class="overview-sub">Wedding Feast &amp; Garden Reception<br>Celebrations until evening</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         STAGE 3: COUNTDOWN
+         ========================================================================== -->
+    <section id="countdown" class="countdown-section" aria-label="Wedding Countdown">
+      <div class="countdown-wrapper">
+        <h2 class="countdown-tagline">Until we say I do</h2>
+        <div class="countdown-grid">
+          <div class="countdown-item">
+            <span id="countdown-days" class="countdown-number">00</span>
+            <span class="countdown-label">Days</span>
+          </div>
+          <div class="countdown-item">
+            <span id="countdown-hours" class="countdown-number">00</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-item">
+            <span id="countdown-minutes" class="countdown-number">00</span>
+            <span class="countdown-label">Minutes</span>
+          </div>
+          <div class="countdown-item">
+            <span id="countdown-seconds" class="countdown-number">00</span>
+            <span class="countdown-label">Seconds</span>
+          </div>
+        </div>
+        <div class="countdown-date-badge">8 December 2026 · Cotswolds, United Kingdom</div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         STAGE 4: OUR STORY
+         ========================================================================== -->
+    <section id="story" class="section-container story-section">
+      <header class="section-header">
+        <span class="section-subtitle">How We Met &amp; Fell In Love</span>
+        <h2 class="section-title">Our Story</h2>
+        <div class="section-divider">
+          <span class="divider-line"></span>
+          <span class="divider-ornament">❧</span>
+          <span class="divider-line"></span>
+        </div>
+      </header>
+
+      <div class="story-timeline">
+
+        <!-- Moment 1 -->
+        <article class="story-milestone">
+          <div class="story-node"><div class="story-node-inner"></div></div>
+          <div class="story-content">
+            <span class="story-year">Autumn 2021 · London</span>
+            <h3 class="story-heading">Afternoon Tea in Bloomsbury</h3>
+            <p class="story-desc">
+              What was meant to be a swift cup of Earl Grey turned into five hours of ceaseless conversation, laughter over clotted cream scones, and the shared discovery of each other’s favorite books. By dusk, both knew something extraordinary had begun.
+            </p>
+          </div>
+          <div class="story-photo-wrap">
+            <img src="assets/images/story-meeting.jpg" alt="Afternoon tea in London cafe" loading="lazy">
+          </div>
+        </article>
+
+        <!-- Moment 2 -->
+        <article class="story-milestone">
+          <div class="story-node"><div class="story-node-inner"></div></div>
+          <div class="story-content">
+            <span class="story-year">Summer 2023 · The Cotswolds</span>
+            <h3 class="story-heading">A Cotswold Weekend Getaway</h3>
+            <p class="story-desc">
+              Escaping city life for honey-stoned cottages, quiet country lanes, and evening walks along the willow-lined stream in Castle Combe. It was on this bridge that we spoke of the life and home we hoped to build together.
+            </p>
+          </div>
+          <div class="story-photo-wrap">
+            <img src="assets/images/story-countryside.jpg" alt="Walking along stone bridge in Cotswold village" loading="lazy">
+          </div>
+        </article>
+
+        <!-- Moment 3 -->
+        <article class="story-milestone">
+          <div class="story-node"><div class="story-node-inner"></div></div>
+          <div class="story-content">
+            <span class="story-year">Spring 2025 · Gloucestershire</span>
+            <h3 class="story-heading">Under the Rose Bower</h3>
+            <p class="story-desc">
+              Surrounded by blossoming climbing roses in an ancient walled garden, Arun got down on one knee. With tears of pure joy, Krish said yes before the question was even fully finished.
+            </p>
+          </div>
+          <div class="story-photo-wrap">
+            <img src="assets/images/story-proposal.jpg" alt="Arun proposing to Krish in rose garden" loading="lazy">
+          </div>
+        </article>
+
+        <!-- Moment 4 -->
+        <article class="story-milestone">
+          <div class="story-node"><div class="story-node-inner"></div></div>
+          <div class="story-content">
+            <span class="story-year">December 2026</span>
+            <h3 class="story-heading">The Wedding Day Awaits</h3>
+            <p class="story-desc">
+              Now, with our dearest friends and family gathered from near and far, we begin our next chapter in the English countryside. We cannot wait to celebrate every moment with you.
+            </p>
+          </div>
+          <div class="story-photo-wrap">
+            <img src="assets/images/gallery-candid.jpg" alt="Romantic portrait of couple" loading="lazy">
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         STAGE 5: ORDER OF THE DAY (TIMELINE)
+         ========================================================================== -->
+    <section id="schedule" class="section-container schedule-section">
+      <header class="section-header">
+        <span class="section-subtitle">Order of Service</span>
+        <h2 class="section-title">Order of the Day</h2>
+        <div class="section-divider">
+          <span class="divider-line"></span>
+          <span class="divider-ornament">❦</span>
+          <span class="divider-line"></span>
+        </div>
+      </header>
+
+      <div class="service-card">
+        <div class="service-header-text">
+          <img src="assets/svg/monogram-crest.svg" alt="" class="service-crest-icon">
+          <p style="font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; color: var(--color-muted);">Tuesday, 8th December 2026</p>
+        </div>
+
+        <div class="timeline-list">
+          
+          <div class="timeline-row">
+            <div class="timeline-time">9:30 AM</div>
+            <div class="timeline-glyph">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+            <div class="timeline-info">
+              <h4>Guests Arrive</h4>
+              <p>Welcome to the Manor Grounds. Morning tea, warm spiced cider, and acoustic strings on the south terrace.</p>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <div class="timeline-time">10:00 AM</div>
+            <div class="timeline-glyph">
+              <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </div>
+            <div class="timeline-info">
+              <h4>The Marriage Ceremony</h4>
+              <p>Exchange of vows and rings in The Glass Orangery, followed by the signing of the register.</p>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <div class="timeline-time">11:30 AM</div>
+            <div class="timeline-glyph">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            </div>
+            <div class="timeline-info">
+              <h4>Confetti &amp; Photographs</h4>
+              <p>Rose petal shower on the garden lawn, followed by family and guest portraits.</p>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <div class="timeline-time">12:30 PM</div>
+            <div class="timeline-glyph">
+              <svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
+            </div>
+            <div class="timeline-info">
+              <h4>Celebratory Wedding Feast</h4>
+              <p>A seasonal banquet in the Manor Dining Hall, followed by traditional speeches and toasts.</p>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <div class="timeline-time">3:30 PM</div>
+            <div class="timeline-glyph">
+              <svg viewBox="0 0 24 24"><path d="M7 2v2h1v14a4 4 0 0 0 4 4 4 4 0 0 0 4-4V4h1V2H7zm8 2v5.5L13.5 11 12 9.5 10.5 11 9 9.5V4h6z"/></svg>
+            </div>
+            <div class="timeline-info">
+              <h4>Garden Reception &amp; Live Music</h4>
+              <p>English sparkling wine, live acoustic music, cutting of the wedding cake, and garden strolls.</p>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <div class="timeline-time">6:00 PM</div>
+            <div class="timeline-glyph">
+              <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
+            </div>
+            <div class="timeline-info">
+              <h4>Evening Celebrations &amp; Carriages</h4>
+              <p>Sparkler farewell for Arun &amp; Krish. Carriages and pre-booked shuttles depart.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="calendar-action-bar">
+          <a id="add-google-calendar" href="#" class="btn-primary" rel="noopener">Add to Google Calendar</a>
+          <a id="download-ics-calendar" href="#" class="btn-secondary">Download Apple / Outlook (.ics)</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         STAGE 6: VENUE & INTERACTIVE MAP (POOJA & SAROOP STYLE)
+         ========================================================================== -->
+    <section id="venue" class="section-container">
+      <header class="section-header">
+        <span class="section-subtitle">The Setting</span>
+        <h2 class="section-title">The Orangery &amp; Manor</h2>
+        <div class="section-divider">
+          <span class="divider-line"></span>
+          <span class="divider-ornament">❧</span>
+          <span class="divider-line"></span>
+        </div>
+      </header>
+
+      <div class="venue-grid">
+        <div class="venue-card-media">
+          <img src="assets/images/venue.jpg" alt="Idyllic Cotswold Country Manor Estate" loading="lazy">
+          <div class="venue-badge-overlay">Gloucestershire · Cotswolds</div>
+        </div>
+
+        <div class="venue-info-card">
+          <h3 class="venue-estate-name">The Manor Gardens</h3>
+          <p id="venue-address-text" class="venue-estate-address">
+            Lower Slaughter Road, Bourton-on-the-Water<br>
+            Gloucestershire, GL54 2EN, United Kingdom
+          </p>
+
+          <p style="color: var(--color-charcoal); line-height: 1.7; margin-bottom: 1rem;">
+            Set amidst thirty acres of rolling private Cotswold parkland, ancient yew topiary, and fragrant heirloom rose gardens, the estate provides a peaceful, timeless English sanctuary for our celebration.
+          </p>
+
+          <ul class="venue-highlights">
+            <li><span class="bullet-crest">✦</span> Ample complimentary guest parking on the private estate grounds.</li>
+            <li><span class="bullet-crest">✦</span> Wheelchair accessible entrances, pathways, and restrooms.</li>
+            <li><span class="bullet-crest">✦</span> Dedicated chauffeur greeting &amp; cloakroom on arrival.</li>
+          </ul>
+
+          <div class="map-action-pill-bar" style="justify-content: flex-start;">
+            <a href="https://maps.google.com/?q=Bourton-on-the-Water+Gloucestershire" target="_blank" rel="noopener" class="btn-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              Get Directions
+            </a>
+            <button id="copy-address-btn" type="button" class="btn-secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+              Copy Address
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Embedded Google Map -->
+      <div class="venue-map-wrapper">
+        <iframe 
+          class="venue-map-iframe"
+          title="Google Map of Bourton-on-the-Water, Cotswolds"
+          src="https://maps.google.com/maps?q=Bourton-on-the-Water,%20Gloucestershire,%20UK&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          loading="lazy">
+        </iframe>
+      </div>
+
+      <!-- Collapsible Travel & Accommodation Accordion -->
+      <div class="travel-accordion">
+        
+        <div class="accordion-item">
+          <button class="accordion-header" type="button">
+            <span>By Train &amp; Rail Transfers</span>
+            <span class="accordion-icon">▾</span>
+          </button>
+          <div class="accordion-content">
+            <p>Direct trains run every hour from <strong>London Paddington</strong> to <strong>Moreton-in-Marsh Station</strong> (approx 1 hour 30 mins). From Moreton-in-Marsh, the venue is a pleasant 15-minute taxi ride through the rolling valleys. We recommend booking your station taxi ahead of time.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" type="button">
+            <span>By Car &amp; Parking</span>
+            <span class="accordion-icon">▾</span>
+          </button>
+          <div class="accordion-content">
+            <p>From London and the South East: Take the M40 to Junction 8, followed by the A40 toward Cheltenham. Follow signs to Bourton-on-the-Water. Enter via the North Gate where stewards will direct you to guest parking. Overnight parking is permitted until 11:00 AM on Sunday.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" type="button">
+            <span>Recommended Local Hotels &amp; Inns</span>
+            <span class="accordion-icon">▾</span>
+          </button>
+          <div class="accordion-content">
+            <p>We have arranged preferential guest rates at nearby boutique hotels (quote <em>"Arun &amp; Krish Wedding"</em> when booking):</p>
+            <ul style="margin: 0.8rem 0 0.8rem 1.5rem; line-height: 1.8;">
+              <li><strong>The Slaughters Manor House</strong> (5 mins) — Luxury historic manor hotel.</li>
+              <li><strong>The Rose &amp; Crown Inn</strong> (8 mins) — Traditional Cotswold coaching inn.</li>
+              <li><strong>Dial House Hotel, Bourton-on-the-Water</strong> (10 mins) — Charming garden rooms.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" type="button">
+            <span>Local Taxis &amp; Midnight Carriages</span>
+            <span class="accordion-icon">▾</span>
+          </button>
+          <div class="accordion-content">
+            <p>Because rural Cotswold taxis book out rapidly, <strong>please pre-book your midnight carriage at least one week in advance:</strong></p>
+            <p style="margin-top: 0.5rem;">• Cotswold Taxis: +44 (0) 1608 650034<br>• Bourton Cabs: +44 (0) 1451 822222<br>• Executive Cotswold Chauffeurs: +44 (0) 7977 123456</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         STAGE 7: DRESS CODE & GUEST DETAILS
+         ========================================================================== -->
+    <section id="details" class="section-container" style="background: var(--color-ivory-warm); border-top: 1px solid rgba(184, 155, 94, 0.2); border-bottom: 1px solid rgba(184, 155, 94, 0.2);">
+      <header class="section-header">
+        <span class="section-subtitle">Style &amp; Etiquette</span>
+        <h2 class="section-title">Dress Code &amp; Details</h2>
+        <div class="section-divider">
+          <span class="divider-line"></span>
+          <span class="divider-ornament">❦</span>
+          <span class="divider-line"></span>
+        </div>
+      </header>
+
+      <div class="dress-code-grid">
+        
+        <div class="dress-code-card">
+          <h3 class="dress-title">Gentlemen</h3>
+          <span class="dress-tag">Morning Dress, Black Tie or Dark Lounge Suit</span>
+          <p class="dress-desc">
+            Morning coats, sharp dark tuxedos, or classic tailored three-piece suits with neckties or bowties. Polished leather shoes.
+          </p>
+        </div>
+
+        <div class="dress-code-card">
+          <h3 class="dress-title">Ladies</h3>
+          <span class="dress-tag">Formal Country Garden Attire or Evening Gown</span>
+          <p class="dress-desc">
+            Floor-length gowns or elegant midi dresses. Delicate florals, refined silhouettes, and fascinators/millinery are warmly welcomed. Block heels or wedges are recommended for the garden lawns.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Color Palette Coordination -->
+      <div style="text-align: center; margin-bottom: 3.5rem;">
+        <span class="section-subtitle" style="font-size: 0.68rem;">Guest Palette Inspiration</span>
+        <p style="font-size: 1.05rem; color: var(--color-muted); max-width: 540px; margin: 0 auto 1.5rem;">
+          Guests are invited to harmonize with our English Heritage palette of soft earth tones, sage, and warm neutrals.
+        </p>
+
+        <div class="palette-swatches">
+          <div class="swatch-item">
+            <div class="swatch-circle" style="background-color: #556B2F;"></div>
+            <span class="swatch-name">Olive Green</span>
+          </div>
+          <div class="swatch-item">
+            <div class="swatch-circle" style="background-color: #E28D9D;"></div>
+            <span class="swatch-name">Lotus Pink</span>
+          </div>
+          <div class="swatch-item">
+            <div class="swatch-circle" style="background-color: #F4CAD1;"></div>
+            <span class="swatch-name">Tender Blush</span>
+          </div>
+          <div class="swatch-item">
+            <div class="swatch-circle" style="background-color: #C2A468;"></div>
+            <span class="swatch-name">Antique Gold</span>
+          </div>
+          <div class="swatch-item">
+            <div class="swatch-circle" style="background-color: #374623;"></div>
+            <span class="swatch-name">Deep Olive</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 Etiquette Cards -->
+      <div class="etiquette-grid">
+        
+        <div class="etiquette-box">
+          <div class="etiquette-box-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
+          </div>
+          <h4>Unplugged Ceremony</h4>
+          <p>We invite you to be truly present with us. Please keep all mobile phones and cameras tucked away until the confetti throw.</p>
+        </div>
+
+        <div class="etiquette-box">
+          <div class="etiquette-box-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          </div>
+          <h4>Biodegradable Confetti</h4>
+          <p>Fresh dried English rose petals and lavender will be provided in linen pouches for the celebratory walkway.</p>
+        </div>
+
+        <div class="etiquette-box">
+          <div class="etiquette-box-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          </div>
+          <h4>Children &amp; Loved Ones</h4>
+          <p>While we adore your little ones, our ceremony and reception are strictly for adult guests unless explicitly named on your invitation.</p>
+        </div>
+
+        <div class="etiquette-box">
+          <div class="etiquette-box-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+          </div>
+          <h4>Carriages at Midnight</h4>
+          <p>Music finishes at half past eleven. We ask that all guests arrange departures for midnight promptly.</p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ==========================================================================
+         STAGE 8: GALLERY
+         ========================================================================== -->
+    <section id="gallery" class="section-container">
+      <header class="section-header">
+        <span class="section-subtitle">Moments in Time</span>
+        <h2 class="section-title">Photo Gallery</h2>
+        <div class="section-divider">
+          <span class="divider-line"></span>
+          <span class="divider-ornament">❧</span>
+          <span class="divider-line"></span>
+        </div>
+      </header>
+
+      <div class="gallery-grid">
+        
+        <div class="gallery-item col-span-7" data-caption="Arun &amp; Krish in the Rose Gardens of the Cotswolds Manor">
+          <img src="assets/images/hero.jpg" alt="Arun and Krish walking in English gardens" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span style="font-family: var(--font-serif); font-size: 1.2rem; font-style: italic;">View Photograph</span>
+          </div>
+        </div>
+
+        <div class="gallery-item col-span-5" data-caption="The proposal moment under golden sunlight">
+          <img src="assets/images/story-proposal.jpg" alt="Proposal moment" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span style="font-family: var(--font-serif); font-size: 1.2rem; font-style: italic;">View Photograph</span>
+          </div>
+        </div>
+
+        <div class="gallery-item col-span-4" data-caption="Afternoon tea in London">
+          <img src="assets/images/story-meeting.jpg" alt="Tea in London" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span style="font-family: var(--font-serif); font-size: 1.2rem; font-style: italic;">View Photograph</span>
+          </div>
+        </div>
+
+        <div class="gallery-item col-span-8" data-caption="Strolling through Castle Combe across the stone bridge">
+          <img src="assets/images/story-countryside.jpg" alt="Castle Combe stroll" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span style="font-family: var(--font-serif); font-size: 1.2rem; font-style: italic;">View Photograph</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Lightbox Modal -->
+      <div id="lightbox-modal" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Photo Lightbox">
+        <button id="lightbox-close" class="lightbox-close" aria-label="Close Lightbox">&times;</button>
+        <div class="lightbox-img-wrap">
+          <img id="lightbox-img" src="" alt="Enlarged photo">
+          <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         STAGE 9: RSVP FORM
+         ========================================================================== -->
+    <section id="rsvp" class="section-container rsvp-section">
+      <header class="section-header">
+        <span class="section-subtitle">Répondez S’il Vous Plaît</span>
+        <h2 class="section-title">Kindly Reply</h2>
+        <div class="section-divider">
+          <span class="divider-line"></span>
+          <span class="divider-ornament">❦</span>
+          <span class="divider-line"></span>
+        </div>
+      </header>
+
+      <div class="rsvp-card">
+        <p class="rsvp-date-notice">Kindly reply by the Fifteenth of November, Two Thousand and Twenty-Six</p>
+
+        <form id="rsvp-form" autocomplete="on">
+          
+          <div class="rsvp-form-group">
+            <label for="rsvp-name" class="rsvp-label">Full Name(s) of Guest(s) *</label>
+            <input type="text" id="rsvp-name" class="rsvp-input" placeholder="e.g. Lord &amp; Lady Harrington" required>
+          </div>
+
+          <div class="rsvp-form-group">
+            <label class="rsvp-label">Will you be attending? *</label>
+            <div class="attendance-options">
+              <label class="attendance-card selected">
+                <input type="radio" name="attendance" value="Attending" checked>
+                <span class="attendance-text">Joyfully Accepts</span>
+                <span class="attendance-subtext">Cannot wait to celebrate</span>
+              </label>
+              <label class="attendance-card">
+                <input type="radio" name="attendance" value="Declining">
+                <span class="attendance-text">Regretfully Declines</span>
+                <span class="attendance-subtext">Will celebrate in spirit</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="rsvp-form-group">
+            <label for="rsvp-guests" class="rsvp-label">Number of Attending Guests</label>
+            <select id="rsvp-guests" class="rsvp-select">
+              <option value="1">1 Guest</option>
+              <option value="2" selected>2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4 Guests</option>
+            </select>
+          </div>
+
+          <div class="rsvp-form-group">
+            <label for="rsvp-dietary" class="rsvp-label">Dietary Requirements or Allergies</label>
+            <input type="text" id="rsvp-dietary" class="rsvp-input" placeholder="e.g. Vegetarian, Nut Allergy, Gluten-free, Halal">
+          </div>
+
+          <div class="rsvp-form-group">
+            <label for="rsvp-message" class="rsvp-label">A Song to Get You Dancing / Note to the Couple</label>
+            <textarea id="rsvp-message" class="rsvp-textarea" rows="3" placeholder="Leave a track request or a warm note..."></textarea>
+          </div>
+
+          <div style="text-align: center; margin-top: 2rem;">
+            <button type="submit" class="btn-primary" style="padding: 1rem 3rem;">
+              Send Response
+            </button>
+          </div>
+
+        </form>
+
+        <div id="rsvp-success-banner" class="rsvp-success-banner">
+          <div style="font-size: 2.2rem; color: var(--color-forest); margin-bottom: 0.5rem;">❦</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--color-forest); margin-bottom: 0.5rem;">Thank You</h3>
+          <p id="rsvp-success-msg" style="font-size: 1.1rem; color: var(--color-charcoal); line-height: 1.6;">
+            Your response has been warmly received. We can’t wait to celebrate with you!
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         STAGE 10: GIFT LIST & INTERACTIVE WISHES WALL
+         ========================================================================== -->
+    <section class="section-container">
+      <header class="section-header">
+        <span class="section-subtitle">Gifts &amp; Well Wishes</span>
+        <h2 class="section-title">With Our Gratitude</h2>
+        <div class="section-divider">
+          <span class="divider-line"></span>
+          <span class="divider-ornament">❧</span>
+          <span class="divider-line"></span>
+        </div>
+      </header>
+
+      <div class="gift-registry-box">
+        <h3 style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--color-forest); margin-bottom: 0.8rem;">
+          Your Presence is Our Greatest Gift
+        </h3>
+        <p class="gift-text">
+          The greatest treasure we could ask for is having your love, laughter, and presence with us in the Cotswolds. Should you wish to honor us with a gift, a contribution toward our honeymoon adventures across Italy and our future English country home would be cherished beyond words.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="#wishes-board" class="btn-primary">Leave a Wedding Blessing</a>
+          <a href="#rsvp" class="btn-secondary">View Registry Information</a>
+        </div>
+      </div>
+
+      <!-- Wishes Wall Board -->
+      <div id="wishes-board" class="wishes-board">
+        <div class="wishes-form-wrap">
+          <h4 style="font-family: var(--font-serif); font-size: 1.45rem; color: var(--color-forest); margin-bottom: 0.4rem;">
+            Write in the Guest Book
+          </h4>
+          <p style="font-size: 0.95rem; color: var(--color-muted); margin-bottom: 1.2rem;">
+            Share your warmest advice, memories, or blessings for Arun &amp; Krish:
+          </p>
+          <form id="wishes-form">
+            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; margin-bottom: 1rem;">
+              <input type="text" id="wish-name" class="rsvp-input" placeholder="Your Name" required>
+              <input type="text" id="wish-text" class="rsvp-input" placeholder="Your heartfelt blessing..." required>
+            </div>
+            <button type="submit" class="btn-primary" style="padding: 0.7rem 1.8rem;">Pin Blessing to Board</button>
+          </form>
+        </div>
+
+        <div id="wishes-grid" class="wishes-grid">
+          <!-- Rendered dynamically via JavaScript -->
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================================================
+         STAGE 11: FOOTER
+         ========================================================================== -->
+    <footer class="footer-section">
+      <div class="footer-monogram">
+        <img src="assets/svg/monogram-crest.svg" alt="Arun &amp; Krish Crest" width="90" height="90">
+      </div>
+
+      <div class="footer-thankyou">Thank You</div>
+      <div class="footer-names">Arun &amp; Krish</div>
+      <div class="footer-date">Tuesday, 8th December 2026 · Cotswolds, England</div>
+
+      <div>
+        <span class="footer-hashtag">#ArunWedsKrish2026</span>
+      </div>
+
+      <div class="footer-actions">
+        <a id="whatsapp-share-btn" href="#" class="btn-primary whatsapp-share-btn">
+          <svg style="width: 18px; height: 18px; fill: currentColor;" viewBox="0 0 24 24"><path d="M16.75 13.96c.25.13.41.2.46.3.06.11.04.61-.21 1.18-.2.56-1.24 1.1-1.7 1.12-.46.02-.47.36-2.96-.73-2.49-1.09-3.99-3.75-4.11-3.92-.12-.17-.99-1.32-.99-2.51 0-1.2.63-1.79.85-2.03.23-.25.5-.31.66-.31.17 0 .34 0 .49.01.15.01.36-.06.56.42.21.49.71 1.76.77 1.89.06.13.11.28.01.46-.09.18-.14.29-.27.44-.14.15-.29.33-.42.44-.13.13-.27.27-.12.53.15.25.68 1.12 1.45 1.81 1 .89 1.84 1.17 2.1 1.3.26.13.41.11.56-.06.15-.18.66-.77.83-1.03.17-.27.35-.22.58-.13zM12 2C6.48 2 2 6.48 2 12c0 1.95.56 3.77 1.53 5.31L2 22l4.82-1.48C8.31 21.49 10.09 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+          Share on WhatsApp
+        </a>
+
+        <button id="replay-envelope-btn" class="btn-secondary">
+          🪷 Re-seal Envelope
+        </button>
+
+        <button id="back-to-top-btn" class="btn-secondary">
+          ↑ Back to Top
+        </button>
+      </div>
+
+      <div id="footer-time-greeting" class="footer-time-greeting">
+        Wishing you a most pleasant day from Gloucestershire.
+      </div>
+
+      <div class="footer-copyright">
+        &copy; 2026 Arun &amp; Krish · Designed in the English Country Tradition
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
