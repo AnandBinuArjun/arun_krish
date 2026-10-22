@@ -4,7 +4,7 @@ An heirloom, classic English-style digital wedding invitation website crafted fo
 
 - **Wedding Date**: 08 December 2026 · 10:00 AM
 - **Venue**: The Orangery & Manor Gardens, Castle Combe, Cotswolds, United Kingdom
-- **Theme Palette**: Heritage Olive Green & Lotus Pink with Botanical Lotus Motifs
+- **Theme Palette**: Sunset Jewel Palette — Cream (`#F5DDA9`), Orange (`#F2A25F`), Dusty Rose (`#C4707A`), Raspberry (`#9E4568`), Mauve (`#A66E98`), and Deep Purple (`#722E78`)
 - **Soundtrack**: *"Nenjin Ezhuth"* (A.R. Rahman)
 
 ---

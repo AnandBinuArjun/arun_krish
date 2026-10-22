@@ -197,9 +197,10 @@
     constructor(x, y, isBurst = false) {
       this.x = x ?? Math.random() * window.innerWidth;
       this.y = y ?? -25;
-      // 78% blooming lotus petals, 22% olive leaves
-      this.isLeaf = Math.random() < 0.22;
-      this.size = this.isLeaf ? Math.random() * 8 + 8 : Math.random() * 12 + 11;
+      // Petal variety: 0 = Royal Raspberry & Dusty Rose, 1 = Mauve & Deep Purple, 2 = Saffron Orange & Cream
+      const rand = Math.random();
+      this.type = rand < 0.55 ? 0 : (rand < 0.82 ? 1 : 2);
+      this.size = Math.random() * 12 + 10;
       this.speedY = isBurst ? Math.random() * 4 + 2 : Math.random() * 1.3 + 0.7;
       this.speedX = Math.random() * 1.8 - 0.9;
       this.angle = Math.random() * 360;
@@ -232,50 +233,42 @@
       ctx.scale(flipScale, 1);
       ctx.globalAlpha = this.opacity;
 
-      if (this.isLeaf) {
-        // Delicate Olive Leaf
-        const grad = ctx.createLinearGradient(0, -this.size, 0, this.size);
-        grad.addColorStop(0, '#8FA866');
-        grad.addColorStop(0.5, '#556B2F');
-        grad.addColorStop(1, '#374623');
-        ctx.fillStyle = grad;
+      const grad = ctx.createLinearGradient(0, this.size, 0, -this.size);
 
-        ctx.beginPath();
-        ctx.moveTo(0, -this.size);
-        ctx.bezierCurveTo(this.size * 0.45, -this.size * 0.35, this.size * 0.45, this.size * 0.4, 0, this.size);
-        ctx.bezierCurveTo(-this.size * 0.45, this.size * 0.4, -this.size * 0.45, -this.size * 0.35, 0, -this.size);
-        ctx.fill();
-
-        // Leaf spine
-        ctx.strokeStyle = 'rgba(238, 245, 230, 0.4)';
-        ctx.lineWidth = 0.7;
-        ctx.beginPath();
-        ctx.moveTo(0, -this.size * 0.8);
-        ctx.lineTo(0, this.size * 0.8);
-        ctx.stroke();
+      if (this.type === 0) {
+        // Royal Raspberry & Dusty Rose with Cream base
+        grad.addColorStop(0, '#F5DDA9'); // Cream base
+        grad.addColorStop(0.35, '#ECD2D6'); // Soft Blush
+        grad.addColorStop(0.7, '#C4707A'); // Dusty Rose
+        grad.addColorStop(1, '#9E4568'); // Raspberry tip
+      } else if (this.type === 1) {
+        // Regal Mauve into Imperial Deep Purple
+        grad.addColorStop(0, '#F9EFF6'); // Mauve whisper
+        grad.addColorStop(0.4, '#C598BB'); // Soft Mauve
+        grad.addColorStop(0.75, '#A66E98'); // Mauve
+        grad.addColorStop(1, '#722E78'); // Deep Purple apex
       } else {
-        // Blooming Lotus Petal (pointed apex, curving belly, soft base)
-        const grad = ctx.createLinearGradient(0, this.size, 0, -this.size);
-        grad.addColorStop(0, 'rgba(255, 246, 248, 0.95)');
-        grad.addColorStop(0.35, 'rgba(247, 206, 215, 0.9)');
-        grad.addColorStop(0.7, 'rgba(226, 141, 157, 0.88)');
-        grad.addColorStop(1, 'rgba(188, 72, 98, 0.95)');
-        ctx.fillStyle = grad;
-
-        ctx.beginPath();
-        ctx.moveTo(0, -this.size); // Lotus tip
-        ctx.bezierCurveTo(this.size * 0.62, -this.size * 0.4, this.size * 0.7, this.size * 0.45, 0, this.size);
-        ctx.bezierCurveTo(-this.size * 0.7, this.size * 0.45, -this.size * 0.62, -this.size * 0.4, 0, -this.size);
-        ctx.fill();
-
-        // Shimmering petal curve highlight
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.45)';
-        ctx.lineWidth = 0.8;
-        ctx.beginPath();
-        ctx.moveTo(0, this.size * 0.65);
-        ctx.quadraticCurveTo(this.size * 0.12, 0, 0, -this.size * 0.7);
-        ctx.stroke();
+        // Sunset Saffron Orange & Warm Cream
+        grad.addColorStop(0, '#FDFBF7'); // Ivory Cream
+        grad.addColorStop(0.4, '#F5DDA9'); // Cream
+        grad.addColorStop(0.8, '#F2A25F'); // Saffron Orange
+        grad.addColorStop(1, '#D97834'); // Warm Amber
       }
+      ctx.fillStyle = grad;
+
+      ctx.beginPath();
+      ctx.moveTo(0, -this.size); // Pointed Lotus/Rose tip
+      ctx.bezierCurveTo(this.size * 0.65, -this.size * 0.4, this.size * 0.72, this.size * 0.45, 0, this.size);
+      ctx.bezierCurveTo(-this.size * 0.72, this.size * 0.45, -this.size * 0.65, -this.size * 0.4, 0, -this.size);
+      ctx.fill();
+
+      // Shimmering petal curve highlight
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.45)';
+      ctx.lineWidth = 0.8;
+      ctx.beginPath();
+      ctx.moveTo(0, this.size * 0.65);
+      ctx.quadraticCurveTo(this.size * 0.12, 0, 0, -this.size * 0.7);
+      ctx.stroke();
 
       ctx.restore();
     }
@@ -345,8 +338,8 @@
         this.y = y + (Math.random() - 0.5) * 8;
         this.size = Math.random() * 3 + 1.5;
         this.alpha = 1;
-        this.decay = Math.random() * 0.02 + 0.02;
-        this.color = Math.random() > 0.5 ? '#B89B5E' : '#E8D29F';
+        const sparkleColors = ['#F2A25F', '#F5DDA9', '#C4707A', '#FBF6EA'];
+        this.color = sparkleColors[Math.floor(Math.random() * sparkleColors.length)];
       }
       update() {
         this.alpha -= this.decay;
