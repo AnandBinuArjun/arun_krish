@@ -91,7 +91,7 @@
       playWeddingSong();
 
       // 3. Trigger Burst of Falling Petals
-      try { burstPetals(70); } catch (e) { }
+      try { burstPetals(30); } catch (e) { }
 
       // 4. Slide Card & Reveal Page after animation settles
       setTimeout(revealInvitation, 950);
@@ -260,16 +260,16 @@
       const rand = Math.random();
       this.type = rand < 0.55 ? 0 : (rand < 0.82 ? 1 : 2);
       this.size = Math.random() * 12 + 10;
-      this.speedY = isBurst ? Math.random() * 4 + 2 : Math.random() * 1.3 + 0.7;
-      this.speedX = Math.random() * 1.8 - 0.9;
+      this.speedY = isBurst ? Math.random() * 2.5 + 1.5 : Math.random() * 0.6 + 0.35;
+      this.speedX = Math.random() * 1.2 - 0.6;
       this.angle = Math.random() * 360;
-      this.angularSpeed = (Math.random() - 0.5) * 2;
+      this.angularSpeed = (Math.random() - 0.5) * 1.2;
       this.flipAngle = Math.random() * 360;
-      this.flipSpeed = Math.random() * 0.04 + 0.015;
-      this.oscillationSpeed = Math.random() * 0.025 + 0.008;
-      this.oscillationDistance = Math.random() * 25 + 10;
+      this.flipSpeed = Math.random() * 0.025 + 0.008;
+      this.oscillationSpeed = Math.random() * 0.018 + 0.006;
+      this.oscillationDistance = Math.random() * 18 + 8;
       this.oscillationOffset = Math.random() * 100;
-      this.opacity = Math.random() * 0.4 + 0.6;
+      this.opacity = Math.random() * 0.3 + 0.4;
     }
 
     update() {
@@ -355,7 +355,7 @@
     resize();
     window.addEventListener('resize', resize);
 
-    for (let i = 0; i < 26; i++) {
+    for (let i = 0; i < 12; i++) {
       petals.push(new LotusParticle(Math.random() * window.innerWidth, Math.random() * window.innerHeight));
     }
 
@@ -745,7 +745,7 @@
       }
 
       // ── 3. Celebration & success UI ─────────────────────────────────────
-      burstPetals(60);
+      burstPetals(25);
 
       if (successBanner) {
         const confirmationText = attendance === 'Attending'
@@ -833,7 +833,7 @@
         savedWishes.push(newWish);
         localStorage.setItem('wedding_wishes', JSON.stringify(savedWishes));
 
-        burstPetals(30);
+        burstPetals(15);
 
         authorInput.value = '';
         textInput.value = '';
