@@ -3405,3 +3405,120 @@ body.invitation-opened .floating-audio-widget {
   }
 }
 
+/* ==========================================================================
+   COUNTDOWN HEART PULSE
+   ========================================================================== */
+.countdown-heart {
+  display: inline-block;
+  margin-left: 0.5rem;
+  color: #C41E3A;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.35rem;
+  line-height: 1;
+  vertical-align: middle;
+  transform-origin: center center;
+  animation: countdown-heartbeat 1.4s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(196, 30, 58, 0.55));
+  transition: transform 0.25s ease, filter 0.25s ease;
+  user-select: none;
+  cursor: default;
+}
+
+.countdown-heart:hover {
+  transform: scale(1.3);
+  filter: drop-shadow(0 0 12px rgba(220, 38, 38, 0.85));
+}
+
+@keyframes countdown-heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.32);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.18);
+  }
+  56% {
+    transform: scale(1);
+  }
+}
+
+/* ==========================================================================
+   CELEBRATION CONFETTI (RSVP YES)
+   ========================================================================== */
+.celebration-confetti-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99999;
+  overflow: hidden;
+}
+
+.confetti-particle {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform, opacity;
+  animation-fill-mode: forwards;
+}
+
+/* Emojis: Coins, Hearts, Sparkles */
+.confetti-particle.emoji {
+  line-height: 1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+/* Foil ribbons */
+.confetti-particle.ribbon {
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Cannon fountain animation (bursts up and arcs down from RSVP card) */
+@keyframes confetti-cannon {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(0.3) rotate(0deg);
+  }
+  25% {
+    opacity: 1;
+    transform: translate3d(var(--x-mid), var(--y-up), 0) scale(1.2) rotate(var(--rot-mid));
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--x-end), calc(var(--y-up) + 550px), 0) scale(0.7) rotate(var(--rot-end));
+  }
+}
+
+/* Sky shower animation (cascades down across full viewport) */
+@keyframes confetti-sky-fall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0) scale(0.7) rotate(0deg);
+  }
+  12% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--drift-x, 0px), 105vh, 0) scale(0.85) rotate(var(--rot-end, 720deg));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .countdown-heart {
+    animation: none;
+  }
+  .celebration-confetti-layer {
+    display: none !important;
+  }
+}
+
+

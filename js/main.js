@@ -677,6 +677,127 @@
   }
 
   /* ==========================================================================
+     CELEBRATION CONFETTI BURST (ON RSVP 'YES' / ATTENDING)
+     ========================================================================== */
+  function burstCelebrationConfetti(originEl) {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    let container = document.querySelector('.celebration-confetti-layer');
+    if (!container) {
+      container = document.createElement('div');
+      container.className = 'celebration-confetti-layer';
+      container.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(container);
+    }
+
+    let originX = window.innerWidth / 2;
+    let originY = window.innerHeight * 0.6;
+    if (originEl && typeof originEl.getBoundingClientRect === 'function') {
+      const rect = originEl.getBoundingClientRect();
+      if (rect.width > 0 && rect.height > 0) {
+        originX = rect.left + rect.width / 2;
+        originY = Math.min(rect.top + rect.height * 0.4, window.innerHeight * 0.85);
+      }
+    }
+
+    const emojis = ['🪙', '❤️', '💖', '✨', '🪙', '🌟', '🎉'];
+    const ribbonColors = [
+      'linear-gradient(135deg, #FFD700, #D4AF37)',
+      'linear-gradient(135deg, #F5DDA9, #E6CA65)',
+      'linear-gradient(135deg, #C41E3A, #8B0000)',
+      'linear-gradient(135deg, #C598BB, #9E4568)',
+      'linear-gradient(135deg, #FFFDF8, #F2A25F)',
+      'linear-gradient(135deg, #E8A87C, #C38D9E)'
+    ];
+
+    // Wave 1: Explosive upward cannon burst from the RSVP card
+    const cannonCount = 55;
+    for (let i = 0; i < cannonCount; i++) {
+      const isEmoji = Math.random() < 0.45;
+      const el = document.createElement('div');
+      el.className = 'confetti-particle ' + (isEmoji ? 'emoji' : 'ribbon');
+
+      if (isEmoji) {
+        el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        el.style.fontSize = `${Math.floor(Math.random() * 14 + 18)}px`;
+      } else {
+        const w = Math.floor(Math.random() * 8 + 8);
+        const h = Math.floor(Math.random() * 12 + 10);
+        el.style.width = `${w}px`;
+        el.style.height = `${h}px`;
+        el.style.background = ribbonColors[Math.floor(Math.random() * ribbonColors.length)];
+      }
+
+      el.style.left = `${originX}px`;
+      el.style.top = `${originY}px`;
+
+      // Upward fan burst trajectory
+      const angle = (Math.random() * 130 - 155) * (Math.PI / 180);
+      const velocity = Math.random() * 260 + 200;
+      const xMid = Math.cos(angle) * velocity;
+      const yUp = Math.sin(angle) * velocity;
+      const xEnd = xMid * (1.3 + Math.random() * 0.6);
+      const rotMid = `${Math.floor(Math.random() * 360 - 180)}deg`;
+      const rotEnd = `${Math.floor(Math.random() * 1080 - 540)}deg`;
+      const duration = (Math.random() * 1.2 + 2.2).toFixed(2);
+      const delay = (Math.random() * 0.25).toFixed(2);
+
+      el.style.setProperty('--x-mid', `${xMid.toFixed(0)}px`);
+      el.style.setProperty('--y-up', `${yUp.toFixed(0)}px`);
+      el.style.setProperty('--x-end', `${xEnd.toFixed(0)}px`);
+      el.style.setProperty('--rot-mid', rotMid);
+      el.style.setProperty('--rot-end', rotEnd);
+      el.style.animation = `confetti-cannon ${duration}s cubic-bezier(0.2, 0.7, 0.35, 1) ${delay}s forwards`;
+
+      container.appendChild(el);
+      setTimeout(() => el.remove(), (parseFloat(duration) + parseFloat(delay)) * 1000 + 100);
+    }
+
+    // Wave 2: Celebratory sky cascade across entire viewport
+    const skyCount = 45;
+    for (let i = 0; i < skyCount; i++) {
+      const isEmoji = Math.random() < 0.45;
+      const el = document.createElement('div');
+      el.className = 'confetti-particle ' + (isEmoji ? 'emoji' : 'ribbon');
+
+      if (isEmoji) {
+        el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        el.style.fontSize = `${Math.floor(Math.random() * 14 + 16)}px`;
+      } else {
+        const w = Math.floor(Math.random() * 8 + 8);
+        const h = Math.floor(Math.random() * 14 + 8);
+        el.style.width = `${w}px`;
+        el.style.height = `${h}px`;
+        el.style.background = ribbonColors[Math.floor(Math.random() * ribbonColors.length)];
+      }
+
+      el.style.left = `${Math.random() * 100}vw`;
+      el.style.top = '-25px';
+
+      const driftX = `${(Math.random() * 200 - 100).toFixed(0)}px`;
+      const rotEnd = `${Math.floor(Math.random() * 900 - 450)}deg`;
+      const duration = (Math.random() * 2 + 2.8).toFixed(2);
+      const delay = (Math.random() * 1.4 + 0.1).toFixed(2);
+
+      el.style.setProperty('--drift-x', driftX);
+      el.style.setProperty('--rot-end', rotEnd);
+      el.style.animation = `confetti-sky-fall ${duration}s ease-in-out ${delay}s forwards`;
+
+      container.appendChild(el);
+      setTimeout(() => el.remove(), (parseFloat(duration) + parseFloat(delay)) * 1000 + 200);
+    }
+
+    // Clean up container once animations finish
+    setTimeout(() => {
+      if (container && container.children.length === 0) {
+        container.remove();
+      }
+    }, 6000);
+  }
+
+  /* ==========================================================================
      11. RSVP FORM HANDLING & STORAGE
      ========================================================================== */
   function initRSVP() {
@@ -746,6 +867,9 @@
 
       // ── 3. Celebration & success UI ─────────────────────────────────────
       burstPetals(25);
+      if (attendance === 'Attending') {
+        burstCelebrationConfetti(form);
+      }
 
       if (successBanner) {
         const confirmationText = attendance === 'Attending'
