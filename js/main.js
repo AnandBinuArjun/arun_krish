@@ -548,7 +548,7 @@
           'DTSTART:20261208T130000Z',
           'DTEND:20261208T235900Z',
           'SUMMARY:Arun & Krishna\'s Wedding Reception (Birmingham)',
-          'DESCRIPTION:Wedding Reception & Celebratory Banquet in Birmingham, England (1:00 PM onwards; preceded by an intimate private ceremony in Stafford).',
+          'DESCRIPTION:Wedding Reception & Celebratory Banquet in Birmingham, England (12:30 PM onwards; preceded by an intimate private ceremony in Stafford).',
           'LOCATION:Birmingham, West Midlands, England',
           'STATUS:CONFIRMED',
           'END:VEVENT',
