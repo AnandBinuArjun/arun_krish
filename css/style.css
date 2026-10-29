@@ -3239,7 +3239,8 @@ body.invitation-opened .floating-audio-widget {
 #floating-rsvp {
   position: fixed;
   bottom: 2rem;
-  right: 2rem;
+  left: 2rem;
+  right: auto;
   z-index: 1000;
   opacity: 0;
   transform: translateY(20px) scale(0.9);
@@ -3287,7 +3288,8 @@ body.invitation-opened .floating-audio-widget {
 @media (max-width: 480px) {
   #floating-rsvp {
     bottom: 1.25rem;
-    right: 1.25rem;
+    left: 1.25rem;
+    right: auto;
   }
   #floating-rsvp a {
     padding: 0.65rem 1.2rem;
