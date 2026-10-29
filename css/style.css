@@ -2912,6 +2912,25 @@ body.invitation-opened .floating-audio-widget {
   margin-top: 1rem;
 }
 
+.footer-dev {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(250, 246, 238, 0.25);
+  margin-top: 0.35rem;
+}
+
+.footer-dev a {
+  color: rgba(212, 175, 105, 0.5);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-dev a:hover {
+  color: rgba(212, 175, 105, 0.9);
+}
+
 /* ==========================================================================
    MOBILE & TABLET RESPONSIVENESS SUITE (320px – 768px)
    ========================================================================== */
