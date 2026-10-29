@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <!-- Gilded Cream & Warm Amber Gradient -->
+    <linearGradient id="cornerGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBF6EA"/>
+      <stop offset="50%" stop-color="#F5DDA9"/>
+      <stop offset="100%" stop-color="#F2A25F"/>
+    </linearGradient>
+    <!-- Mauve & Deep Purple Branch Gradient -->
+    <linearGradient id="cornerOlive" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A66E98"/>
+      <stop offset="100%" stop-color="#722E78"/>
+    </linearGradient>
+    <!-- Dusty Rose & Raspberry Petal Gradient -->
+    <linearGradient id="cornerPink" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#ECD2D6"/>
+      <stop offset="60%" stop-color="#C4707A"/>
+      <stop offset="100%" stop-color="#9E4568"/>
+    </linearGradient>
+  </defs>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Regal corner geometric border frames in Gilded Cream/Amber -->
+    <path d="M 6 52 L 6 6 L 52 6" stroke="url(#cornerGold)" stroke-width="1.5"/>
+    <path d="M 12 45 L 12 12 L 45 12" stroke="url(#cornerOlive)" stroke-width="0.75" stroke-dasharray="2 3"/>
+    <circle cx="6" cy="6" r="2.5" fill="url(#cornerGold)"/>
+
+    <!-- Arching vines radiating diagonally in Mauve & Purple -->
+    <path d="M 10 10 C 28 28, 52 38, 85 45" stroke="url(#cornerOlive)" stroke-width="1.2"/>
+    <path d="M 10 10 C 28 28, 38 52, 45 85" stroke="url(#cornerOlive)" stroke-width="1.2"/>
+
+    <!-- Blooming Lotus Flower Blossom in corner diagonal -->
+    <g transform="translate(38, 38) rotate(-45)">
+      <!-- Outer side petals -->
+      <path d="M 0 6 C -14 3, -22 -6, -20 -18 C -15 -15, -7 -5, 0 6 Z" fill="url(#cornerPink)" fill-opacity="0.85" stroke="url(#cornerGold)" stroke-width="0.8"/>
+      <path d="M 0 6 C 14 3, 22 -6, 20 -18 C 15 -15, 7 -5, 0 6 Z" fill="url(#cornerPink)" fill-opacity="0.85" stroke="url(#cornerGold)" stroke-width="0.8"/>
+      <!-- Inner petals -->
+      <path d="M 0 7 C -9 1, -14 -12, -10 -24 C -5 -18, -2 -6, 0 7 Z" fill="#FDF4F6" fill-opacity="0.9" stroke="url(#cornerGold)" stroke-width="0.8"/>
+      <path d="M 0 7 C 9 1, 14 -12, 10 -24 C 5 -18, 2 -6, 0 7 Z" fill="#FDF4F6" fill-opacity="0.9" stroke="url(#cornerGold)" stroke-width="0.8"/>
+      <!-- Central pointed lotus petal -->
+      <path d="M 0 8 C -6 -2, -7 -18, 0 -30 C 7 -18, 6 -2, 0 8 Z" fill="url(#cornerPink)" stroke="url(#cornerGold)" stroke-width="0.9"/>
+      <!-- Golden amber stamen base -->
+      <circle cx="0" cy="5" r="2.5" fill="url(#cornerGold)"/>
+    </g>
+
+    <!-- Foliage along the vines -->
+    <path d="M 52 24 C 62 18 70 23 68 30 C 64 34 56 30 52 24 Z" fill="url(#cornerOlive)" fill-opacity="0.55" stroke="url(#cornerOlive)" stroke-width="0.8"/>
+    <path d="M 24 52 C 18 62 23 70 30 68 C 34 64 30 56 24 52 Z" fill="url(#cornerOlive)" fill-opacity="0.55" stroke="url(#cornerOlive)" stroke-width="0.8"/>
+
+    <path d="M 72 38 C 82 34 90 41 85 48 C 79 51 72 44 72 38 Z" fill="url(#cornerOlive)" fill-opacity="0.55" stroke="url(#cornerOlive)" stroke-width="0.8"/>
+    <path d="M 38 72 C 34 82 41 90 48 85 C 51 79 44 72 38 72 Z" fill="url(#cornerOlive)" fill-opacity="0.55" stroke="url(#cornerOlive)" stroke-width="0.8"/>
+
+    <!-- Delicate budding lotus pods and tendrils -->
+    <g transform="translate(95, 48) rotate(15)">
+      <path d="M 0 0 C -4 -4, -4 -10, 0 -15 C 4 -10, 4 -4, 0 0 Z" fill="url(#cornerPink)" stroke="url(#cornerGold)" stroke-width="0.7"/>
+    </g>
+    <g transform="translate(48, 95) rotate(-75)">
+      <path d="M 0 0 C -4 -4, -4 -10, 0 -15 C 4 -10, 4 -4, 0 0 Z" fill="url(#cornerPink)" stroke="url(#cornerGold)" stroke-width="0.7"/>
+    </g>
+
+    <!-- Graceful tendrils in warm golden amber -->
+    <path d="M 78 28 C 86 26 94 30 96 36 C 97 40 92 42 89 40" stroke="url(#cornerGold)" stroke-width="0.8"/>
+    <path d="M 28 78 C 26 86 30 94 36 96 C 40 97 42 92 40 89" stroke="url(#cornerGold)" stroke-width="0.8"/>
+  </g>
+</svg>

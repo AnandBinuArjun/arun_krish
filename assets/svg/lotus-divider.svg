@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" width="100%" height="100%">
+  <defs>
+    <!-- Gilded Cream & Warm Amber Gradient -->
+    <linearGradient id="divGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBF6EA"/>
+      <stop offset="50%" stop-color="#F5DDA9"/>
+      <stop offset="100%" stop-color="#F2A25F"/>
+    </linearGradient>
+    <!-- Dusty Rose into Raspberry Gradient -->
+    <linearGradient id="divPink" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#FDF4F6"/>
+      <stop offset="45%" stop-color="#ECD2D6"/>
+      <stop offset="80%" stop-color="#C4707A"/>
+      <stop offset="100%" stop-color="#9E4568"/>
+    </linearGradient>
+    <!-- Mauve & Deep Purple Botanical Vine Gradient -->
+    <linearGradient id="divOlive" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#A66E98"/>
+      <stop offset="100%" stop-color="#722E78"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(60, 22)">
+    <!-- Flanking scrolls & sprigs -->
+    <path d="M -16 6 C -28 6, -38 2, -48 0 C -38 -3, -28 0, -18 3" fill="none" stroke="url(#divOlive)" stroke-width="1.2" stroke-linecap="round"/>
+    <path d="M 16 6 C 28 6, 38 2, 48 0 C 38 -3, 28 0, 18 3" fill="none" stroke="url(#divOlive)" stroke-width="1.2" stroke-linecap="round"/>
+
+    <!-- Small side leaves -->
+    <path d="M -30 2 C -36 -2, -42 -1, -40 4 C -36 5, -32 4, -30 2 Z" fill="url(#divOlive)" opacity="0.75"/>
+    <path d="M 30 2 C 36 -2, 42 -1, 40 4 C 36 5, 32 4, 30 2 Z" fill="url(#divOlive)" opacity="0.75"/>
+    <circle cx="-50" cy="0" r="1.5" fill="url(#divGold)"/>
+    <circle cx="50" cy="0" r="1.5" fill="url(#divGold)"/>
+
+    <!-- Lotus Pad Leaf Base in Deep Purple / Mauve -->
+    <path d="M 0 7 C -15 6, -22 3, -20 0 C -15 -2, -8 3, 0 4 C 8 3, 15 -2, 20 0 C 22 3, 15 6, 0 7 Z" fill="url(#divOlive)" stroke="url(#divGold)" stroke-width="0.8"/>
+
+    <!-- Outer Lotus Petals in Dusty Rose / Raspberry -->
+    <path d="M 0 5 C -10 2, -18 -4, -16 -12 C -12 -10, -6 -2, 0 5 Z" fill="url(#divPink)" stroke="url(#divGold)" stroke-width="0.8"/>
+    <path d="M 0 5 C 10 2, 18 -4, 16 -12 C 12 -10, 6 -2, 0 5 Z" fill="url(#divPink)" stroke="url(#divGold)" stroke-width="0.8"/>
+
+    <!-- Inner Lotus Petals -->
+    <path d="M 0 5 C -7 0, -11 -8, -8 -16 C -4 -12, -1 -3, 0 5 Z" fill="#FDF4F6" stroke="url(#divGold)" stroke-width="0.8"/>
+    <path d="M 0 5 C 7 0, 11 -8, 8 -16 C 4 -12, 1 -3, 0 5 Z" fill="#FDF4F6" stroke="url(#divGold)" stroke-width="0.8"/>
+
+    <!-- Central Lotus Petal -->
+    <path d="M 0 6 C -4 0, -5 -10, 0 -20 C 5 -10, 4 0, 0 6 Z" fill="url(#divPink)" stroke="url(#divGold)" stroke-width="0.9"/>
+
+    <!-- Warm Amber Golden Pod Center -->
+    <circle cx="0" cy="3" r="2" fill="url(#divGold)"/>
+  </g>
+</svg>

@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  
+  <title>Arun &amp; Krishna — 08 December 2026 · Birmingham Wedding Reception</title>
+  <meta name="description" content="Arun &amp; Krishna request the pleasure of your company at their Wedding Reception &amp; Banquet on Tuesday, 8th December 2026 in Birmingham, England (following an intimate ceremony in Stafford).">
+  <meta name="theme-color" content="#722E78">
+
+  <!-- Open Graph / WhatsApp / Social Previews -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Arun &amp; Krishna — Wedding Reception · 8 December 2026">
+  <meta property="og:description" content="An heirloom invitation: Arun &amp; Krishna request the pleasure of your company at their Wedding Reception &amp; Banquet. Tuesday, 8th December 2026 in Birmingham, England.">
+  <meta property="og:image" content="assets/images/social-preview.jpg">
+  <meta property="og:image:secure_url" content="assets/images/social-preview.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="576">
+  <meta property="og:image:alt" content="Arun weds Krishna Wedding Invitation Social Preview">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Arun &amp; Krishna — Wedding Reception · 8 December 2026">
+  <meta name="twitter:description" content="Tuesday, 8th December 2026 · Celebratory Wedding Reception &amp; Banquet in Birmingham, England.">
+  <meta name="twitter:image" content="assets/images/social-preview.jpg">
+  <meta name="twitter:image:alt" content="Arun weds Krishna Wedding Invitation Social Preview">
+
+  <link rel="icon" type="image/svg+xml" href="assets/svg/monogram-crest.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Falling Rose Petals Canvas -->
+  <canvas id="petal-canvas" aria-hidden="true"></canvas>
+
+  <!-- Golden Sparkle Cursor Trail Canvas -->
+  <canvas id="sparkle-canvas" aria-hidden="true"></canvas>
+
+  <!-- ==========================================================================
+       STAGE 1: THE ENVELOPE (HERO UNBOXING EXPERIENCE)
+       ========================================================================== -->
+  <div id="envelope-stage" class="envelope-stage" role="dialog" aria-modal="true" aria-label="Wedding Invitation Envelope">
+    
+    <!-- Skip Link -->
+    <button id="skip-envelope-btn" class="skip-envelope-btn" aria-label="Skip to invitation">Skip to Invitation →</button>
+    
+    <div id="envelope-wrapper" class="envelope-wrapper" tabindex="0" role="button" aria-label="Open wedding invitation envelope">
+      
+      <div class="envelope">
+        <!-- Botanical tissue liner inside -->
+        <div class="envelope-liner"></div>
+
+        <!-- Sliding Invitation Card Preview -->
+        <div class="envelope-card-preview">
+          <img src="assets/svg/monogram-crest.svg" alt="A &amp; K Crest" class="card-preview-monogram">
+          <span class="card-preview-text">Arun &amp; Krishna</span>
+          <span style="font-family: var(--font-script); font-size: 1.5rem; color: var(--color-gold); margin-top: 4px;">Are Getting Married</span>
+        </div>
+
+        <!-- Realistic Diagonal Creases & Side Folds -->
+        <div class="envelope-side-fold envelope-fold-left"></div>
+        <div class="envelope-side-fold envelope-fold-right"></div>
+        <div class="envelope-bottom-fold"></div>
+
+        <!-- Postage Stamp & Cancellation Mark (Top-Right) -->
+        <div class="envelope-stamp-cluster" aria-hidden="true">
+          <div class="envelope-vintage-stamp">
+            <img src="assets/svg/monogram-crest.svg" alt="" class="stamp-crest">
+            <span class="stamp-denomination">1st</span>
+            <span class="stamp-label">STAFFORD · BHAM</span>
+          </div>
+          <div class="envelope-postmark">
+            <svg viewBox="0 0 100 100" class="postmark-svg">
+              <circle cx="50" cy="50" r="42" fill="none" stroke="#722E78" stroke-width="1.2" opacity="0.45" stroke-dasharray="2 2"/>
+              <circle cx="50" cy="50" r="35" fill="none" stroke="#722E78" stroke-width="0.8" opacity="0.38"/>
+              <path id="curve-postmark" d="M 18,50 A 32,32 0 1,1 82,50" fill="none"/>
+              <text font-size="6.8" font-family="'Montserrat', sans-serif" fill="#722E78" opacity="0.55" letter-spacing="1.2">
+                <textPath href="#curve-postmark" startOffset="50%" text-anchor="middle">STAFFORD &amp; BHAM · 2026</textPath>
+              </text>
+              <line x1="12" y1="50" x2="88" y2="50" stroke="#722E78" stroke-width="0.8" opacity="0.4"/>
+              <text x="50" y="54" font-size="7" font-family="'Montserrat', sans-serif" fill="#722E78" opacity="0.6" text-anchor="middle" font-weight="600">08 DEC</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Addressed Guest Plate (Framed Heirloom Calligraphy Card) -->
+        <div class="envelope-address-plate">
+          <div class="address-plate-frame">
+            <div class="plate-corner plate-corner-tl">❦</div>
+            <div class="plate-corner plate-corner-tr">❦</div>
+            <div class="plate-corner plate-corner-bl">❦</div>
+            <div class="plate-corner plate-corner-br">❦</div>
+            <div id="envelope-guest-name" class="guest-calligraphy">The Honourable Guest</div>
+            <div class="guest-subtitle">Cordially Invited to the Wedding Reception · Birmingham, England</div>
+          </div>
+        </div>
+
+        <!-- Top Triangular Euro-Flap with Gilded Beveled Crease -->
+        <div class="envelope-flap">
+          <div class="envelope-flap-inner">
+            <div class="flap-gold-trim"></div>
+          </div>
+        </div>
+
+        <!-- 3D Wax Seal with Monogram & Vector Lotus -->
+        <div id="wax-seal" class="wax-seal" role="button" aria-label="Tap to break wax seal and open invitation" title="Tap the seal to break it open">
+          <div class="wax-halo-pulse"></div>
+          <div class="wax-piece-left"></div>
+          <div class="wax-piece-right"></div>
+          <div class="wax-seal-inner">
+            <svg class="wax-lotus-vector" viewBox="0 0 32 24" width="22" height="16" aria-hidden="true">
+              <path d="M16 2 C13 9 8 13 2 17 C8 16 13 13 16 20 C19 13 24 16 30 17 C24 13 19 9 16 2 Z" fill="#F5DDA9" opacity="0.95"/>
+              <path d="M16 8 C14 12 11 15 7 18 C11 17 14 15 16 21 C18 15 21 17 25 18 C21 15 18 12 16 8 Z" fill="#FBF6EA"/>
+              <circle cx="16" cy="18" r="1.8" fill="#F2A25F"/>
+            </svg>
+            <span class="wax-seal-initials">A &amp; K</span>
+            <span class="wax-seal-date">MMXXVI</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Interactive Prompt Pill Below Envelope -->
+    <div class="envelope-prompt">
+      <div id="prompt-pill-btn" class="prompt-pill" role="button" tabindex="0">
+        <span class="prompt-sparkle">❦</span>
+        <span>Tap the wax seal to open</span>
+        <span class="prompt-sparkle">❦</span>
+      </div>
+      <div class="prompt-sub">An Heirloom Invitation · Wedding Reception in Birmingham, England</div>
+    </div>
+
+  </div>
+
+
+  <!-- ==========================================================================
+       FLOATING EQUALIZER MUSIC CONTROLLER (DHEERA DHEERA — MAGADHEERA)
+       ========================================================================== -->
+  <audio id="wedding-audio" loop preload="auto">
+    <source src="assets/audio/dheera_dheera.m4a" type="audio/mp4">
+    <source src="assets/audio/dheera_dheera.opus" type="audio/ogg; codecs=opus">
+  </audio>
+
+  <div id="floating-audio-widget" class="floating-audio-widget" role="button" tabindex="0" title="Play 'Dheera Dheera'">
+    <div class="audio-eq-bars">
+      <div class="audio-bar"></div>
+      <div class="audio-bar"></div>
+      <div class="audio-bar"></div>
+    </div>
+    <span class="audio-label">Dheera Dheera</span>
+  </div>
+
+  <!-- ==========================================================================
+       MAIN CONTENT WRAPPER
+       ========================================================================== -->
+  <div id="page-wrapper" class="page-wrapper">
+
+    <!-- ==========================================================================
+         STAGE 2: EDITORIAL ARCHED HERO SECTION (POOJA & SAROOP REFERENCE ELEVATION)
+         ========================================================================== -->
+    <header id="hero" class="hero-editorial-section">
+      <div class="hero-editorial-grid">
+        
+        <!-- Left Column: Typography, Personalized Guest Pill, and Date/Venue Pill -->
+        <div class="hero-text-side">
+          <div id="hero-guest-greeting" class="section-subtitle" style="display: none; color: var(--color-gold-deep); margin-bottom: 0.5rem;"></div>
+          <span class="section-subtitle">We Are Getting Married</span>
+
+          <div class="hero-script-names">
+            <h1 class="hero-script-heading">Arun</h1>
+            <div class="hero-name-row">
+              <span class="hero-script-ampersand">&amp;</span>
+              <h1 class="hero-script-heading" style="display: inline;">Krishna</h1>
+            </div>
+          </div>
+
+          <p class="hero-tagline-quote">Two hearts. One beautiful beginning.</p>
+
+          <!-- Pooja Reference Style Date & Venue Pill -->
+          <div class="date-venue-pill">
+            <div class="pill-col">
+              <div class="pill-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+              </div>
+              <div>
+                <span class="pill-meta-label">The Date</span>
+                <span class="pill-meta-value">Tuesday, 8 Dec 2026</span>
+              </div>
+            </div>
+
+            <div class="pill-col">
+              <div class="pill-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              </div>
+              <div>
+                <span class="pill-meta-label">The Setting</span>
+                <span class="pill-meta-value">Reception in Birmingham</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+            <a href="#engraved-card" class="btn-primary">Explore Invitation ▾</a>
+            <a href="#rsvp" class="btn-secondary">Kindly Reply</a>
+          </div>
+        </div>
+
+        <!-- Right Column: Signature Roman Arched Portrait with Double Gold Rim (Pooja Style) -->
+        <div class="arched-portrait-frame">
+          <div class="arched-img-container">
+            <img src="assets/images/couple-traditional-autumn.jpg" alt="Arun &amp; Krishna in Traditional Kasavu Wedding Attire" class="hero-photo-img" loading="eager">
+          </div>
+          <div class="arch-date-badge">08 · 12 · 2026</div>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- ==========================================================================
+         STAGE 2B: ENGRAVED LETTERPRESS HEIRLOOM CARD
+         ========================================================================== -->
+    <section id="engraved-card" class="section-container" style="padding-top: 2rem;">
+      <div class="hero-card-wrapper" style="margin: 0 auto;">
+        <article class="invitation-card">
+          
+          <!-- Botanical Corner Ornaments -->
+          <img src="assets/svg/botanical-corner.svg" alt="" class="botanical-corner corner-top-left" aria-hidden="true">
+          <img src="assets/svg/botanical-corner.svg" alt="" class="botanical-corner corner-top-right" aria-hidden="true">
+          <img src="assets/svg/botanical-corner.svg" alt="" class="botanical-corner corner-bottom-left" aria-hidden="true">
+          <img src="assets/svg/botanical-corner.svg" alt="" class="botanical-corner corner-bottom-right" aria-hidden="true">
+
+          <!-- Regal Monogram Crest -->
+          <div class="invitation-monogram-top">
+            <img src="assets/svg/monogram-crest.svg" alt="Arun and Krishna Monogram" width="90" height="90">
+          </div>
+
+          <h2 class="invitation-names" style="margin: 1.2rem 0 1rem;">
+            <span class="name-groom">Arun</span>
+            <span class="names-ampersand">&amp;</span>
+            <span class="name-bride">Krishna</span>
+          </h2>
+
+          <p class="invitation-request">
+            request the pleasure of your company<br>
+            at their Wedding Reception &amp; Banquet
+          </p>
+
+          <div class="invitation-details-block">
+            <div class="invitation-date">Tuesday, the Eighth of December</div>
+            <div class="invitation-time">Two Thousand and Twenty-Six · Half past One in the Afternoon</div>
+            
+            <div class="invitation-venue">Wedding Reception &amp; Celebratory Banquet</div>
+            <div class="invitation-town">Birmingham · West Midlands, England</div>
+
+            <div style="font-family: var(--font-serif); font-size: 0.92rem; font-style: italic; color: var(--color-gold-deep); margin: 0.8rem auto 0; max-width: 440px; line-height: 1.5;">
+              (Following an intimate marriage ceremony for close family in Stafford)
+            </div>
+            
+            <div class="invitation-reception-note">Carriages at midnight in Birmingham</div>
+          </div>
+
+          <div style="margin-top: 2.5rem;">
+            <a href="#rsvp" class="btn-primary">Kindly Reply (R.S.V.P.)</a>
+          </div>
+
+        </article>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         THE COUPLE: THE BRIDE & THE GROOM PROFILES (POOJA & SAROOP STYLE)
+         ========================================================================== -->
+    <section id="couple" class="couple-profiles-section">
+      <header class="section-header">
+        <span class="section-subtitle">The Couple</span>
+        <h2 class="section-title">The Bride &amp; The Groom</h2>
+        <div class="section-divider">
+          <span class="divider-line"></span>
+          <span class="divider-ornament">❦</span>
+          <span class="divider-line"></span>
+        </div>
+      </header>
+
+      <div class="couple-profiles-grid">
+        
+        <!-- The Bride Card -->
+        <div class="profile-card bride-card">
+          <div class="profile-avatar-circle">
+            <img src="assets/images/avatar-krishna.jpg" alt="Krishna — The Bride">
+          </div>
+          <span class="profile-role-tag">The Bride</span>
+          <h3 class="profile-full-name">Krishna</h3>
+          <p class="profile-lineage">
+            <em>Gloucestershire, England</em>
+          </p>
+        </div>
+
+        <!-- Center Ampersand -->
+        <div class="couple-center-ampersand">&amp;</div>
+
+        <!-- The Groom Card -->
+        <div class="profile-card groom-card">
+          <div class="profile-avatar-circle">
+            <img src="assets/images/avatar-arun.jpg" alt="Arun — The Groom">
+          </div>
+          <span class="profile-role-tag">The Groom</span>
+          <h3 class="profile-full-name">Arun</h3>
+          <p class="profile-lineage">
+            <em>London, England</em>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         THE DAY ITSELF: 4-CARD OVERVIEW (POOJA & SAROOP STYLE)
+         ========================================================================== -->
+    <section id="the-day" class="section-container">
+      <header class="section-header">
+        <span class="section-subtitle">The Day Itself</span>
+        <h2 class="section-title">Wedding Details</h2>
+        <div class="section-divider">
+          <span class="divider-line"></span>
+          <span class="divider-ornament">❧</span>
+          <span class="divider-line"></span>
+        </div>
+      </header>
+
+      <div class="the-day-overview-grid">
+        
+        <div class="day-overview-card">
+          <div class="overview-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+          </div>
+          <span class="overview-tag">The Date</span>
+          <h4 class="overview-main">Tuesday</h4>
+          <p class="overview-sub">8 December 2026<br>Birmingham, England</p>
+        </div>
+
+        <div class="day-overview-card">
+          <div class="overview-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+          </div>
+          <span class="overview-tag">Private Ceremony</span>
+          <h4 class="overview-main">10:00 am</h4>
+          <p class="overview-sub">Solemn exchange of vows &amp; rings<br>Stafford (Close Family Only)</p>
+        </div>
+
+        <div class="day-overview-card">
+          <div class="overview-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          </div>
+          <span class="overview-tag">Guest Reception</span>
+          <h4 class="overview-main">1:30 pm</h4>
+          <p class="overview-sub">Wedding Feast, Speeches &amp; Celebrations<br>Birmingham, West Midlands</p>
+        </div>
+
+        <div class="day-overview-card">
+          <div class="overview-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <span class="overview-tag">The Evening</span>
+          <h4 class="overview-main">Midnight</h4>
+          <p class="overview-sub">Dancing, DJ &amp; Sparkler Farewell<br>Carriages at midnight in Birmingham</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         STAGE 3: COUNTDOWN
+         ========================================================================== -->
+    <section id="countdown" class="countdown-section" aria-label="Wedding Countdown">
+      <div class="countdown-wrapper">
+        <h2 class="countdown-tagline">Until we say I do</h2>
+        <div class="countdown-grid">
+          <div class="countdown-item">
+            <span id="countdown-days" class="countdown-number">00</span>
+            <span class="countdown-label">Days</span>
+          </div>
+          <div class="countdown-item">
+            <span id="countdown-hours" class="countdown-number">00</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-item">
+            <span id="countdown-minutes" class="countdown-number">00</span>
+            <span class="countdown-label">Minutes</span>
+          </div>
+          <div class="countdown-item">
+            <span id="countdown-seconds" class="countdown-number">00</span>
+            <span class="countdown-label">Seconds</span>
+          </div>
+        </div>
+        <div class="countdown-date-badge">8 December 2026 · Birmingham Reception, United Kingdom</div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         STAGE 4: OUR STORY
+         ========================================================================== -->
+    <section id="story" class="section-container story-section">
+      <header class="section-header">
+        <span class="section-subtitle">How We Met &amp; Fell In Love</span>
+        <h2 class="section-title">Our Story</h2>
+        <div class="section-divider">
+          <span class="divider-line"></span>
+          <span class="divider-ornament">❧</span>
+          <span class="divider-line"></span>
+        </div>
+      </header>
+
+      <div class="story-timeline">
+
+        <!-- Moment 1 -->
+        <article class="story-milestone">
+          <div class="story-node"><div class="story-node-inner"></div></div>
+          <div class="story-content">
+            <span class="story-year">Autumn 2021 · London</span>
+            <h3 class="story-heading">Afternoon Tea in Bloomsbury</h3>
+            <p class="story-desc">
+              What was meant to be a swift cup of Earl Grey turned into five hours of ceaseless conversation, laughter over clotted cream scones, and the shared discovery of each other’s favorite books. By dusk, both knew something extraordinary had begun.
+            </p>
+          </div>
+          <div class="story-photo-wrap">
+            <img src="assets/images/couple-garden-peace.jpg" alt="Arun and Krishna laughing together in the garden" loading="lazy">
+          </div>
+        </article>
+
+        <!-- Moment 2 -->
+        <article class="story-milestone">
+          <div class="story-node"><div class="story-node-inner"></div></div>
+          <div class="story-content">
+            <span class="story-year">Summer 2023 · The Cotswolds</span>
+            <h3 class="story-heading">A Cotswold Weekend Getaway</h3>
+            <p class="story-desc">
+              Escaping city life for honey-stoned cottages, quiet country lanes, and evening walks along the willow-lined stream in Castle Combe. Watching sunsets from train windows and dreaming of the life we would build together.
+            </p>
+          </div>
+          <div class="story-photo-wrap">
+            <img src="assets/images/couple-sunset-train.jpg" alt="Golden hour sunset train journey" loading="lazy">
+          </div>
+        </article>
+
+        <!-- Moment 3 -->
+        <article class="story-milestone">
+          <div class="story-node"><div class="story-node-inner"></div></div>
+          <div class="story-content">
+            <span class="story-year">Spring 2025 · Gloucestershire</span>
+            <h3 class="story-heading">Under the Rose Bower</h3>
+            <p class="story-desc">
+              Surrounded by blossoming climbing roses and sunlit meadows, Arun got down on one knee. With tears of pure joy, Krishna said yes before the question was even fully finished.
+            </p>
+          </div>
+          <div class="story-photo-wrap">
+            <img src="assets/images/couple-meadow-picnic.jpg" alt="Sunny afternoon in the wildflower meadow" loading="lazy">
+          </div>
+        </article>
+
+        <!-- Moment 4 -->
+        <article class="story-milestone">
+          <div class="story-node"><div class="story-node-inner"></div></div>
+          <div class="story-content">
+            <span class="story-year">December 2026 · Stafford &amp; Birmingham</span>
+            <h3 class="story-heading">The Wedding Day Awaits</h3>
+            <p class="story-desc">
+              Now, with our dearest friends and family gathered from near and far, we begin our next chapter in the English countryside. We cannot wait to celebrate every moment with you.
+            </p>
+          </div>
+          <div class="story-photo-wrap">
+            <img src="assets/images/couple-traditional-elevator.jpg" alt="Arun &amp; Krishna dressed in celebration for their wedding day" loading="lazy">
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         STAGE 5: ORDER OF THE DAY (TIMELINE)
+         ========================================================================== -->
+    <section id="schedule" class="section-container schedule-section">
+      <header class="section-header">
+        <span class="section-subtitle">Order of Service</span>
+        <h2 class="section-title">Order of the Day</h2>
+        <div class="section-divider">
+          <span class="divider-line"></span>
+          <span class="divider-ornament">❦</span>
+          <span class="divider-line"></span>
+        </div>
+      </header>
+
+      <div class="service-card">
+        <div class="service-header-text">
+          <img src="assets/svg/monogram-crest.svg" alt="" class="service-crest-icon">
+          <p style="font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; color: var(--color-muted);">Tuesday, 8th December 2026</p>
+        </div>
+
+        <div class="timeline-list">
+          
+          <div class="timeline-row">
+            <div class="timeline-time">10:00 AM</div>
+            <div class="timeline-glyph">
+              <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </div>
+            <div class="timeline-info">
+              <h4>Private Marriage Ceremony (Stafford)</h4>
+              <p>The couple will exchange vows and rings in an intimate morning ceremony with close family in Stafford.</p>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <div class="timeline-time">1:00 PM</div>
+            <div class="timeline-glyph">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+            <div class="timeline-info">
+              <h4>Guest Arrival &amp; Welcome Drinks (Birmingham)</h4>
+              <p>Guests arrive directly at the Reception Venue in Birmingham. Welcome champagne, spiced autumn drinks, and acoustic music.</p>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <div class="timeline-time">1:30 PM</div>
+            <div class="timeline-glyph">
+              <svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
+            </div>
+            <div class="timeline-info">
+              <h4>Celebratory Wedding Banquet</h4>
+              <p>A grand banquet feast in Birmingham, followed by traditional speeches, champagne toasts, and dining.</p>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <div class="timeline-time">4:00 PM</div>
+            <div class="timeline-glyph">
+              <svg viewBox="0 0 24 24"><path d="M7 2v2h1v14a4 4 0 0 0 4 4 4 4 0 0 0 4-4V4h1V2H7zm8 2v5.5L13.5 11 12 9.5 10.5 11 9 9.5V4h6z"/></svg>
+            </div>
+            <div class="timeline-info">
+              <h4>Cake Cutting &amp; Live Music</h4>
+              <p>Cutting of the wedding cake, live acoustic music, sparkling drinks, and celebratory social hour in Birmingham.</p>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <div class="timeline-time">6:30 PM</div>
+            <div class="timeline-glyph">
+              <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+            </div>
+            <div class="timeline-info">
+              <h4>Evening Celebration &amp; Dancing</h4>
+              <p>First dance for Arun &amp; Krishna. Live DJ, dancing, evening refreshments, and festivities until midnight.</p>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <div class="timeline-time">Midnight</div>
+            <div class="timeline-glyph">
+              <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
+            </div>
+            <div class="timeline-info">
+              <h4>Carriages &amp; Sparkler Farewell</h4>
+              <p>Sparkler farewell for Arun &amp; Krishna. Carriages and pre-booked taxis depart in Birmingham.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="calendar-action-bar">
+          <a id="add-google-calendar" href="#" class="btn-primary" rel="noopener">Add to Google Calendar</a>
+          <a id="download-ics-calendar" href="#" class="btn-secondary">Download Apple / Outlook (.ics)</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         STAGE 6: DUAL VENUES — STAFFORD (CEREMONY) & BIRMINGHAM (RECEPTION)
+         ========================================================================== -->
+    <section id="venue" class="section-container">
+      <header class="section-header">
+        <span class="section-subtitle">The Setting &amp; Venue</span>
+        <h2 class="section-title">The Reception in Birmingham</h2>
+        <div class="section-divider">
+          <span class="divider-line"></span>
+          <span class="divider-ornament">❧</span>
+          <span class="divider-line"></span>
+        </div>
+      </header>
+
+      <!-- Two Venue Cards Grid -->
+      <div class="dual-venues-grid">
+
+        <!-- Venue 1: Birmingham (Primary Guest Destination) -->
+        <article class="venue-dual-card" style="border: 2px solid var(--color-gold);">
+          <div class="venue-card-media">
+            <img src="assets/images/reception-venue.jpg" alt="Wedding Reception &amp; Banquet Venue in Birmingham" loading="lazy">
+            <div class="venue-badge-overlay" style="background: var(--color-burgundy); color: #fff;">★ Guest Reception &amp; Banquet Venue</div>
+          </div>
+          <div class="venue-info-card">
+            <span class="venue-card-role">Celebratory Banquet &amp; Party · 1:00 PM Till Midnight</span>
+            <h3 class="venue-estate-name">Birmingham</h3>
+            <p id="birmingham-address-text" class="venue-estate-address">
+              West Midlands, B1, United Kingdom
+            </p>
+            <p class="venue-card-desc">
+              All guests are cordially invited to celebrate with us in vibrant Birmingham! Join us for a lavish celebratory banquet, heartfelt speeches, live entertainment, cutting of the wedding cake, and dancing until midnight.
+            </p>
+            <ul class="venue-highlights">
+              <li><span class="bullet-crest">✦</span> <strong>Guest Arrival:</strong> Welcome drinks &amp; champagne reception from 1:00 PM.</li>
+              <li><span class="bullet-crest">✦</span> <strong>The Banquet:</strong> Grand wedding feast &amp; speeches at 1:30 PM.</li>
+              <li><span class="bullet-crest">✦</span> <strong>Party &amp; Dancing:</strong> Live DJ &amp; evening dance floor until midnight carriages.</li>
+              <li><span class="bullet-crest">✦</span> <strong>Transport &amp; Stay:</strong> Minutes from Birmingham New Street Station &amp; central hotels.</li>
+            </ul>
+            <div class="map-action-pill-bar">
+              <a href="https://maps.google.com/?q=Birmingham+West+Midlands+UK" target="_blank" rel="noopener" class="btn-primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Directions to Birmingham
+              </a>
+              <button id="copy-birmingham-btn" type="button" class="btn-secondary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                Copy Address
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Venue 2: Stafford (Private Family Ceremony) -->
+        <article class="venue-dual-card" style="opacity: 0.92;">
+          <div class="venue-card-media">
+            <img src="assets/images/venue.jpg" alt="Ring Exchange Venue in Stafford" loading="lazy">
+            <div class="venue-badge-overlay">Private · Close Family Only</div>
+          </div>
+          <div class="venue-info-card">
+            <span class="venue-card-role">The Marriage Ceremony · 10:00 AM</span>
+            <h3 class="venue-estate-name">Stafford</h3>
+            <p id="stafford-address-text" class="venue-estate-address">
+              Staffordshire, ST16, United Kingdom
+            </p>
+            <p class="venue-card-desc">
+              The sacred wedding ceremony and the solemn exchange of rings will take place in the historic market town of Stafford in an intimate ceremony with close family, prior to joining all guests in Birmingham.
+            </p>
+            <ul class="venue-highlights">
+              <li><span class="bullet-crest">✦</span> <strong>Private Gathering:</strong> Intimate ceremony attended by immediate family.</li>
+              <li><span class="bullet-crest">✦</span> <strong>Celebrations:</strong> The wedding party journeys to Birmingham directly after to celebrate with all invited guests.</li>
+            </ul>
+            <div class="map-action-pill-bar">
+              <span style="font-family: var(--font-serif); font-size: 0.95rem; font-style: italic; color: var(--color-gold-deep);">
+                Guests kindly travel directly to Birmingham for the 1:00 PM Reception
+              </span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Connecting Journey Pill Banner -->
+      <div class="venue-journey-banner">
+        <span class="journey-node">Stafford (Private Family Ceremony)</span>
+        <span class="journey-connector">➔ 35 mins via M6 / Rail ➔</span>
+        <span class="journey-node">Birmingham (Grand Guest Reception)</span>
+      </div>
+
+      <!-- Embedded Google Map -->
+      <div class="venue-map-wrapper">
+        <iframe 
+          class="venue-map-iframe"
+          title="Google Map showing Reception Venue in Birmingham"
+          src="https://maps.google.com/maps?q=Birmingham%20New%20Street,%20Birmingham,%20UK&t=&z=12&ie=UTF8&iwloc=&output=embed"
+          loading="lazy">
+        </iframe>
+      </div>
+
+      <!-- Collapsible Travel & Accommodation Accordion -->
+      <div class="travel-accordion">
+        
+        <div class="accordion-item">
+          <button class="accordion-header" type="button">
+            <span>Direct Travel &amp; Transport to Birmingham</span>
+            <span class="accordion-icon">▾</span>
+          </button>
+          <div class="accordion-content">
+            <p><strong>By Road:</strong> Birmingham is easily accessible via the <strong>M6, M5, and M42</strong> motorways. Ample guest parking is available in central Birmingham car parks adjacent to the venue.</p>
+            <p style="margin-top: 0.5rem;"><strong>By Rail:</strong> Direct high-speed trains arrive into <strong>Birmingham New Street Station</strong> from London Euston (approx 1 hr 20 mins), Manchester Piccadilly (approx 1 hr 25 mins), and all major UK stations.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" type="button">
+            <span>Recommended Hotels in Birmingham City Centre</span>
+            <span class="accordion-icon">▾</span>
+          </button>
+          <div class="accordion-content">
+            <p>We suggest booking accommodation in <strong>Birmingham City Centre</strong> (ideal for the 1:00 PM reception, dining, and after the midnight carriages):</p>
+            <ul style="margin: 0.8rem 0 0.8rem 1.5rem; line-height: 1.8;">
+              <li><strong>The Grand Hotel, Birmingham</strong> — Iconic luxury hotel on Colmore Row.</li>
+              <li><strong>Radisson Blu / Hyatt Regency, Birmingham</strong> — Contemporary 4-star hotels close to the reception venue.</li>
+              <li><strong>Malmaison Birmingham</strong> — Boutique hotel in the Mailbox district.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" type="button">
+            <span>Midnight Carriages &amp; Taxis in Birmingham</span>
+            <span class="accordion-icon">▾</span>
+          </button>
+          <div class="accordion-content">
+            <p>Evening festivities in Birmingham conclude at midnight. Taxis, Ubers, and private hire cars are readily available throughout Birmingham:</p>
+            <p style="margin-top: 0.5rem;">• Birmingham TOA Taxis: +44 (0) 121 427 8888<br>• Castle Cars: +44 (0) 121 472 2222<br>• Uber &amp; Bolt: Available on demand across Birmingham</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         STAGE 7: DRESS CODE & GUEST DETAILS
+         ========================================================================== -->
+    <section id="details" class="section-container" style="background: var(--color-ivory-warm); border-top: 1px solid rgba(184, 155, 94, 0.2); border-bottom: 1px solid rgba(184, 155, 94, 0.2);">
+      <header class="section-header">
+        <span class="section-subtitle">Style &amp; Etiquette</span>
+        <h2 class="section-title">Dress Code &amp; Details</h2>
+        <div class="section-divider">
+          <span class="divider-line"></span>
+          <span class="divider-ornament">❦</span>
+          <span class="divider-line"></span>
+        </div>
+      </header>
+
+      <div class="dress-code-grid">
+        
+        <div class="dress-code-card">
+          <h3 class="dress-title">Gentlemen</h3>
+          <span class="dress-tag">Morning Dress, Black Tie or Dark Lounge Suit</span>
+          <p class="dress-desc">
+            Morning coats, sharp dark tuxedos, or classic tailored three-piece suits with neckties or bowties. Polished leather shoes.
+          </p>
+        </div>
+
+        <div class="dress-code-card">
+          <h3 class="dress-title">Ladies</h3>
+          <span class="dress-tag">Formal Country Garden Attire or Evening Gown</span>
+          <p class="dress-desc">
+            Floor-length gowns or elegant midi dresses. Delicate florals, refined silhouettes, and fascinators/millinery are warmly welcomed. Block heels or wedges are recommended for the garden lawns.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Color Palette Coordination -->
+      <div style="text-align: center; margin-bottom: 3.5rem;">
+        <span class="section-subtitle" style="font-size: 0.68rem;">Guest Palette Inspiration</span>
+        <p style="font-size: 1.05rem; color: var(--color-muted); max-width: 580px; margin: 0 auto 1.5rem;">
+          Guests are cordially invited to harmonize with our romantic sunset jewel palette of warm cream, saffron orange, dusty rose, royal raspberry, mauve, and imperial deep purple.
+        </p>
+
+        <div class="palette-swatches">
+          <div class="swatch-item">
+            <div class="swatch-circle" style="background-color: #F5DDA9;"></div>
+            <span class="swatch-name">Cream</span>
+          </div>
+          <div class="swatch-item">
+            <div class="swatch-circle" style="background-color: #F2A25F;"></div>
+            <span class="swatch-name">Orange</span>
+          </div>
+          <div class="swatch-item">
+            <div class="swatch-circle" style="background-color: #C4707A;"></div>
+            <span class="swatch-name">Dusty Rose</span>
+          </div>
+          <div class="swatch-item">
+            <div class="swatch-circle" style="background-color: #9E4568;"></div>
+            <span class="swatch-name">Raspberry</span>
+          </div>
+          <div class="swatch-item">
+            <div class="swatch-circle" style="background-color: #A66E98;"></div>
+            <span class="swatch-name">Mauve</span>
+          </div>
+          <div class="swatch-item">
+            <div class="swatch-circle" style="background-color: #722E78;"></div>
+            <span class="swatch-name">Deep Purple</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 Etiquette Cards -->
+      <div class="etiquette-grid">
+        
+        <div class="etiquette-box">
+          <div class="etiquette-box-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
+          </div>
+          <h4>Unplugged Ceremony</h4>
+          <p>We invite you to be truly present with us. Please keep all mobile phones and cameras tucked away until the confetti throw.</p>
+        </div>
+
+        <div class="etiquette-box">
+          <div class="etiquette-box-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          </div>
+          <h4>Biodegradable Confetti</h4>
+          <p>Fresh dried English rose petals and lavender will be provided in linen pouches for the celebratory walkway.</p>
+        </div>
+
+        <div class="etiquette-box">
+          <div class="etiquette-box-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          </div>
+          <h4>Children &amp; Loved Ones</h4>
+          <p>While we adore your little ones, our ceremony and reception are strictly for adult guests unless explicitly named on your invitation.</p>
+        </div>
+
+        <div class="etiquette-box">
+          <div class="etiquette-box-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+          </div>
+          <h4>Carriages at Midnight</h4>
+          <p>Music finishes at half past eleven. We ask that all guests arrange departures for midnight promptly.</p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ==========================================================================
+         STAGE 8: GALLERY
+         ========================================================================== -->
+    <section id="gallery" class="section-container">
+      <header class="section-header">
+        <span class="section-subtitle">Moments in Time</span>
+        <h2 class="section-title">Photo Gallery</h2>
+        <div class="section-divider">
+          <span class="divider-line"></span>
+          <span class="divider-ornament">❧</span>
+          <span class="divider-line"></span>
+        </div>
+      </header>
+
+      <div class="gallery-grid">
+        
+        <!-- 1: Traditional Kasavu Autumn Portrait -->
+        <div class="gallery-item col-span-7" data-caption="Arun &amp; Krishna in traditional Kasavu attire amidst autumn foliage">
+          <img src="assets/images/couple-traditional-autumn.jpg" alt="Arun and Krishna in traditional Kasavu wedding attire" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="overlay-title">Kasavu Elegance</span>
+            <span class="overlay-hint">View Photograph</span>
+          </div>
+        </div>
+
+        <!-- 2: Sweet Kiss by the Sunset Window -->
+        <div class="gallery-item col-span-5" data-caption="Sweet sunset kisses by the kitchen window">
+          <img src="assets/images/couple-kitchen-kiss.jpg" alt="Krishna kissing Arun's cheek by the sunset window" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="overlay-title">Golden Hour Affection</span>
+            <span class="overlay-hint">View Photograph</span>
+          </div>
+        </div>
+
+        <!-- 3: Elevator Mirror Selfie with Pink Phone -->
+        <div class="gallery-item col-span-4" data-caption="Warm embrace &amp; elevator mirror selfies">
+          <img src="assets/images/couple-elevator-pink.jpg" alt="Arun and Krishna smiling in elevator mirror selfie" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="overlay-title">Everyday Magic</span>
+            <span class="overlay-hint">View Photograph</span>
+          </div>
+        </div>
+
+        <!-- 4: Sunny Autumn Park Stroll -->
+        <div class="gallery-item col-span-8" data-caption="Autumn park stroll — playful winks &amp; joyful sunshine">
+          <img src="assets/images/couple-sunny-park.jpg" alt="Arun winking and Krishna smiling in autumn park" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="overlay-title">Autumn Sunlight</span>
+            <span class="overlay-hint">View Photograph</span>
+          </div>
+        </div>
+
+        <!-- 5: Wildflower Meadow Picnic -->
+        <div class="gallery-item col-span-7" data-caption="Lazy sunny afternoons in the wildflower meadow">
+          <img src="assets/images/couple-meadow-picnic.jpg" alt="Arun resting head on Krishna's lap in flower meadow" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="overlay-title">Meadow Bloom</span>
+            <span class="overlay-hint">View Photograph</span>
+          </div>
+        </div>
+
+        <!-- 6: Golden Hour Sunset Train Ride -->
+        <div class="gallery-item col-span-5" data-caption="Golden hour train journey across the countryside">
+          <img src="assets/images/couple-sunset-train.jpg" alt="Krishna resting on Arun by train window sunset" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="overlay-title">The Scenic Route</span>
+            <span class="overlay-hint">View Photograph</span>
+          </div>
+        </div>
+
+        <!-- 7: Traditional Kasavu Elevator Portrait -->
+        <div class="gallery-item col-span-6" data-caption="Dressed in Kasavu celebration — glowing smiles and loving glances">
+          <img src="assets/images/couple-traditional-elevator.jpg" alt="Arun and Krishna in full traditional wedding Kasavu dress" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="overlay-title">Royal Traditions</span>
+            <span class="overlay-hint">View Photograph</span>
+          </div>
+        </div>
+
+        <!-- 8: Peaceful Tree Embrace -->
+        <div class="gallery-item col-span-6" data-caption="Peaceful afternoon cuddles leaning against the ancient oak">
+          <img src="assets/images/couple-tree-embrace.jpg" alt="Arun and Krishna resting under the ancient oak tree" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="overlay-title">Beneath the Oak</span>
+            <span class="overlay-hint">View Photograph</span>
+          </div>
+        </div>
+
+        <!-- 9: Sunlit Garden Selfie -->
+        <div class="gallery-item col-span-4" data-caption="Sunlit smiles &amp; cheeky moments in the garden">
+          <img src="assets/images/couple-garden-peace.jpg" alt="Arun taking selfie with smiling Krishna making peace sign" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="overlay-title">Garden Laughter</span>
+            <span class="overlay-hint">View Photograph</span>
+          </div>
+        </div>
+
+        <!-- 10: Better Together Room Portrait -->
+        <div class="gallery-item col-span-4" data-caption="Better Together — wrapped in love and sweet memories">
+          <img src="assets/images/couple-better-together.jpg" alt="Arun and Krishna smiling together in cozy room" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="overlay-title">Better Together</span>
+            <span class="overlay-hint">View Photograph</span>
+          </div>
+        </div>
+
+        <!-- 11: Cozy Indoor Moments -->
+        <div class="gallery-item col-span-4" data-caption="Cherished moments, laugh lines, and cozy corners">
+          <img src="assets/images/couple-cozy-indoor.jpg" alt="Krishna resting chin on hand beside Arun" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="overlay-title">Cozy Moments</span>
+            <span class="overlay-hint">View Photograph</span>
+          </div>
+        </div>
+
+        <!-- 12: Good Vibes by the Lake -->
+        <div class="gallery-item col-span-7" data-caption="Good Vibes Always — gentle breeze and lakeside warmth">
+          <img src="assets/images/couple-good-vibes.jpg" alt="Arun and Krishna smiling happily by lakeside with Good Vibes sign" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="overlay-title">Good Vibes Always</span>
+            <span class="overlay-hint">View Photograph</span>
+          </div>
+        </div>
+
+        <!-- 13: Sleepy Marvel Tee Cuddle -->
+        <div class="gallery-item col-span-5" data-caption="Marvel tee, sleepy cuddles &amp; endless love under fairy lights">
+          <img src="assets/images/couple-marvel-cuddle.jpg" alt="Krishna in Marvel t-shirt cuddling peacefully with Arun" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="overlay-title">Pure Serenity</span>
+            <span class="overlay-hint">View Photograph</span>
+          </div>
+        </div>
+
+        <!-- 14: Golden Glow Tenderness -->
+        <div class="gallery-item col-span-12" data-caption="Sun-dappled laughter &amp; quiet tenderness — our journey continues">
+          <img src="assets/images/couple-golden-glow.jpg" alt="Arun embracing Krishna as she gently touches her cheek" loading="lazy">
+          <div class="gallery-item-overlay">
+            <span class="overlay-title">Everlasting Love</span>
+            <span class="overlay-hint">View Photograph</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Lightbox Modal -->
+      <div id="lightbox-modal" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Photo Lightbox">
+        <button id="lightbox-close" class="lightbox-close" aria-label="Close Lightbox">&times;</button>
+        <button id="lightbox-prev" class="lightbox-nav lightbox-prev" aria-label="Previous Photo">&#10094;</button>
+        <button id="lightbox-next" class="lightbox-nav lightbox-next" aria-label="Next Photo">&#10095;</button>
+        <div class="lightbox-img-wrap">
+          <img id="lightbox-img" src="" alt="Enlarged photo">
+          <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         STAGE 9: RSVP FORM
+         ========================================================================== -->
+    <section id="rsvp" class="section-container rsvp-section">
+      <header class="section-header">
+        <span class="section-subtitle">Répondez S’il Vous Plaît</span>
+        <h2 class="section-title">Kindly Reply</h2>
+        <div class="section-divider">
+          <span class="divider-line"></span>
+          <span class="divider-ornament">❦</span>
+          <span class="divider-line"></span>
+        </div>
+      </header>
+
+      <div class="rsvp-card">
+        <p class="rsvp-date-notice">Kindly reply for the Birmingham Wedding Reception by the Fifteenth of November, Two Thousand and Twenty-Six</p>
+
+        <form id="rsvp-form" autocomplete="on">
+          
+          <div class="rsvp-form-group">
+            <label for="rsvp-name" class="rsvp-label">Full Name(s) of Guest(s) *</label>
+            <input type="text" id="rsvp-name" class="rsvp-input" placeholder="e.g. Lord &amp; Lady Harrington" required>
+          </div>
+
+          <div class="rsvp-form-group">
+            <label class="rsvp-label">Will you be attending? *</label>
+            <div class="attendance-options">
+              <label class="attendance-card selected">
+                <input type="radio" name="attendance" value="Attending" checked>
+                <span class="attendance-text">Joyfully Accepts</span>
+                <span class="attendance-subtext">Cannot wait to celebrate</span>
+              </label>
+              <label class="attendance-card">
+                <input type="radio" name="attendance" value="Declining">
+                <span class="attendance-text">Regretfully Declines</span>
+                <span class="attendance-subtext">Will celebrate in spirit</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="rsvp-form-group">
+            <label for="rsvp-guests" class="rsvp-label">Number of Attending Guests</label>
+            <select id="rsvp-guests" class="rsvp-select">
+              <option value="1">1 Guest</option>
+              <option value="2" selected>2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4 Guests</option>
+            </select>
+          </div>
+
+          <div class="rsvp-form-group">
+            <label for="rsvp-dietary" class="rsvp-label">Dietary Requirements or Allergies</label>
+            <input type="text" id="rsvp-dietary" class="rsvp-input" placeholder="e.g. Vegetarian, Nut Allergy, Gluten-free, Halal">
+          </div>
+
+          <div class="rsvp-form-group">
+            <label for="rsvp-message" class="rsvp-label">A Song to Get You Dancing / Note to the Couple</label>
+            <textarea id="rsvp-message" class="rsvp-textarea" rows="3" placeholder="Leave a track request or a warm note..."></textarea>
+          </div>
+
+          <div style="text-align: center; margin-top: 2rem;">
+            <button type="submit" class="btn-primary rsvp-submit-btn">
+              Send Response
+            </button>
+          </div>
+
+        </form>
+
+        <div id="rsvp-success-banner" class="rsvp-success-banner">
+          <div style="font-size: 2.2rem; color: var(--color-forest); margin-bottom: 0.5rem;">❦</div>
+          <h3 style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--color-forest); margin-bottom: 0.5rem;">Thank You</h3>
+          <p id="rsvp-success-msg" style="font-size: 1.1rem; color: var(--color-charcoal); line-height: 1.6;">
+            Your response has been warmly received. We can’t wait to celebrate with you!
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         STAGE 10: GIFT LIST & INTERACTIVE WISHES WALL
+         ========================================================================== -->
+    <section class="section-container">
+      <header class="section-header">
+        <span class="section-subtitle">Gifts &amp; Well Wishes</span>
+        <h2 class="section-title">With Our Gratitude</h2>
+        <div class="section-divider">
+          <span class="divider-line"></span>
+          <span class="divider-ornament">❧</span>
+          <span class="divider-line"></span>
+        </div>
+      </header>
+
+      <div class="gift-registry-box">
+        <h3 style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--color-forest); margin-bottom: 0.8rem;">
+          Your Presence is Our Greatest Gift
+        </h3>
+        <p class="gift-text">
+          The greatest treasure we could ask for is having your love, laughter, and presence with us in Stafford and Birmingham. Should you wish to honor us with a gift, a contribution toward our honeymoon adventures across Italy and our future English home would be cherished beyond words.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="#wishes-board" class="btn-primary">Leave a Wedding Blessing</a>
+          <a href="#rsvp" class="btn-secondary">View Registry Information</a>
+        </div>
+      </div>
+
+      <!-- Wishes Wall Board -->
+      <div id="wishes-board" class="wishes-board">
+        <div class="wishes-form-wrap">
+          <h4 style="font-family: var(--font-serif); font-size: 1.45rem; color: var(--color-forest); margin-bottom: 0.4rem;">
+            Write in the Guest Book
+          </h4>
+          <p style="font-size: 0.95rem; color: var(--color-muted); margin-bottom: 1.2rem;">
+            Share your warmest advice, memories, or blessings for Arun &amp; Krishna:
+          </p>
+          <form id="wishes-form">
+            <div class="wishes-form-inputs">
+              <input type="text" id="wish-name" class="rsvp-input" placeholder="Your Name" required>
+              <input type="text" id="wish-text" class="rsvp-input" placeholder="Your heartfelt blessing..." required>
+            </div>
+            <button type="submit" class="btn-primary" style="padding: 0.7rem 1.8rem;">Pin Blessing to Board</button>
+          </form>
+        </div>
+
+        <div id="wishes-grid" class="wishes-grid">
+          <!-- Rendered dynamically via JavaScript -->
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================================================
+         STAGE 11: FOOTER
+         ========================================================================== -->
+    <footer class="footer-section">
+      <div class="footer-monogram">
+        <img src="assets/svg/monogram-crest.svg" alt="Arun &amp; Krishna Crest" width="90" height="90">
+      </div>
+
+      <div class="footer-thankyou">Thank You</div>
+      <div class="footer-names">Arun &amp; Krishna</div>
+      <div class="footer-date">Tuesday, 8th December 2026 · Birmingham, England</div>
+
+      <div>
+        <span class="footer-hashtag">#ArunWedsKrishna2026</span>
+      </div>
+
+      <div class="footer-actions">
+        <a id="whatsapp-share-btn" href="#" class="btn-primary whatsapp-share-btn">
+          <svg style="width: 18px; height: 18px; fill: currentColor;" viewBox="0 0 24 24"><path d="M16.75 13.96c.25.13.41.2.46.3.06.11.04.61-.21 1.18-.2.56-1.24 1.1-1.7 1.12-.46.02-.47.36-2.96-.73-2.49-1.09-3.99-3.75-4.11-3.92-.12-.17-.99-1.32-.99-2.51 0-1.2.63-1.79.85-2.03.23-.25.5-.31.66-.31.17 0 .34 0 .49.01.15.01.36-.06.56.42.21.49.71 1.76.77 1.89.06.13.11.28.01.46-.09.18-.14.29-.27.44-.14.15-.29.33-.42.44-.13.13-.27.27-.12.53.15.25.68 1.12 1.45 1.81 1 .89 1.84 1.17 2.1 1.3.26.13.41.11.56-.06.15-.18.66-.77.83-1.03.17-.27.35-.22.58-.13zM12 2C6.48 2 2 6.48 2 12c0 1.95.56 3.77 1.53 5.31L2 22l4.82-1.48C8.31 21.49 10.09 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+          Share on WhatsApp
+        </a>
+
+        <button id="replay-envelope-btn" class="btn-secondary">
+          🪷 Re-seal Envelope
+        </button>
+
+        <button id="back-to-top-btn" class="btn-secondary">
+          ↑ Back to Top
+        </button>
+      </div>
+
+      <div id="footer-time-greeting" class="footer-time-greeting">
+        Wishing you a most pleasant day from England.
+      </div>
+
+      <div class="footer-copyright">
+        &copy; 2026 Arun &amp; Krishna · Designed in the English Country Tradition
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
