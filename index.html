@@ -25,9 +25,19 @@
   <meta name="twitter:image:alt" content="Arun weds Krishna Wedding Invitation Social Preview">
 
   <link rel="icon" type="image/svg+xml" href="assets/svg/monogram-crest.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress-bar"></div>
+
+  <!-- Floating RSVP Button -->
+  <div id="floating-rsvp">
+    <a href="#rsvp">RSVP</a>
+  </div>
 
   <!-- Falling Rose Petals Canvas -->
   <canvas id="petal-canvas" aria-hidden="true"></canvas>
@@ -222,7 +232,7 @@
          ========================================================================== -->
     <section id="engraved-card" class="section-container" style="padding-top: 2rem;">
       <div class="hero-card-wrapper" style="margin: 0 auto;">
-        <article class="invitation-card">
+        <article class="invitation-card reveal reveal--scale">
           
           <!-- Botanical Corner Ornaments -->
           <img src="assets/svg/botanical-corner.svg" alt="" class="botanical-corner corner-top-left" aria-hidden="true">
@@ -282,7 +292,7 @@
         </div>
       </header>
 
-      <div class="couple-profiles-grid">
+      <div class="couple-profiles-grid reveal-stagger">
         
         <!-- The Bride Card -->
         <div class="profile-card bride-card">
@@ -324,7 +334,7 @@
         </div>
       </header>
 
-      <div class="the-day-overview-grid">
+      <div class="the-day-overview-grid reveal-stagger">
         
         <div class="day-overview-card">
           <div class="overview-icon">
@@ -396,7 +406,7 @@
     <!-- ==========================================================================
          STAGE 4: OUR STORY
          ========================================================================== -->
-    <section id="story" class="section-container story-section">
+    <section id="story" class="section-container story-section" class="section-container story-section">
       <header class="section-header">
         <span class="section-subtitle">How We Met &amp; Fell In Love</span>
         <h2 class="section-title">Our Story</h2>
@@ -494,7 +504,7 @@
 
         <div class="timeline-list">
           
-          <div class="timeline-row">
+          <div class="timeline-row reveal">
             <div class="timeline-time">10:00 AM</div>
             <div class="timeline-glyph">
               <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
@@ -505,7 +515,7 @@
             </div>
           </div>
 
-          <div class="timeline-row">
+          <div class="timeline-row reveal">
             <div class="timeline-time">12:30 PM</div>
             <div class="timeline-glyph">
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
@@ -516,7 +526,7 @@
             </div>
           </div>
 
-          <div class="timeline-row">
+          <div class="timeline-row reveal">
             <div class="timeline-time">1:00 PM</div>
             <div class="timeline-glyph">
               <svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
@@ -527,7 +537,7 @@
             </div>
           </div>
 
-          <div class="timeline-row">
+          <div class="timeline-row reveal">
             <div class="timeline-time">4:00 PM</div>
             <div class="timeline-glyph">
               <svg viewBox="0 0 24 24"><path d="M7 2v2h1v14a4 4 0 0 0 4 4 4 4 0 0 0 4-4V4h1V2H7zm8 2v5.5L13.5 11 12 9.5 10.5 11 9 9.5V4h6z"/></svg>
@@ -538,7 +548,7 @@
             </div>
           </div>
 
-          <div class="timeline-row">
+          <div class="timeline-row reveal">
             <div class="timeline-time">6:30 PM</div>
             <div class="timeline-glyph">
               <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
@@ -549,7 +559,7 @@
             </div>
           </div>
 
-          <div class="timeline-row">
+          <div class="timeline-row reveal">
             <div class="timeline-time">Midnight</div>
             <div class="timeline-glyph">
               <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
@@ -832,132 +842,76 @@
         </div>
       </header>
 
-      <div class="gallery-grid">
-        
-        <!-- 1: Traditional Kasavu Autumn Portrait -->
-        <div class="gallery-item col-span-7" data-caption="Arun &amp; Krishna in traditional Kasavu attire amidst autumn foliage">
-          <img src="assets/images/couple-traditional-autumn.jpg" alt="Arun and Krishna in traditional Kasavu wedding attire" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="overlay-title">Kasavu Elegance</span>
-            <span class="overlay-hint">View Photograph</span>
-          </div>
+      <div class="polaroid-wall">
+
+        <div class="polaroid reveal" data-lightbox-index="0">
+          <img src="assets/images/couple-traditional-autumn.jpg" alt="Kasavu Elegance" loading="lazy">
+          <span class="polaroid-caption">Kasavu Elegance</span>
         </div>
 
-        <!-- 2: Sweet Kiss by the Sunset Window -->
-        <div class="gallery-item col-span-5" data-caption="Sweet sunset kisses by the kitchen window">
-          <img src="assets/images/couple-kitchen-kiss.jpg" alt="Krishna kissing Arun's cheek by the sunset window" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="overlay-title">Golden Hour Affection</span>
-            <span class="overlay-hint">View Photograph</span>
-          </div>
+        <div class="polaroid reveal" data-lightbox-index="1">
+          <img src="assets/images/couple-kitchen-kiss.jpg" alt="Golden Hour Affection" loading="lazy">
+          <span class="polaroid-caption">Golden Hour Affection</span>
         </div>
 
-        <!-- 3: Elevator Mirror Selfie with Pink Phone -->
-        <div class="gallery-item col-span-4" data-caption="Warm embrace &amp; elevator mirror selfies">
-          <img src="assets/images/couple-elevator-pink.jpg" alt="Arun and Krishna smiling in elevator mirror selfie" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="overlay-title">Everyday Magic</span>
-            <span class="overlay-hint">View Photograph</span>
-          </div>
+        <div class="polaroid reveal" data-lightbox-index="2">
+          <img src="assets/images/couple-elevator-pink.jpg" alt="Everyday Magic" loading="lazy">
+          <span class="polaroid-caption">Everyday Magic</span>
         </div>
 
-        <!-- 4: Sunny Autumn Park Stroll -->
-        <div class="gallery-item col-span-8" data-caption="Autumn park stroll — playful winks &amp; joyful sunshine">
-          <img src="assets/images/couple-sunny-park.jpg" alt="Arun winking and Krishna smiling in autumn park" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="overlay-title">Autumn Sunlight</span>
-            <span class="overlay-hint">View Photograph</span>
-          </div>
+        <div class="polaroid reveal" data-lightbox-index="3">
+          <img src="assets/images/couple-sunny-park.jpg" alt="Autumn Sunlight" loading="lazy">
+          <span class="polaroid-caption">Autumn Sunlight</span>
         </div>
 
-        <!-- 5: Wildflower Meadow Picnic -->
-        <div class="gallery-item col-span-7" data-caption="Lazy sunny afternoons in the wildflower meadow">
-          <img src="assets/images/couple-meadow-picnic.jpg" alt="Arun resting head on Krishna's lap in flower meadow" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="overlay-title">Meadow Bloom</span>
-            <span class="overlay-hint">View Photograph</span>
-          </div>
+        <div class="polaroid reveal" data-lightbox-index="4">
+          <img src="assets/images/couple-meadow-picnic.jpg" alt="Meadow Bloom" loading="lazy">
+          <span class="polaroid-caption">Meadow Bloom</span>
         </div>
 
-        <!-- 6: Golden Hour Sunset Train Ride -->
-        <div class="gallery-item col-span-5" data-caption="Golden hour train journey across the countryside">
-          <img src="assets/images/couple-sunset-train.jpg" alt="Krishna resting on Arun by train window sunset" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="overlay-title">The Scenic Route</span>
-            <span class="overlay-hint">View Photograph</span>
-          </div>
+        <div class="polaroid reveal" data-lightbox-index="5">
+          <img src="assets/images/couple-sunset-train.jpg" alt="The Scenic Route" loading="lazy">
+          <span class="polaroid-caption">The Scenic Route</span>
         </div>
 
-        <!-- 7: Traditional Kasavu Elevator Portrait -->
-        <div class="gallery-item col-span-6" data-caption="Dressed in Kasavu celebration — glowing smiles and loving glances">
-          <img src="assets/images/couple-traditional-elevator.jpg" alt="Arun and Krishna in full traditional wedding Kasavu dress" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="overlay-title">Royal Traditions</span>
-            <span class="overlay-hint">View Photograph</span>
-          </div>
+        <div class="polaroid reveal" data-lightbox-index="6">
+          <img src="assets/images/couple-traditional-elevator.jpg" alt="Royal Traditions" loading="lazy">
+          <span class="polaroid-caption">Royal Traditions</span>
         </div>
 
-        <!-- 8: Peaceful Tree Embrace -->
-        <div class="gallery-item col-span-6" data-caption="Peaceful afternoon cuddles leaning against the ancient oak">
-          <img src="assets/images/couple-tree-embrace.jpg" alt="Arun and Krishna resting under the ancient oak tree" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="overlay-title">Beneath the Oak</span>
-            <span class="overlay-hint">View Photograph</span>
-          </div>
+        <div class="polaroid reveal" data-lightbox-index="7">
+          <img src="assets/images/couple-tree-embrace.jpg" alt="Beneath the Oak" loading="lazy">
+          <span class="polaroid-caption">Beneath the Oak</span>
         </div>
 
-        <!-- 9: Sunlit Garden Selfie -->
-        <div class="gallery-item col-span-4" data-caption="Sunlit smiles &amp; cheeky moments in the garden">
-          <img src="assets/images/couple-garden-peace.jpg" alt="Arun taking selfie with smiling Krishna making peace sign" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="overlay-title">Garden Laughter</span>
-            <span class="overlay-hint">View Photograph</span>
-          </div>
+        <div class="polaroid reveal" data-lightbox-index="8">
+          <img src="assets/images/couple-garden-peace.jpg" alt="Garden Laughter" loading="lazy">
+          <span class="polaroid-caption">Garden Laughter</span>
         </div>
 
-        <!-- 10: Better Together Room Portrait -->
-        <div class="gallery-item col-span-4" data-caption="Better Together — wrapped in love and sweet memories">
-          <img src="assets/images/couple-better-together.jpg" alt="Arun and Krishna smiling together in cozy room" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="overlay-title">Better Together</span>
-            <span class="overlay-hint">View Photograph</span>
-          </div>
+        <div class="polaroid reveal" data-lightbox-index="9">
+          <img src="assets/images/couple-better-together.jpg" alt="Better Together" loading="lazy">
+          <span class="polaroid-caption">Better Together</span>
         </div>
 
-        <!-- 11: Cozy Indoor Moments -->
-        <div class="gallery-item col-span-4" data-caption="Cherished moments, laugh lines, and cozy corners">
-          <img src="assets/images/couple-cozy-indoor.jpg" alt="Krishna resting chin on hand beside Arun" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="overlay-title">Cozy Moments</span>
-            <span class="overlay-hint">View Photograph</span>
-          </div>
+        <div class="polaroid reveal" data-lightbox-index="10">
+          <img src="assets/images/couple-cozy-indoor.jpg" alt="Cozy Moments" loading="lazy">
+          <span class="polaroid-caption">Cozy Moments</span>
         </div>
 
-        <!-- 12: Good Vibes by the Lake -->
-        <div class="gallery-item col-span-7" data-caption="Good Vibes Always — gentle breeze and lakeside warmth">
-          <img src="assets/images/couple-good-vibes.jpg" alt="Arun and Krishna smiling happily by lakeside with Good Vibes sign" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="overlay-title">Good Vibes Always</span>
-            <span class="overlay-hint">View Photograph</span>
-          </div>
+        <div class="polaroid reveal" data-lightbox-index="11">
+          <img src="assets/images/couple-good-vibes.jpg" alt="Good Vibes Always" loading="lazy">
+          <span class="polaroid-caption">Good Vibes Always</span>
         </div>
 
-        <!-- 13: Sleepy Marvel Tee Cuddle -->
-        <div class="gallery-item col-span-5" data-caption="Marvel tee, sleepy cuddles &amp; endless love under fairy lights">
-          <img src="assets/images/couple-marvel-cuddle.jpg" alt="Krishna in Marvel t-shirt cuddling peacefully with Arun" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="overlay-title">Pure Serenity</span>
-            <span class="overlay-hint">View Photograph</span>
-          </div>
+        <div class="polaroid reveal" data-lightbox-index="12">
+          <img src="assets/images/couple-marvel-cuddle.jpg" alt="Pure Serenity" loading="lazy">
+          <span class="polaroid-caption">Pure Serenity</span>
         </div>
 
-        <!-- 14: Golden Glow Tenderness -->
-        <div class="gallery-item col-span-12" data-caption="Sun-dappled laughter &amp; quiet tenderness — our journey continues">
-          <img src="assets/images/couple-golden-glow.jpg" alt="Arun embracing Krishna as she gently touches her cheek" loading="lazy">
-          <div class="gallery-item-overlay">
-            <span class="overlay-title">Everlasting Love</span>
-            <span class="overlay-hint">View Photograph</span>
-          </div>
+        <div class="polaroid reveal" data-lightbox-index="13">
+          <img src="assets/images/couple-golden-glow.jpg" alt="Everlasting Love" loading="lazy">
+          <span class="polaroid-caption">Everlasting Love</span>
         </div>
 
       </div>
@@ -1098,7 +1052,7 @@
           </form>
         </div>
 
-        <div id="wishes-grid" class="wishes-grid">
+        <div id="wishes-grid" class="wishes-grid reveal-stagger">
           <!-- Rendered dynamically via JavaScript -->
         </div>
       </div>
@@ -1109,7 +1063,7 @@
          STAGE 11: FOOTER
          ========================================================================== -->
     <footer class="footer-section">
-      <div class="footer-monogram">
+      <div class="footer-monogram reveal reveal--scale">
         <img src="assets/svg/monogram-crest.svg" alt="Arun &amp; Krishna Crest" width="90" height="90">
       </div>
 

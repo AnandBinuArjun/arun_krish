@@ -877,6 +877,82 @@
   }
 
   /* ==========================================================================
+     SCROLL PROGRESS BAR
+     ========================================================================== */
+  function initScrollProgress() {
+    const bar = document.getElementById('scroll-progress-bar');
+    if (!bar) return;
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = docHeight > 0 ? (scrollTop / docHeight * 100) + '%' : '0%';
+    }, { passive: true });
+  }
+
+  /* ==========================================================================
+     SCROLL-REVEAL (IntersectionObserver)
+     ========================================================================== */
+  function initScrollReveal() {
+    const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+    if (!revealEls.length || !('IntersectionObserver' in window)) {
+      // Fallback: show everything immediately
+      revealEls.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(el => observer.observe(el));
+  }
+
+  /* ==========================================================================
+     FLOATING RSVP BUTTON
+     ========================================================================== */
+  function initFloatingRSVP() {
+    const btn = document.getElementById('floating-rsvp');
+    const hero = document.getElementById('hero');
+    const rsvpSection = document.getElementById('rsvp');
+    if (!btn || !hero) return;
+
+    const heroObserver = new IntersectionObserver((entries) => {
+      const heroVisible = entries[0].isIntersecting;
+      btn.classList.toggle('is-visible', !heroVisible);
+    }, { threshold: 0.1 });
+    heroObserver.observe(hero);
+
+    // Hide the button when the RSVP section itself is visible
+    if (rsvpSection) {
+      const rsvpObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) btn.classList.remove('is-visible');
+      }, { threshold: 0.2 });
+      rsvpObserver.observe(rsvpSection);
+    }
+  }
+
+  /* ==========================================================================
+     POLAROID LIGHTBOX CLICK HANDLER
+     ========================================================================== */
+  function initPolaroidLightbox() {
+    document.querySelectorAll('.polaroid').forEach(card => {
+      card.addEventListener('click', () => {
+        const idx = parseInt(card.dataset.lightboxIndex, 10);
+        if (!isNaN(idx)) {
+          // Re-use existing lightbox logic via the gallery images array
+          const imgs = Array.from(document.querySelectorAll('.polaroid img'));
+          showImage(idx); // defined inside initGallery closure — if available
+        }
+      });
+    });
+  }
+
+  /* ==========================================================================
      BOOTSTRAP EVERYTHING ON DOM READY
      ========================================================================== */
   window.addEventListener('DOMContentLoaded', () => {
@@ -893,6 +969,9 @@
     initRSVP();
     initWishesWall();
     initFooterAndSocial();
+    initScrollProgress();
+    initScrollReveal();
+    initFloatingRSVP();
   });
 
 })();
