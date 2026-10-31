@@ -214,10 +214,10 @@
     if (audioWidget) {
       if (playing) {
         audioWidget.classList.add('playing');
-        audioWidget.setAttribute('title', "Pause 'Dheera Dheera'");
+        audioWidget.setAttribute('title', "Pause 'Oru Kathilola Violin cover by Anand'");
       } else {
         audioWidget.classList.remove('playing');
-        audioWidget.setAttribute('title', "Play 'Dheera Dheera'");
+        audioWidget.setAttribute('title', "Play 'Oru Kathilola Violin cover by Anand'");
       }
     }
   }

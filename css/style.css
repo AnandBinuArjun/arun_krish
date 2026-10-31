@@ -816,11 +816,12 @@ body.invitation-opened .floating-audio-widget {
 
 .audio-label {
   font-family: var(--font-sans);
-  font-size: 0.68rem;
-  letter-spacing: 2px;
+  font-size: 0.64rem;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--color-ivory);
   font-weight: 500;
+  white-space: nowrap;
 }
 
 
@@ -3097,8 +3098,11 @@ body.invitation-opened .floating-audio-widget {
     padding: 0.4rem 0.85rem 0.4rem 0.55rem;
   }
   .audio-label {
-    font-size: 0.62rem;
-    letter-spacing: 1px;
+    font-size: 0.58rem;
+    letter-spacing: 0.8px;
+    max-width: 165px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   /* Swatches on Dress Code */
