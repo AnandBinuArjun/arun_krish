@@ -174,7 +174,7 @@
     const audio = getAudioEl();
     if (!audio) return;
 
-    audio.volume = 0.85;
+    audio.volume = 0.6;
     const playPromise = audio.play();
 
     if (playPromise !== undefined) {
@@ -240,6 +240,7 @@
 
     const audio = getAudioEl();
     if (audio) {
+      audio.volume = 0.6;
       audio.addEventListener('play', () => {
         isAudioPlaying = true;
         updateAudioButtonUI(true);
