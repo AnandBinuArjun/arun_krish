@@ -93,11 +93,47 @@
       }, 750);
     }
 
+    /* Synthesize royal bell chime with rich harmonic overtones via Web Audio */
+    function playRoyalChime() {
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return;
+        const ctx = new AudioCtx();
+        if (ctx.state === 'suspended') {
+          ctx.resume();
+        }
+        // D major royal chord shimmer: D5, A5, D6, F#6, A6
+        const freqs = [587.33, 880, 1174.66, 1479.98, 1760];
+        const now = ctx.currentTime;
+        freqs.forEach((freq, idx) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freq, now + idx * 0.07);
+          gain.gain.setValueAtTime(0.0001, now + idx * 0.07);
+          gain.gain.exponentialRampToValueAtTime(0.06 / (idx + 1), now + idx * 0.07 + 0.035);
+          gain.gain.exponentialRampToValueAtTime(0.00001, now + idx * 0.07 + 2.2);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now + idx * 0.07);
+          osc.stop(now + idx * 0.07 + 2.4);
+        });
+      } catch (e) { }
+    }
+
     function openEnvelope() {
       if (isEnvelopeOpen) return;
       isEnvelopeOpen = true;
 
       window.scrollTo(0, 0);
+
+      // Tactile royal haptic feedback
+      if (navigator.vibrate) {
+        try { navigator.vibrate([35, 45, 60]); } catch (e) { }
+      }
+
+      // Synthesized palace chime
+      playRoyalChime();
 
       // 1. Unlock Golden Crest Medallion & Swing Open Gatefold Doors in 3D
       waxSeal.classList.add('cracked');
@@ -777,6 +813,30 @@
       if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
       if (e.key === 'ArrowRight') showImage(currentIndex + 1);
     });
+
+    // Mobile touch swipe gesture navigation
+    let touchStartX = 0;
+    let touchStartY = 0;
+    modal.addEventListener('touchstart', (e) => {
+      if (e.touches && e.touches.length === 1) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }
+    }, { passive: true });
+
+    modal.addEventListener('touchend', (e) => {
+      if (e.changedTouches && e.changedTouches.length === 1) {
+        const diffX = e.changedTouches[0].clientX - touchStartX;
+        const diffY = e.changedTouches[0].clientY - touchStartY;
+        if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+          if (diffX < 0) {
+            showImage(currentIndex + 1);
+          } else {
+            showImage(currentIndex - 1);
+          }
+        }
+      }
+    }, { passive: true });
   }
 
   /* ==========================================================================
@@ -968,6 +1028,9 @@
       }
 
       // ── 3. Celebration & success UI ─────────────────────────────────────
+      if (navigator.vibrate) {
+        try { navigator.vibrate([40, 50, 40]); } catch (e) { }
+      }
       burstPetals(25);
       if (attendance === 'Attending') {
         burstCelebrationConfetti(form);
@@ -1008,14 +1071,53 @@
       const placeholder = document.getElementById('no-wishes-placeholder');
       if (placeholder) placeholder.remove();
 
+      if (!wish.reactions) {
+        wish.reactions = { love: 0, lotus: 0, cheers: 0 };
+      }
+
       const card = document.createElement('div');
       card.className = 'wish-note';
       card.innerHTML = `
         <div class="wish-pin"></div>
         <p class="wish-body">“${escapeHTML(wish.text)}”</p>
-        <span class="wish-author">— ${escapeHTML(wish.author)}</span>
-        <span class="wish-time">${escapeHTML(wish.date)}</span>
+        <div class="wish-meta-row">
+          <span class="wish-author">— ${escapeHTML(wish.author)}</span>
+          <span class="wish-time">${escapeHTML(wish.date)}</span>
+        </div>
+        <div class="wish-reactions">
+          <button type="button" class="wish-react-btn" data-type="love" title="Heartfelt Love" aria-label="Heartfelt Love">
+            <span class="react-emoji">❤️</span>
+            <span class="react-count">${wish.reactions.love || 0}</span>
+          </button>
+          <button type="button" class="wish-react-btn" data-type="lotus" title="Lotus Blessing" aria-label="Lotus Blessing">
+            <span class="react-emoji">🪷</span>
+            <span class="react-count">${wish.reactions.lotus || 0}</span>
+          </button>
+          <button type="button" class="wish-react-btn" data-type="cheers" title="Raise a Toast" aria-label="Raise a Toast">
+            <span class="react-emoji">🥂</span>
+            <span class="react-count">${wish.reactions.cheers || 0}</span>
+          </button>
+        </div>
       `;
+
+      card.querySelectorAll('.wish-react-btn').forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const type = btn.getAttribute('data-type');
+          if (!wish.reactions[type]) wish.reactions[type] = 0;
+          wish.reactions[type] += 1;
+          btn.querySelector('.react-count').textContent = wish.reactions[type];
+          btn.classList.add('reacted');
+          setTimeout(() => btn.classList.remove('reacted'), 600);
+          if (navigator.vibrate) {
+            try { navigator.vibrate(25); } catch (err) { }
+          }
+          try {
+            localStorage.setItem('wedding_wishes', JSON.stringify(savedWishes));
+          } catch (err) { }
+        });
+      });
+
       grid.prepend(card);
     }
 
@@ -1045,12 +1147,13 @@
         const newWish = {
           author: authorInput.value.trim(),
           text: textInput.value.trim(),
-          date: 'Just now'
+          date: 'Just now',
+          reactions: { love: 1, lotus: 0, cheers: 0 }
         };
 
+        savedWishes.push(newWish);
         renderWishCard(newWish);
 
-        savedWishes.push(newWish);
         localStorage.setItem('wedding_wishes', JSON.stringify(savedWishes));
 
         burstPetals(15);
@@ -1276,6 +1379,35 @@
   }
 
   /* ==========================================================================
+     CARD 3D PARALLAX TILT (SMOOTH HOVER PERSPECTIVE)
+     ========================================================================== */
+  function initCardParallaxTilt() {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+    const tiltCards = document.querySelectorAll('.invitation-card, .venue-showcase-card, .polaroid, .dresscode-palette-card');
+    tiltCards.forEach((card) => {
+      let bounds = null;
+      card.addEventListener('mouseenter', () => {
+        bounds = card.getBoundingClientRect();
+      });
+      card.addEventListener('mousemove', (e) => {
+        if (!bounds) bounds = card.getBoundingClientRect();
+        const x = e.clientX - bounds.left;
+        const y = e.clientY - bounds.top;
+        const xPercent = (x / bounds.width - 0.5) * 2;
+        const yPercent = (y / bounds.height - 0.5) * 2;
+        const tiltX = -yPercent * 4.5;
+        const tiltY = xPercent * 4.5;
+        card.style.transform = `perspective(1000px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg) translateY(-3px)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        bounds = null;
+        card.style.transform = '';
+      });
+    });
+  }
+
+  /* ==========================================================================
      BOOTSTRAP EVERYTHING ON DOM READY
      ========================================================================== */
   window.addEventListener('DOMContentLoaded', () => {
@@ -1297,6 +1429,7 @@
     initFloatingRSVP();
     initStoryScrollProgress();
     initShareButtons();
+    initCardParallaxTilt();
   });
 
 })();
