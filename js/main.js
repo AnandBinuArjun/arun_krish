@@ -624,7 +624,7 @@
      10. GALLERY & LIGHTBOX
      ========================================================================== */
   function initGallery() {
-    const items = document.querySelectorAll('.gallery-item');
+    const items = document.querySelectorAll('.polaroid, .gallery-item');
     const modal = document.getElementById('lightbox-modal');
     const modalImg = document.getElementById('lightbox-img');
     const modalCaption = document.getElementById('lightbox-caption');
@@ -642,7 +642,9 @@
       currentIndex = index;
       const item = items[currentIndex];
       const img = item.querySelector('img');
-      const caption = item.getAttribute('data-caption') || img.alt;
+      if (!img) return;
+      const capEl = item.querySelector('.polaroid-caption');
+      const caption = item.getAttribute('data-caption') || (capEl ? capEl.textContent.trim() : img.alt);
       modalImg.src = img.src;
       modalImg.alt = caption;
       if (modalCaption) modalCaption.textContent = caption;
