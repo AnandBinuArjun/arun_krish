@@ -941,23 +941,7 @@
   /* ==========================================================================
      12. INTERACTIVE GUEST WISHES WALL
      ========================================================================== */
-  const defaultWishes = [
-    {
-      author: 'Lord & Lady Pemberton',
-      text: 'Wishing Arun and Krishna an eternity of laughter, devotion, and celebration across Stafford and Birmingham. What a majestic wedding!',
-      date: 'Yesterday'
-    },
-    {
-      author: 'Dev & Priya',
-      text: 'From those cozy London tea dates to your wedding day in the English countryside — we could not be happier for you both. Cannot wait to dance under the marquee!',
-      date: '2 days ago'
-    },
-    {
-      author: 'Marcus & Eleanor Vance',
-      text: 'Heartfelt congratulations to the most radiant couple. May your love bloom ever brighter with each passing year.',
-      date: '3 days ago'
-    }
-  ];
+  const defaultWishes = [];
 
   function initWishesWall() {
     const grid = document.getElementById('wishes-grid');
@@ -972,6 +956,9 @@
     }
 
     function renderWishCard(wish) {
+      const placeholder = document.getElementById('no-wishes-placeholder');
+      if (placeholder) placeholder.remove();
+
       const card = document.createElement('div');
       card.className = 'wish-note';
       card.innerHTML = `
@@ -988,8 +975,15 @@
       savedWishes = JSON.parse(localStorage.getItem('wedding_wishes') || '[]');
     } catch (e) { }
 
-    const allWishes = [...defaultWishes, ...savedWishes];
-    allWishes.forEach(renderWishCard);
+    if (savedWishes.length === 0) {
+      const placeholder = document.createElement('div');
+      placeholder.id = 'no-wishes-placeholder';
+      placeholder.style.cssText = 'text-align: center; color: var(--color-muted); font-style: italic; padding: 2.5rem 1rem; width: 100%; font-family: var(--font-serif); font-size: 1.15rem; grid-column: 1 / -1;';
+      placeholder.innerHTML = '❧ No blessings pinned yet. Be the first to leave your warm wishes for Arun &amp; Krishna above!';
+      grid.appendChild(placeholder);
+    } else {
+      savedWishes.forEach(renderWishCard);
+    }
 
     if (form) {
       form.addEventListener('submit', (e) => {
