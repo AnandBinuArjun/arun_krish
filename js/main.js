@@ -62,26 +62,42 @@
 
     if (!envelopeStage || !waxSeal) return;
 
+    // Prevent automatic scroll restoration so top section is always anchored on load
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
     // Lock page scroll while envelope is closed
     if (!envelopeStage.classList.contains('opened')) {
       document.body.style.overflow = 'hidden';
+      window.scrollTo(0, 0);
     }
 
     function revealInvitation() {
+      // Pin viewport directly to top so top hero section displays immediately
+      window.scrollTo(0, 0);
+
       envelopeStage.classList.add('opened');
       pageWrapper.classList.add('revealed');
       document.body.classList.add('invitation-opened');
       document.body.style.overflow = 'auto';
 
-      // After the CSS opacity transition (1.2s), mark as done to set display:none
+      // Re-trigger scroll event so observers refresh
+      try {
+        window.dispatchEvent(new Event('scroll'));
+      } catch (e) { }
+
+      // After opacity transition completes, remove from document layout
       setTimeout(() => {
         envelopeStage.classList.add('done');
-      }, 1300);
+      }, 750);
     }
 
     function openEnvelope() {
       if (isEnvelopeOpen) return;
       isEnvelopeOpen = true;
+
+      window.scrollTo(0, 0);
 
       // 1. Crack Wax Seal
       waxSeal.classList.add('cracked');
@@ -93,8 +109,8 @@
       // 3. Trigger Burst of Falling Petals
       try { burstPetals(30); } catch (e) { }
 
-      // 4. Slide Card & Reveal Page after animation settles
-      setTimeout(revealInvitation, 950);
+      // 4. Slide Card & Reveal Page after animation settles smoothly
+      setTimeout(revealInvitation, 850);
     }
 
     const promptPillBtn = document.getElementById('prompt-pill-btn');
@@ -156,9 +172,10 @@
         isEnvelopeOpen = false;
         waxSeal.classList.remove('cracked');
         envelopeStage.classList.remove('animating', 'opened', 'done');
+        pageWrapper.classList.remove('revealed');
         document.body.classList.remove('invitation-opened');
         document.body.style.overflow = 'hidden';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo(0, 0);
       });
     }
   }
