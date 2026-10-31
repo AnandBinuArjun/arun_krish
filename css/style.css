@@ -1,5 +1,5 @@
-/* ==========================================================================
-   ENGLISH WEDDING INVITATION — "AN HEIRLOOM INVITATION"
+﻿/* ==========================================================================
+   ENGLISH WEDDING INVITATION â€” "AN HEIRLOOM INVITATION"
    Theme: Romantic Rose & Heritage Meadow Olive Garden
    Palette:
      #FEE0E9 (Soft Blush Pink)
@@ -206,26 +206,27 @@ textarea,
 }
 
 /* ==========================================================================
-   STAGE 1: THE ENVELOPE (HERO UNBOXING SCREEN)
+   STAGE 1: THE ROYAL PALACE GATEFOLD ARCHWAY (HERO 3D UNBOXING EXPERIENCE)
    ========================================================================== */
 
-.envelope-stage {
+.envelope-stage,
+.palace-gatefold-stage {
   position: fixed;
   inset: 0;
   z-index: 2000;
-  background-color: #1A2412;
+  background-color: #121A0C;
   background-image: 
-    radial-gradient(circle at 50% 42%, rgba(141, 166, 92, 0.28) 0%, rgba(58, 75, 32, 0.48) 45%, rgba(16, 23, 11, 0.98) 100%),
-    radial-gradient(circle at 18% 22%, rgba(245, 201, 212, 0.18) 0%, transparent 40%),
-    radial-gradient(circle at 82% 78%, rgba(199, 221, 157, 0.22) 0%, transparent 45%),
+    radial-gradient(circle at 50% 32%, rgba(141, 166, 92, 0.32) 0%, rgba(58, 75, 32, 0.52) 42%, rgba(14, 20, 9, 0.98) 100%),
+    radial-gradient(circle at 15% 20%, rgba(245, 201, 212, 0.16) 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(199, 221, 157, 0.2) 0%, transparent 45%),
     url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem 1rem;
-  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.7s;
-  perspective: 1400px;
+  padding: 1rem;
+  transition: opacity 0.85s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.85s;
+  perspective: 2000px;
   overflow: hidden;
 }
 
@@ -235,494 +236,670 @@ textarea,
   pointer-events: none;
 }
 
-/* After transition completes (JS adds .done class), fully remove from layout */
+/* After transition completes (JS adds .done class), fully remove from document layout */
 .envelope-stage.done {
   display: none !important;
 }
 
-/* Skip to Invitation button (top-right corner, always accessible) */
-.skip-envelope-btn {
+/* Palace Ambient Glow Layer */
+.palace-ambient-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 48%, rgba(245, 221, 169, 0.12) 0%, transparent 60%);
+  z-index: 1;
+  animation: palaceAmbientBreath 8s infinite alternate ease-in-out;
+}
+
+@keyframes palaceAmbientBreath {
+  0% { opacity: 0.6; transform: scale(0.98); }
+  100% { opacity: 1; transform: scale(1.05); }
+}
+
+/* Skip Link (Top-Right) */
+.skip-envelope-btn,
+.palace-skip-btn {
   position: absolute;
   top: 1.2rem;
   right: 1.5rem;
   z-index: 2100;
-  background: rgba(58, 75, 32, 0.45);
-  border: 1px solid rgba(245, 201, 212, 0.55);
+  background: rgba(42, 58, 26, 0.6);
+  border: 1px solid rgba(245, 221, 169, 0.65);
   color: #FFF1F6;
   font-family: var(--font-sans);
-  font-size: 0.7rem;
-  letter-spacing: 1.5px;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  padding: 0.45rem 0.9rem;
-  border-radius: 20px;
+  padding: 0.48rem 1rem;
+  border-radius: 25px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.35s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
 }
 
-.skip-envelope-btn:hover {
-  background: rgba(58, 75, 32, 0.75);
+.skip-envelope-btn:hover,
+.palace-skip-btn:hover {
+  background: rgba(58, 75, 32, 0.9);
   border-color: #FFF1F6;
   color: #FFF1F6;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(245, 221, 169, 0.4);
 }
 
-.envelope-wrapper {
+/* Main Portal Wrapper */
+.envelope-wrapper,
+.palace-portal-wrapper {
   position: relative;
-  width: min(92vw, 560px);
-  height: min(63vw, 375px);
+  width: min(90vw, 480px);
+  height: min(74vh, 590px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
   cursor: pointer;
-  perspective: 1400px;
+  perspective: 1800px;
   transform-style: preserve-3d;
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), filter 0.5s ease;
+  transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.3, 1), filter 0.6s ease;
   user-select: none;
   outline: none;
+  z-index: 10;
+  margin-top: 2rem;
 }
 
 .envelope-wrapper:hover {
-  transform: translateY(-5px) scale(1.015);
-  filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.45));
+  transform: translateY(-4px) scale(1.01);
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.65));
 }
 
 .envelope-wrapper:focus-visible {
   outline: 2px solid var(--color-gold);
-  border-radius: 12px;
+  border-radius: 240px 240px 14px 14px;
 }
 
-.envelope {
+/* Architectural Filigree Crown */
+.palace-arch-crown {
+  position: absolute;
+  top: -46px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 106%;
+  max-width: 520px;
+  pointer-events: none;
+  z-index: 25;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.65));
+  transition: transform 0.5s ease;
+}
+
+.arch-crown-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Main Archway Frame (Double Roman Arch Curve) */
+.palace-arch-frame {
   position: relative;
   width: 100%;
-  height: 100%;
-  background: linear-gradient(150deg, #FFF1F6 0%, #FEE0E9 60%, #F5C9D4 100%);
-  border-radius: 10px;
+  height: calc(100% - 24px);
+  border-radius: 240px 240px 14px 14px;
+  border: 3px solid #C59B4B;
+  background: #182310;
   box-shadow: 
-    0 32px 75px rgba(18, 25, 12, 0.65),
-    0 12px 30px rgba(58, 75, 32, 0.3),
-    inset 0 0 0 1px rgba(245, 201, 212, 0.8),
-    inset 0 0 25px rgba(141, 166, 92, 0.12);
+    0 35px 80px rgba(8, 12, 6, 0.85),
+    0 0 50px rgba(197, 155, 75, 0.28),
+    inset 0 0 0 2px rgba(255, 241, 246, 0.45),
+    inset 0 0 35px rgba(0, 0, 0, 0.7);
+  transform-style: preserve-3d;
   overflow: visible;
-  border: 1px solid rgba(199, 221, 157, 0.85);
 }
 
-/* Subtle deckled gold inner margin */
-.envelope::before {
-  content: '';
+/* ==========================================================================
+   INNER SANCTUARY (REVEALED BEHIND DOORS ON 3D SWING)
+   ========================================================================== */
+.palace-inner-sanctuary {
   position: absolute;
-  inset: 7px;
-  border-radius: 6px;
-  border: 1px solid rgba(141, 166, 92, 0.35);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.75);
-  pointer-events: none;
-  z-index: 5;
+  inset: 2px;
+  border-radius: 237px 237px 11px 11px;
+  background: radial-gradient(circle at 50% 36%, #FFF9EC 0%, #FEE0E9 42%, #DEC5A8 78%, #2A3816 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem 5rem;
+  overflow: hidden;
+  z-index: 1;
 }
 
-/* Diagonal side folds */
-.envelope-side-fold {
+/* Radiant Palace Light Beams & Sunburst */
+.sanctuary-light-beam {
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(
+    from 0deg at 50% 40%,
+    rgba(255, 255, 255, 0) 0deg,
+    rgba(245, 221, 169, 0.35) 20deg,
+    rgba(255, 255, 255, 0) 40deg,
+    rgba(245, 221, 169, 0.4) 60deg,
+    rgba(255, 255, 255, 0) 80deg,
+    rgba(245, 221, 169, 0.35) 110deg,
+    rgba(255, 255, 255, 0) 130deg,
+    rgba(245, 221, 169, 0.4) 160deg,
+    rgba(255, 255, 255, 0) 180deg,
+    rgba(245, 221, 169, 0.35) 210deg,
+    rgba(255, 255, 255, 0) 230deg,
+    rgba(245, 221, 169, 0.4) 270deg,
+    rgba(255, 255, 255, 0) 290deg,
+    rgba(245, 221, 169, 0.35) 330deg,
+    rgba(255, 255, 255, 0) 360deg
+  );
+  opacity: 0.35;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  animation: spinLightBeam 25s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes spinLightBeam {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.sanctuary-sunburst {
+  position: absolute;
+  top: 36%;
+  left: 50%;
+  width: 280px;
+  height: 280px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(245, 221, 169, 0.8) 35%, rgba(197, 155, 75, 0) 70%);
+  filter: blur(12px);
+  pointer-events: none;
+  opacity: 0.5;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.envelope-stage.animating .sanctuary-sunburst {
+  opacity: 0.9;
+  transform: translate(-50%, -50%) scale(1.4);
+}
+
+.envelope-stage.animating .sanctuary-light-beam {
+  opacity: 0.75;
+}
+
+/* Inner Sanctuary Text & Crest Preview */
+.sanctuary-content {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.8s cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+.sanctuary-crest-emblem {
+  width: 74px;
+  height: 74px;
+  margin-bottom: 0.8rem;
+  filter: drop-shadow(0 4px 12px rgba(156, 119, 47, 0.45));
+  animation: floatSanctuaryCrest 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes floatSanctuaryCrest {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-5px); }
+}
+
+.sanctuary-crest-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.sanctuary-title {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: #722E78;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.sanctuary-names {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 500;
+  color: #2D3A1B;
+  letter-spacing: 0.5px;
+  line-height: 1.15;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
+}
+
+.sanctuary-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #5A7034;
+  margin-top: 0.4rem;
+  font-weight: 600;
+}
+
+.sanctuary-date {
+  font-family: var(--font-script);
+  font-size: 1.6rem;
+  color: #C59B4B;
+  margin-top: 0.6rem;
+}
+
+/* ==========================================================================
+   DOUBLE GATEFOLD DOORS (3D PERSPECTIVE PIVOTING)
+   ========================================================================== */
+.gatefold-doors-container {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+.gatefold-door {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 1.05s cubic-bezier(0.25, 1, 0.35, 1), filter 1.05s ease;
+  pointer-events: auto;
+  overflow: hidden;
+}
+
+.gatefold-door.door-left {
+  left: 0;
+  border-radius: 237px 0 0 11px;
+  transform-origin: left center;
+  box-shadow: 4px 0 16px rgba(0, 0, 0, 0.45);
+}
+
+.gatefold-door.door-right {
+  right: 0;
+  border-radius: 0 237px 11px 0;
+  transform-origin: right center;
+  box-shadow: -4px 0 16px rgba(0, 0, 0, 0.45);
+}
+
+/* 3D Gatefold Door Opening State */
+.envelope-stage.animating .gatefold-door.door-left,
+.envelope-stage.opened .gatefold-door.door-left {
+  transform: perspective(1800px) rotateY(-112deg);
+  filter: brightness(0.68) drop-shadow(25px 12px 30px rgba(0, 0, 0, 0.75));
+}
+
+.envelope-stage.animating .gatefold-door.door-right,
+.envelope-stage.opened .gatefold-door.door-right {
+  transform: perspective(1800px) rotateY(112deg);
+  filter: brightness(0.68) drop-shadow(-25px 12px 30px rgba(0, 0, 0, 0.75));
+}
+
+/* Door Inner Panel: Heritage Velvet Brocade & Mughal Jali Pattern */
+.door-inner-panel {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 50% 32%, #2F3E1B 0%, #1F2C11 65%, #121A0A 100%);
+  box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.75);
+  overflow: hidden;
+}
+
+/* Islamic/Indian Jali Lattice Watermark */
+.door-jali-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(245, 221, 169, 0.14) 2px, transparent 2px),
+    linear-gradient(45deg, rgba(197, 155, 75, 0.08) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(197, 155, 75, 0.08) 25%, transparent 25%),
+    linear-gradient(135deg, rgba(197, 155, 75, 0.08) 25%, transparent 25%),
+    linear-gradient(-135deg, rgba(197, 155, 75, 0.08) 25%, transparent 25%);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 0, 14px 0, 0 14px, 0 14px;
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+/* Gilded Inset Outer Border */
+.door-gold-border {
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(245, 221, 169, 0.5);
+  pointer-events: none;
+}
+
+.door-left .door-gold-border {
+  border-radius: 228px 0 0 7px;
+  border-right: none;
+}
+
+.door-right .door-gold-border {
+  border-radius: 0 228px 7px 0;
+  border-left: none;
+}
+
+/* Inner Carved Arch Inset Molding */
+.door-inner-arch-molding {
+  position: absolute;
+  inset: 18px;
+  border: 1.5px solid rgba(197, 155, 75, 0.65);
+  background: rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+}
+
+.door-left .door-inner-arch-molding {
+  border-radius: 218px 0 0 5px;
+  border-right: none;
+}
+
+.door-right .door-inner-arch-molding {
+  border-radius: 0 218px 5px 0;
+  border-left: none;
+}
+
+/* Gilded Corner Botanical Flourishes */
+.door-ornament {
+  position: absolute;
+  font-size: 1.1rem;
+  color: #F5DDA9;
+  opacity: 0.75;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+}
+
+.door-ornament-tl { top: 22px; left: 24px; }
+.door-ornament-tr { top: 22px; right: 24px; }
+.door-ornament-bl { bottom: 22px; left: 24px; }
+.door-ornament-br { bottom: 22px; right: 24px; }
+
+/* Medallion Cup Inset Behind Medallion Center */
+.door-medallion-cup {
+  position: absolute;
+  top: 50%;
+  width: 52px;
+  height: 104px;
+  transform: translateY(-50%);
+  background: radial-gradient(circle at center, rgba(197, 155, 75, 0.25) 0%, transparent 70%);
+  border: 1px solid rgba(245, 221, 169, 0.4);
+  pointer-events: none;
+}
+
+.left-cup {
+  right: 0;
+  border-radius: 52px 0 0 52px;
+  border-right: none;
+}
+
+.right-cup {
+  left: 0;
+  border-radius: 0 52px 52px 0;
+  border-left: none;
+}
+
+/* ==========================================================================
+   ADDRESSED GUEST HEIRLOOM PLAQUE (LOWER TIER OVER DOORS)
+   ========================================================================== */
+.gatefold-guest-plaque {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 86%;
+  z-index: 28;
+  pointer-events: none;
+  transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.3, 1), opacity 0.5s ease;
+}
+
+.envelope-stage.animating .gatefold-guest-plaque,
+.envelope-stage.opened .gatefold-guest-plaque {
+  transform: translateX(-50%) translateY(30px);
+  opacity: 0;
+}
+
+.guest-plaque-frame {
+  position: relative;
+  background: rgba(255, 241, 246, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(197, 155, 75, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(245, 221, 169, 0.25);
+  padding: 1rem 1.2rem;
+  text-align: center;
+}
+
+.plaque-corner {
+  position: absolute;
+  font-size: 0.8rem;
+  color: #C59B4B;
+  opacity: 0.7;
+  line-height: 1;
+}
+
+.plaque-corner-tl { top: 4px; left: 6px; }
+.plaque-corner-tr { top: 4px; right: 6px; }
+.plaque-corner-bl { bottom: 4px; left: 6px; }
+.plaque-corner-br { bottom: 4px; right: 6px; }
+
+.guest-invitation-badge {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #8DA65C;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.gatefold-guest-plaque .guest-calligraphy {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-style: italic;
+  font-weight: 600;
+  color: #2D3A1B;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.gatefold-guest-plaque .guest-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 1px;
+  color: #5A7034;
+  margin-top: 0.35rem;
+}
+
+/* ==========================================================================
+   CENTRAL GOLDEN LOTUS CREST MEDALLION (PRESERVES #wax-seal)
+   ========================================================================== */
+.palace-crest-medallion,
+.wax-seal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  z-index: 40;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.35s ease;
+  user-select: none;
+}
+
+.palace-crest-medallion:hover,
+.wax-seal:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+  filter: drop-shadow(0 0 25px rgba(245, 221, 169, 0.75));
+}
+
+/* Breathing Golden Aura Halo */
+.wax-halo-pulse,
+.medallion-aura-pulse {
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 221, 169, 0.5) 0%, rgba(197, 155, 75, 0.25) 50%, transparent 72%);
+  pointer-events: none;
+  animation: medallionPulse 2.8s infinite ease-in-out;
+  transition: all 0.6s ease;
+}
+
+@keyframes medallionPulse {
+  0%, 100% {
+    transform: scale(0.96);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 14px rgba(245, 221, 169, 0.8));
+  }
+}
+
+/* 3D Physical Sliding Halves When Unlocked */
+.wax-piece-left,
+.medallion-half-left,
+.wax-piece-right,
+.medallion-half-right {
   position: absolute;
   top: 0;
   width: 50%;
   height: 100%;
   pointer-events: none;
+  transition: transform 0.75s cubic-bezier(0.2, 0.9, 0.3, 1), opacity 0.65s ease;
   z-index: 2;
 }
 
-.envelope-fold-left {
+.wax-piece-left,
+.medallion-half-left {
   left: 0;
-  background: linear-gradient(135deg, rgba(254, 224, 233, 0.92) 0%, rgba(245, 201, 212, 0.96) 100%);
-  clip-path: polygon(0 0, 100% 50%, 0 100%);
-  box-shadow: 2px 0 10px rgba(35, 45, 20, 0.08);
-  border-left: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 96px 0 0 96px;
+  background: linear-gradient(135deg, #FFF1F6 0%, #F5DDA9 45%, #C59B4B 100%);
+  box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.8), -2px 0 6px rgba(0, 0, 0, 0.4);
 }
 
-.envelope-fold-right {
+.wax-piece-right,
+.medallion-half-right {
   right: 0;
-  background: linear-gradient(225deg, rgba(254, 224, 233, 0.92) 0%, rgba(245, 201, 212, 0.96) 100%);
-  clip-path: polygon(100% 0, 0 50%, 100% 100%);
-  box-shadow: -2px 0 10px rgba(35, 45, 20, 0.08);
-  border-right: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 0 96px 96px 0;
+  background: linear-gradient(225deg, #FFF1F6 0%, #F5DDA9 45%, #C59B4B 100%);
+  box-shadow: inset -1px 1px 3px rgba(255, 255, 255, 0.8), 2px 0 6px rgba(0, 0, 0, 0.4);
 }
 
-/* Bottom upward pocket fold */
-.envelope-bottom-fold {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 56%;
-  background: linear-gradient(to top, #F5C9D4 0%, #FFF1F6 100%);
-  clip-path: polygon(0 100%, 50% 30%, 100% 100%);
-  box-shadow: 0 -4px 18px rgba(35, 45, 20, 0.08);
-  pointer-events: none;
-  z-index: 3;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+/* Cracked / Unlocked Medallion State */
+.wax-seal.cracked .wax-piece-left,
+.palace-crest-medallion.cracked .medallion-half-left {
+  transform: translate(-42px, -18px) rotate(-28deg);
+  opacity: 0;
 }
 
-/* Vintage Postage Stamp & Postmark (Top-Right) */
-.envelope-stamp-cluster {
-  position: absolute;
-  top: 14px;
-  right: 16px;
-  z-index: 6;
-  display: flex;
-  align-items: center;
-  pointer-events: none;
-  opacity: 0.92;
+.wax-seal.cracked .wax-piece-right,
+.palace-crest-medallion.cracked .medallion-half-right {
+  transform: translate(42px, 18px) rotate(28deg);
+  opacity: 0;
 }
 
-.envelope-vintage-stamp {
-  width: 56px;
-  height: 68px;
-  background: #FFF1F6;
-  border: 1.5px dashed #8DA65C;
-  border-radius: 2px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
+.wax-seal.cracked .wax-halo-pulse,
+.palace-crest-medallion.cracked .medallion-aura-pulse {
+  transform: scale(2.8);
+  opacity: 0;
+  filter: blur(10px);
+}
+
+.wax-seal.cracked .wax-seal-inner,
+.palace-crest-medallion.cracked .medallion-gold-face {
+  opacity: 0;
+  transform: scale(0.65) rotate(15deg);
+  transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+/* Gilded Medallion Face with Relief Lotus & Monogram */
+.wax-seal-inner,
+.medallion-gold-face {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: 
+    radial-gradient(circle at 35% 30%, #FFF1F6 0%, #F5DDA9 35%, #C59B4B 75%, #8B6B2B 100%);
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.75),
+    0 0 20px rgba(245, 221, 169, 0.5),
+    inset 0 2px 4px rgba(255, 255, 255, 0.8),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 4px 2px;
-  transform: rotate(2deg);
-  background-image: radial-gradient(circle at center, #FFF1F6 0%, #FEE0E9 100%);
+  justify-content: center;
+  z-index: 5;
+  transition: transform 0.3s ease;
+  padding: 4px;
 }
 
-.stamp-crest {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
+.medallion-outer-ring {
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+}
+
+.medallion-beaded-ring {
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  border: 1px dashed rgba(139, 107, 43, 0.8);
+  pointer-events: none;
+}
+
+.medallion-lotus-vector {
+  filter: drop-shadow(0 1px 2px rgba(139, 107, 43, 0.8));
   margin-top: 2px;
 }
 
-.stamp-denomination {
+.medallion-initials {
   font-family: var(--font-serif);
-  font-size: 0.85rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  color: #3A4B20;
-  line-height: 1;
-}
-
-.stamp-label {
-  font-family: var(--font-sans);
-  font-size: 0.42rem;
-  letter-spacing: 1.2px;
-  font-weight: 600;
-  color: #9E4568;
-}
-
-.envelope-postmark {
-  position: absolute;
-  top: -10px;
-  right: 28px;
-  width: 76px;
-  height: 76px;
-  pointer-events: none;
-  transform: rotate(-10deg);
-}
-
-.postmark-svg {
-  width: 100%;
-  height: 100%;
-}
-
-/* Botanical tissue liner inside */
-.envelope-liner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  background-color: #FBF4F8;
-  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23F2A25F' stroke-width='0.6' stroke-linecap='round'%3E%3Cpath d='M20 28 C16 26 12 20 14 14 C17 17 19 22 20 28 Z' fill='%23C4707A' fill-opacity='0.3'/%3E%3Cpath d='M20 28 C24 26 28 20 26 14 C23 17 21 22 20 28 Z' fill='%23C4707A' fill-opacity='0.3'/%3E%3Cpath d='M20 29 C18 20 18 14 20 10 C22 14 22 20 20 29 Z' fill='%23F5DDA9' fill-opacity='0.55'/%3E%3Ccircle cx='20' cy='28' r='1.2' fill='%23F2A25F'/%3E%3Cpath d='M10 35 C15 32 18 30 20 30 C22 30 25 32 30 35' stroke='%23722E78' stroke-width='0.7'/%3E%3Cpath d='M8 12 C12 10 14 6 12 2 C9 5 8 9 8 12 Z' fill='%23A66E98' fill-opacity='0.25' stroke='%23722E78' stroke-width='0.5'/%3E%3Cpath d='M32 12 C28 10 26 6 28 2 C31 5 32 9 32 12 Z' fill='%23A66E98' fill-opacity='0.25' stroke='%23722E78' stroke-width='0.5'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: 34px 34px;
-  border-radius: 10px;
-  opacity: 0.95;
-}
-
-/* Sliding Letterpress Invitation Card Preview */
-.envelope-card-preview {
-  position: absolute;
-  top: 8%;
-  left: 6%;
-  width: 88%;
-  height: 90%;
-  background: var(--color-ivory);
-  border: 1.5px solid var(--color-cream-border);
-  border-radius: 6px;
-  z-index: 2;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12), inset 0 0 20px rgba(245, 221, 169, 0.4);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-  transition: transform 1.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-  /* Tucked inside: pushed down so only the pocket area is visible behind the flap/body */
-  transform: translateY(22%);
-  will-change: transform;
-}
-
-/* During animation: card slides up elegantly from envelope pocket */
-.envelope-stage.animating .envelope-card-preview {
-  transform: translateY(-48%) scale(1.03);
-}
-
-.card-preview-monogram {
-  width: 52px;
-  height: 52px;
-  margin-bottom: 0.4rem;
-  opacity: 0.9;
-}
-
-.card-preview-text {
-  font-family: var(--font-serif);
-  font-size: 1.2rem;
-  letter-spacing: 2.5px;
-  color: var(--color-forest);
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-/* Top Euro-Flap */
-.envelope-flap {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 4;
-  transform-origin: top center;
-  transition: transform 0.95s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-style: preserve-3d;
-}
-
-.envelope-flap-inner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 55%;
-  background: linear-gradient(180deg, #FFF1F6 0%, #FEE0E9 70%, #F5C9D4 100%);
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-  filter: drop-shadow(0 8px 16px rgba(35, 45, 20, 0.16));
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.flap-gold-trim {
-  position: absolute;
-  inset: 0;
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-  pointer-events: none;
-  background: linear-gradient(to bottom, transparent 90%, rgba(141, 166, 92, 0.7) 98%, #5A7034 100%);
-}
-
-.envelope-stage.animating .envelope-flap {
-  transform: rotateX(180deg);
-  z-index: 1;
-}
-
-/* Hide address plate & prompt when envelope opens */
-.envelope-stage.animating .envelope-address-plate {
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-}
-
-.envelope-stage.animating .envelope-prompt,
-.envelope-stage.opened .envelope-prompt {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-/* Addressed Guest Plate (Framed Deckled Paper Placard) */
-.envelope-address-plate {
-  position: absolute;
-  bottom: 11%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 5;
-  width: min(88%, 430px);
-  pointer-events: none;
-}
-
-.address-plate-frame {
-  background: rgba(255, 248, 250, 0.96);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(245, 201, 212, 0.75);
-  box-shadow: 
-    0 6px 22px rgba(58, 75, 32, 0.08),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.9),
-    inset 0 0 18px rgba(254, 224, 233, 0.5);
-  border-radius: 8px;
-  padding: 1.05rem 1.6rem 0.85rem;
-  text-align: center;
-  position: relative;
-}
-
-.plate-corner {
-  position: absolute;
-  font-size: 0.82rem;
-  color: var(--color-gold);
-  line-height: 1;
-  opacity: 0.8;
-}
-.plate-corner-tl { top: 4px; left: 6px; }
-.plate-corner-tr { top: 4px; right: 6px; }
-.plate-corner-bl { bottom: 4px; left: 6px; }
-.plate-corner-br { bottom: 4px; right: 6px; }
-
-.guest-calligraphy {
-  font-family: var(--font-script);
-  font-size: clamp(1.9rem, 4.2vw, 2.6rem);
-  color: #3A4B20;
-  line-height: 1.15;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.95);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.guest-subtitle {
-  font-family: var(--font-sans);
-  font-size: 0.58rem;
-  letter-spacing: 2.6px;
-  text-transform: uppercase;
-  color: #5A7034;
-  margin-top: 0.35rem;
-  font-weight: 500;
-}
-
-/* 3D Sculpted Molten Wax Seal */
-.wax-seal {
-  position: absolute;
-  top: 54%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90px;
-  height: 90px;
-  border-radius: 50% 48% 52% 49% / 49% 52% 48% 51%;
-  background: radial-gradient(circle at 35% 30%, #A5BD75 0%, #8DA65C 38%, #5A7034 72%, #263314 100%);
-  box-shadow: 
-    0 14px 34px rgba(18, 25, 12, 0.75),
-    0 4px 14px rgba(58, 75, 32, 0.45),
-    inset 0 3px 6px rgba(255, 255, 255, 0.45),
-    inset 0 -4px 8px rgba(0, 0, 0, 0.55);
-  z-index: 7;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  border: 1px solid rgba(245, 201, 212, 0.65);
-  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease, filter 0.4s ease, opacity 0.5s ease, background 0.5s ease;
-  user-select: none;
-}
-
-/* When cracked: the entire wax seal container fades and scales away */
-.wax-seal.cracked {
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(1.4);
-  pointer-events: none;
-  background: transparent;
-  box-shadow: none;
-  border-color: transparent;
-}
-
-.wax-seal:hover {
-  transform: translate(-50%, -50%) scale(1.08);
-  filter: brightness(1.1);
-  box-shadow: 
-    0 18px 42px rgba(18, 25, 12, 0.85),
-    0 0 28px rgba(141, 166, 92, 0.55),
-    inset 0 3px 6px rgba(255, 255, 255, 0.5);
-}
-
-.wax-halo-pulse {
-  position: absolute;
-  inset: -14px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(141, 166, 92, 0.38) 0%, transparent 70%);
-  pointer-events: none;
-  animation: waxGlow 2.8s infinite ease-in-out;
-}
-
-@keyframes waxGlow {
-  0%, 100% { transform: scale(0.95); opacity: 0.45; }
-  50% { transform: scale(1.15); opacity: 0.95; }
-}
-
-.wax-seal-inner {
-  width: 66px;
-  height: 66px;
-  border-radius: 50%;
-  border: 1.2px solid rgba(245, 201, 212, 0.9);
-  box-shadow: 
-    inset 0 2px 5px rgba(0, 0, 0, 0.55),
-    0 1px 2px rgba(255, 255, 255, 0.25);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-}
-
-.wax-lotus-vector {
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.55));
-  margin-bottom: 2px;
-}
-
-.wax-seal-initials {
-  font-family: var(--font-serif);
-  font-size: 1.35rem;
-  font-weight: 600;
-  color: #FFF1F6;
+  color: #2D3A1B;
   letter-spacing: 2px;
   line-height: 1;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
-  white-space: nowrap;
-}
-
-.wax-seal-date {
-  font-family: var(--font-sans);
-  font-size: 0.46rem;
-  letter-spacing: 1.8px;
-  color: #C7DD9D;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7), 0 -1px 1px rgba(0, 0, 0, 0.3);
   margin-top: 3px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 }
 
-.wax-piece-left, .wax-piece-right {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.65s ease;
-  pointer-events: none;
+.medallion-date {
+  font-family: var(--font-sans);
+  font-size: 0.44rem;
+  letter-spacing: 1.8px;
+  color: #3A4B20;
+  font-weight: 600;
+  margin-top: 2px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
-.wax-seal.cracked .wax-piece-left {
-  transform: translate(-28px, -18px) rotate(-30deg);
-  opacity: 0;
-}
-
-.wax-seal.cracked .wax-piece-right {
-  transform: translate(28px, 18px) rotate(30deg);
-  opacity: 0;
-}
-
-.wax-seal.cracked .wax-seal-inner {
-  opacity: 0;
-  transform: scale(0.8);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* Prompt Badge Below Envelope */
-.envelope-prompt {
-  margin-top: 1.8rem;
+/* ==========================================================================
+   INTERACTIVE PROMPT PILL BELOW GATEFOLD ARCHWAY
+   ========================================================================== */
+.envelope-prompt,
+.palace-gatefold-prompt {
+  margin-top: 1.4rem;
   text-align: center;
-  color: var(--color-ivory);
   z-index: 10;
   display: flex;
   flex-direction: column;
@@ -730,36 +907,38 @@ textarea,
   gap: 0.5rem;
 }
 
-.prompt-pill {
+.prompt-pill,
+.gatefold-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.65rem;
-  padding: 0.6rem 1.4rem;
-  background: rgba(26, 36, 18, 0.88);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(199, 221, 157, 0.55);
+  gap: 0.75rem;
+  padding: 0.65rem 1.6rem;
+  background: rgba(22, 32, 16, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(245, 221, 169, 0.7);
   border-radius: 30px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 16px rgba(141, 166, 92, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 18px rgba(197, 155, 75, 0.35);
   color: #FFF1F6;
   font-family: var(--font-sans);
-  font-size: 0.74rem;
-  letter-spacing: 2px;
+  font-size: 0.76rem;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.35s ease;
 }
 
-.prompt-pill:hover {
-  background: rgba(35, 48, 24, 0.95);
-  border-color: #FEE0E9;
+.prompt-pill:hover,
+.gatefold-pill:hover {
+  background: rgba(35, 48, 24, 0.96);
+  border-color: #FFF1F6;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 22px rgba(199, 221, 157, 0.4);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55), 0 0 25px rgba(245, 221, 169, 0.6);
 }
 
 .prompt-sparkle {
-  color: var(--color-gold);
+  color: #F5DDA9;
   animation: pulseTouch 2s infinite ease-in-out;
 }
 
@@ -768,12 +947,134 @@ textarea,
   font-size: 0.95rem;
   font-style: italic;
   letter-spacing: 1px;
-  color: rgba(245, 201, 212, 0.85);
+  color: rgba(245, 201, 212, 0.9);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 @keyframes pulseTouch {
   0%, 100% { transform: scale(1); opacity: 0.7; }
-  50% { transform: scale(1.2); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 1; }
+}
+
+/* Mobile & Tablet Fine-Tuning for Royal Gatefold Archway */
+@media (max-width: 600px) {
+  .envelope-wrapper,
+  .palace-portal-wrapper {
+    width: min(92vw, 420px);
+    height: min(74vh, 530px);
+    margin-top: 1.5rem;
+  }
+
+  .palace-arch-crown {
+    top: -38px;
+    width: 108%;
+  }
+
+  .palace-arch-frame {
+    border-radius: 200px 200px 12px 12px;
+  }
+
+  .palace-inner-sanctuary {
+    border-radius: 197px 197px 10px 10px;
+    padding: 2.2rem 1.2rem 4rem;
+  }
+
+  .gatefold-door.door-left {
+    border-radius: 197px 0 0 10px;
+  }
+
+  .gatefold-door.door-right {
+    border-radius: 0 197px 10px 0;
+  }
+
+  .palace-crest-medallion,
+  .wax-seal {
+    width: 82px;
+    height: 82px;
+  }
+
+  .wax-seal-inner,
+  .medallion-gold-face {
+    width: 76px;
+    height: 76px;
+  }
+
+  .medallion-initials {
+    font-size: 1.1rem;
+  }
+
+  .sanctuary-names {
+    font-size: 1.7rem;
+  }
+
+  .sanctuary-crest-emblem {
+    width: 62px;
+    height: 62px;
+  }
+
+  .gatefold-guest-plaque {
+    bottom: 18px;
+    width: 90%;
+  }
+
+  .gatefold-guest-plaque .guest-calligraphy {
+    font-size: 1.25rem;
+  }
+
+  .prompt-pill,
+  .gatefold-pill {
+    font-size: 0.68rem;
+    padding: 0.55rem 1.2rem;
+    letter-spacing: 1.8px;
+  }
+
+  .prompt-sub {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .envelope-wrapper,
+  .palace-portal-wrapper {
+    width: 94vw;
+    height: 70vh;
+  }
+
+  .palace-arch-crown {
+    top: -30px;
+  }
+
+  .palace-arch-frame {
+    border-radius: 165px 165px 10px 10px;
+  }
+
+  .palace-inner-sanctuary {
+    border-radius: 162px 162px 8px 8px;
+  }
+
+  .gatefold-door.door-left {
+    border-radius: 162px 0 0 8px;
+  }
+
+  .gatefold-door.door-right {
+    border-radius: 0 162px 8px 0;
+  }
+
+  .palace-crest-medallion,
+  .wax-seal {
+    width: 72px;
+    height: 72px;
+  }
+
+  .wax-seal-inner,
+  .medallion-gold-face {
+    width: 66px;
+    height: 66px;
+  }
+
+  .sanctuary-names {
+    font-size: 1.45rem;
+  }
 }
 
 /* ==========================================================================
@@ -870,7 +1171,7 @@ body.invitation-opened .floating-audio-widget {
   box-shadow: 0 0 3px rgba(255, 255, 255, 0.4);
 }
 
-/* Resting heights when paused — looks like an authentic musical waveform, never flat dots */
+/* Resting heights when paused â€” looks like an authentic musical waveform, never flat dots */
 .audio-bar:nth-child(1) { height: 5px; }
 .audio-bar:nth-child(2) { height: 11px; }
 .audio-bar:nth-child(3) { height: 7px; }
@@ -1199,7 +1500,7 @@ body.invitation-opened .floating-audio-widget {
   box-sizing: border-box;
 }
 
-/* Botanical Corner Ornaments — fixed size, absolute positioned */
+/* Botanical Corner Ornaments â€” fixed size, absolute positioned */
 .botanical-corner {
   position: absolute;
   width: 90px;
@@ -3127,7 +3428,7 @@ body.invitation-opened .floating-audio-widget {
 
 /* Subtle lotus watermark behind footer */
 .footer-section::before {
-  content: '🪷';
+  content: 'ðŸª·';
   position: absolute;
   top: 50%;
   left: 50%;
@@ -3198,7 +3499,7 @@ body.invitation-opened .floating-audio-widget {
   flex-wrap: wrap;
 }
 
-/* Footer ghost buttons — light outline style for dark background */
+/* Footer ghost buttons â€” light outline style for dark background */
 .footer-section .btn-secondary {
   background: rgba(255, 255, 255, 0.08);
   color: rgba(253, 251, 247, 0.92);
@@ -3265,7 +3566,7 @@ body.invitation-opened .floating-audio-widget {
 }
 
 /* ==========================================================================
-   MOBILE & TABLET RESPONSIVENESS SUITE (320px – 768px)
+   MOBILE & TABLET RESPONSIVENESS SUITE (320px â€“ 768px)
    ========================================================================== */
 
 /* Tablet & Mobile shared improvements (max-width: 768px) */
@@ -3682,7 +3983,7 @@ body.invitation-opened .floating-audio-widget {
 }
 
 #floating-rsvp a::before {
-  content: '✉';
+  content: 'âœ‰';
   font-size: 0.9rem;
 }
 

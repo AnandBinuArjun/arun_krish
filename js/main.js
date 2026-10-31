@@ -99,18 +99,18 @@
 
       window.scrollTo(0, 0);
 
-      // 1. Crack Wax Seal
+      // 1. Unlock Golden Crest Medallion & Swing Open Gatefold Doors in 3D
       waxSeal.classList.add('cracked');
       envelopeStage.classList.add('animating');
 
       // 2. Play Audio Melody ('Dheera Dheera')
       playWeddingSong();
 
-      // 3. Trigger Burst of Falling Petals
-      try { burstPetals(30); } catch (e) { }
+      // 3. Trigger Grand Cascade of Falling Petals
+      try { burstPetals(45); } catch (e) { }
 
-      // 4. Slide Card & Reveal Page after animation settles smoothly
-      setTimeout(revealInvitation, 850);
+      // 4. Reveal Palace Invitation & Top Section as Doors Open
+      setTimeout(revealInvitation, 1000);
     }
 
     const promptPillBtn = document.getElementById('prompt-pill-btn');
