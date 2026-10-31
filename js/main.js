@@ -11,7 +11,7 @@
   const WEDDING_CONFIG = {
     couple: 'Arun & Krishna',
     dateISO: '2026-12-08T10:00:00Z',
-    venue: 'Reception: Birmingham, West Midlands, England (Private Ceremony: Stafford)',
+    venue: 'Reception & Banquet: Birmingham, West Midlands, England',
     hashtag: '#ArunWedsKrishna2026',
     // ── Google Sheets RSVP endpoint ──────────────────────────────────────────
     // Paste your deployed Apps Script Web App URL here after following setup:
@@ -618,7 +618,7 @@
     const details = encodeURIComponent(
       "Together with their families, Arun & Krishna request the pleasure of your company at their Wedding Celebrations.\n\nOrder of the Day — Tuesday, 8th December 2026:\n• 10:00 AM: Private Marriage Ceremony (Stafford)\n• 12:30 PM: Guests' Arrival (Birmingham)\n• 1:00 PM: Wedding Banquet (Birmingham)\n\nA day of love and new beginnings."
     );
-    const location = encodeURIComponent('Birmingham & Stafford, England');
+    const location = encodeURIComponent('Birmingham, England');
 
     const gcalStart = '20261208T100000Z';
     const gcalEnd = '20261208T220000Z';
@@ -650,8 +650,8 @@
           'DTSTART:20261208T100000Z',
           'DTEND:20261208T220000Z',
           'SUMMARY:Arun & Krishna\'s Wedding — Order of the Day',
-          'DESCRIPTION:Order of the Day (Tuesday, 8th December 2026):\\n10:00 AM - Private Marriage Ceremony (Stafford)\\n12:30 PM - Guests\' Arrival (Birmingham)\\n1:00 PM - Wedding Banquet (Birmingham)\\n\\nA day of love and new beginnings.',
-          'LOCATION:Birmingham & Stafford, England',
+          'DESCRIPTION:Order of the Day (Tuesday, 8th December 2026):\\n10:00 AM - Private Marriage Ceremony\\n12:30 PM - Guests\' Arrival (Birmingham)\\n1:00 PM - Wedding Banquet (Birmingham)\\n\\nA day of love and new beginnings.',
+          'LOCATION:Birmingham, England',
           'STATUS:CONFIRMED',
           'END:VEVENT',
           'END:VCALENDAR'
@@ -683,9 +683,8 @@
       });
     }
 
-    setupCopyButton('copy-stafford-btn', 'Stafford, Staffordshire, ST16, United Kingdom');
     setupCopyButton('copy-birmingham-btn', 'Birmingham, West Midlands, B1, United Kingdom');
-    setupCopyButton('copy-address-btn', 'Stafford (Ceremony) & Birmingham (Reception), United Kingdom');
+    setupCopyButton('copy-address-btn', 'Birmingham, West Midlands, United Kingdom');
   }
 
   /* ==========================================================================
