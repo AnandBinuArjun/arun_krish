@@ -3273,7 +3273,7 @@ body.invitation-opened .floating-audio-widget {
 
 /* Subtle lotus watermark behind footer */
 .footer-section::before {
-  content: 'ðŸª·';
+  content: '\1FAB7';
   position: absolute;
   top: 50%;
   left: 50%;
@@ -3769,9 +3769,18 @@ body.invitation-opened .floating-audio-widget {
   border-color: rgba(245, 201, 212, 0.85);
 }
 
-#floating-rsvp a::before {
-  content: 'âœ‰';
-  font-size: 0.9rem;
+#floating-rsvp a .floating-rsvp-icon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  fill: currentColor;
+  display: inline-block;
+  vertical-align: middle;
+  transition: transform 0.25s ease;
+}
+
+#floating-rsvp a:hover .floating-rsvp-icon {
+  transform: scale(1.15);
 }
 
 @media (max-width: 480px) {
@@ -4029,6 +4038,7 @@ body.invitation-opened .floating-audio-widget {
     display: none !important;
   }
 }
+
 
 
 
