@@ -2535,6 +2535,8 @@ body.invitation-opened .floating-audio-widget {
     height: 38px;
     font-size: 1.6rem;
   }
+}
+
 /* Share Pill Button & Toast Notifications */
 .btn-share-pill {
   display: inline-flex;
