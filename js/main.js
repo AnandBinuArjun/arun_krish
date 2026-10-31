@@ -397,23 +397,37 @@
       canvas.height = window.innerHeight;
     }
     resize();
-    window.addEventListener('resize', resize);
+    let resizeTimer = null;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(resize, 100);
+    }, { passive: true });
 
     for (let i = 0; i < 12; i++) {
       petals.push(new LotusParticle(Math.random() * window.innerWidth, Math.random() * window.innerHeight));
     }
 
+    let animId = null;
     function animate() {
-      if (petalsRunning) {
+      if (petalsRunning && !document.hidden) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         for (let i = 0; i < petals.length; i++) {
           petals[i].update();
           petals[i].draw(ctx);
         }
       }
-      requestAnimationFrame(animate);
+      if (!document.hidden) {
+        animId = requestAnimationFrame(animate);
+      }
     }
     animate();
+
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) {
+        cancelAnimationFrame(animId);
+        animate();
+      }
+    });
   }
 
   /* ==========================================================================
@@ -428,10 +442,14 @@
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    let resizeTimer = null;
     window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }, 100);
+    }, { passive: true });
 
     const sparkles = [];
 
@@ -460,13 +478,13 @@
       }
     }
 
-    window.addEventListener('mousemove', (e) => {
-      if (Math.random() > 0.4) {
-        sparkles.push(new Sparkle(e.clientX, e.clientY));
-      }
-    });
-
+    let sparkleAnimId = null;
     function renderSparkles() {
+      if (sparkles.length === 0) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        sparkleAnimId = null;
+        return;
+      }
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       for (let i = sparkles.length - 1; i >= 0; i--) {
         sparkles[i].update();
@@ -475,9 +493,17 @@
           sparkles.splice(i, 1);
         }
       }
-      requestAnimationFrame(renderSparkles);
+      sparkleAnimId = requestAnimationFrame(renderSparkles);
     }
-    renderSparkles();
+
+    window.addEventListener('mousemove', (e) => {
+      if (Math.random() > 0.4) {
+        sparkles.push(new Sparkle(e.clientX, e.clientY));
+        if (!sparkleAnimId && !document.hidden) {
+          sparkleAnimId = requestAnimationFrame(renderSparkles);
+        }
+      }
+    }, { passive: true });
   }
 
   /* ==========================================================================
@@ -537,21 +563,28 @@
       });
     });
 
-    // Update active dot on scroll
+    // Update active dot on scroll (throttled via requestAnimationFrame)
+    let navTicking = false;
     window.addEventListener('scroll', () => {
-      const scrollPos = window.scrollY + 200;
-      dots.forEach((dot) => {
-        const targetId = dot.getAttribute('data-target');
-        const el = document.getElementById(targetId);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            dots.forEach((d) => d.classList.remove('active'));
-            dot.classList.add('active');
-          }
-        }
-      });
+      if (!navTicking) {
+        window.requestAnimationFrame(() => {
+          const scrollPos = window.scrollY + 200;
+          dots.forEach((dot) => {
+            const targetId = dot.getAttribute('data-target');
+            const el = document.getElementById(targetId);
+            if (el) {
+              const top = el.offsetTop;
+              const height = el.offsetHeight;
+              if (scrollPos >= top && scrollPos < top + height) {
+                dots.forEach((d) => d.classList.remove('active'));
+                dot.classList.add('active');
+              }
+            }
+          });
+          navTicking = false;
+        });
+        navTicking = true;
+      }
     }, { passive: true });
   }
 
@@ -1053,10 +1086,17 @@
   function initScrollProgress() {
     const bar = document.getElementById('scroll-progress-bar');
     if (!bar) return;
+    let progressTicking = false;
     window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      bar.style.width = docHeight > 0 ? (scrollTop / docHeight * 100) + '%' : '0%';
+      if (!progressTicking) {
+        window.requestAnimationFrame(() => {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          bar.style.width = docHeight > 0 ? (scrollTop / docHeight * 100) + '%' : '0%';
+          progressTicking = false;
+        });
+        progressTicking = true;
+      }
     }, { passive: true });
   }
 
@@ -1132,7 +1172,8 @@
     const milestones = document.querySelectorAll('.story-milestone');
     if (!timeline || !progressBar) return;
 
-    function onScroll() {
+    let storyTicking = false;
+    function updateProgress() {
       const rect = timeline.getBoundingClientRect();
       const windowHeight = window.innerHeight;
       const startTrigger = windowHeight * 0.75;
@@ -1154,8 +1195,18 @@
       });
     }
 
+    function onScroll() {
+      if (!storyTicking) {
+        window.requestAnimationFrame(() => {
+          updateProgress();
+          storyTicking = false;
+        });
+        storyTicking = true;
+      }
+    }
+
     window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    updateProgress();
   }
 
   /* ==========================================================================
