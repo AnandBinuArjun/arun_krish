@@ -295,23 +295,23 @@
       const grad = ctx.createLinearGradient(0, this.size, 0, -this.size);
 
       if (this.type === 0) {
-        // Royal Raspberry & Dusty Rose with Cream base
-        grad.addColorStop(0, '#F5DDA9'); // Cream base
-        grad.addColorStop(0.35, '#ECD2D6'); // Soft Blush
-        grad.addColorStop(0.7, '#C4707A'); // Dusty Rose
-        grad.addColorStop(1, '#9E4568'); // Raspberry tip
+        // Romantic Carnation Rose & Tender Petal Blush
+        grad.addColorStop(0, '#FFF1F6'); // Pale Whisper
+        grad.addColorStop(0.35, '#FEE0E9'); // Soft Blush
+        grad.addColorStop(0.7, '#F5C9D4'); // Carnation Rose
+        grad.addColorStop(1, '#D9889B'); // Rose Petal Bloom
       } else if (this.type === 1) {
-        // Regal Mauve into Imperial Deep Purple
-        grad.addColorStop(0, '#F9EFF6'); // Mauve whisper
-        grad.addColorStop(0.4, '#C598BB'); // Soft Mauve
-        grad.addColorStop(0.75, '#A66E98'); // Mauve
-        grad.addColorStop(1, '#722E78'); // Deep Purple apex
+        // Fresh Garden Sage into Heritage Meadow Olive
+        grad.addColorStop(0, '#FFF8FA'); // Whisper
+        grad.addColorStop(0.4, '#C7DD9D'); // Soft Garden Sage
+        grad.addColorStop(0.75, '#8DA65C'); // Meadow Olive
+        grad.addColorStop(1, '#5A7034'); // Deep Leaf Apex
       } else {
-        // Sunset Saffron Orange & Warm Cream
-        grad.addColorStop(0, '#FDFBF7'); // Ivory Cream
-        grad.addColorStop(0.4, '#F5DDA9'); // Cream
-        grad.addColorStop(0.8, '#F2A25F'); // Saffron Orange
-        grad.addColorStop(1, '#D97834'); // Warm Amber
+        // Garden Harmony: Blush, Sage & Meadow Olive
+        grad.addColorStop(0, '#FFF1F6'); // Whisper
+        grad.addColorStop(0.4, '#FEE0E9'); // Soft Blush
+        grad.addColorStop(0.75, '#C7DD9D'); // Soft Sage
+        grad.addColorStop(1, '#8DA65C'); // Meadow Olive
       }
       ctx.fillStyle = grad;
 
@@ -398,7 +398,7 @@
         this.size = Math.random() * 3 + 1.5;
         this.alpha = 1;
         this.decay = Math.random() * 0.03 + 0.015;
-        const sparkleColors = ['#F2A25F', '#F5DDA9', '#C4707A', '#FBF6EA'];
+        const sparkleColors = ['#8DA65C', '#C7DD9D', '#F5C9D4', '#FEE0E9', '#FFF1F6'];
         this.color = sparkleColors[Math.floor(Math.random() * sparkleColors.length)];
       }
       update() {
@@ -704,12 +704,11 @@
 
     const emojis = ['🪙', '❤️', '💖', '✨', '🪙', '🌟', '🎉'];
     const ribbonColors = [
-      'linear-gradient(135deg, #FFD700, #D4AF37)',
-      'linear-gradient(135deg, #F5DDA9, #E6CA65)',
-      'linear-gradient(135deg, #C41E3A, #8B0000)',
-      'linear-gradient(135deg, #C598BB, #9E4568)',
-      'linear-gradient(135deg, #FFFDF8, #F2A25F)',
-      'linear-gradient(135deg, #E8A87C, #C38D9E)'
+      'linear-gradient(135deg, #F5C9D4, #FEE0E9)',
+      'linear-gradient(135deg, #C7DD9D, #8DA65C)',
+      'linear-gradient(135deg, #FFF1F6, #F5C9D4)',
+      'linear-gradient(135deg, #8DA65C, #5A7034)',
+      'linear-gradient(135deg, #FEE0E9, #C7DD9D)'
     ];
 
     // Wave 1: Explosive upward cannon burst from the RSVP card

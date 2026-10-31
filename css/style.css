@@ -1,100 +1,106 @@
 /* ==========================================================================
    ENGLISH WEDDING INVITATION — "AN HEIRLOOM INVITATION"
-   Theme: Sunset Jewel Palette
-   Colors: Cream (#F5DDA9), Orange (#F2A25F), Dusty Rose (#C4707A),
-           Raspberry (#9E4568), Mauve (#A66E98), Deep Purple (#722E78)
+   Theme: Romantic Rose & Heritage Meadow Olive Garden
+   Palette:
+     #FEE0E9 (Soft Blush Pink)
+     #FFF1F6 (Whispering Pale Ivory Ground)
+     #F5C9D4 (Carnation Rose)
+     #C7DD9D (Soft Garden Sage)
+     #8DA65C (Heritage Meadow Olive)
    Typography: Cormorant Garamond & Pinyon Script
-   Enhanced with Pooja & Saroop Reference Cues (Arched Frames, Audio Equalizer, Side Dots)
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Pinyon+Script&display=swap');
 
 :root {
   /* ==========================================================================
-     CORE 6-COLOR SYSTEM TOKENS
+     CORE 5-COLOR SYSTEM TOKENS (ROMANTIC ROSE & MEADOW OLIVE GARDEN)
+     #FEE0E9 (Soft Blush Pink), #FFF1F6 (Whisper Ivory Ground),
+     #F5C9D4 (Carnation Rose), #C7DD9D (Soft Garden Sage), #8DA65C (Meadow Olive)
      ========================================================================== */
 
-  /* 1. Cream System (#F5DDA9) */
-  --color-cream: #F5DDA9;              /* Core Warm Cream */
-  --color-cream-light: #FDF9F0;        /* Delicate Cream Paper */
-  --color-cream-soft: #FBF4E3;         /* Soft Cream Parchment Ground */
-  --color-cream-border: rgba(245, 221, 169, 0.45);
-  --color-ivory: #FDFBF7;              /* Luminous Ivory */
-  --color-ivory-warm: #FAF4E8;         /* Warm Ivory Cream Ground */
-  --color-parchment: #F8EED8;          /* Heirloom Cream Parchment */
+  /* 1. Whisper Ivory & Blush Grounds (#FFF1F6 & #FEE0E9) */
+  --color-ivory: #FFF1F6;              /* Core Luminous Whisper Ground (#FFF1F6) */
+  --color-ivory-warm: #FFF8FA;         /* Warm Tint Paper Ground */
+  --color-parchment: #FEE0E9;          /* Heirloom Soft Blush Ground (#FEE0E9) */
+  --color-cream: #FEE0E9;              /* Delicate Blush Paper (#FEE0E9) */
+  --color-cream-light: #FFF8FA;        /* Pale Whisper Paper */
+  --color-cream-soft: #FFF1F6;         /* Whispering Background ground */
+  --color-cream-border: rgba(245, 201, 212, 0.5);
 
-  /* 2. Orange System (#F2A25F) */
-  --color-orange: #F2A25F;             /* Radiant Sunset Saffron */
-  --color-orange-light: #F9CA9F;        /* Soft Peach Amber */
-  --color-orange-deep: #D97834;         /* Rich Burnt Amber */
-  --color-orange-glow: rgba(242, 162, 95, 0.45);
+  /* 2. Soft Garden Sage System (#C7DD9D) */
+  --color-sage: #C7DD9D;               /* Fresh Garden Sage (#C7DD9D) */
+  --color-sage-light: #DBE8C0;         /* Soft Pistachio Whisper */
+  --color-sage-subtle: #EDF4E0;        /* Light Leaf Glow */
+  --color-sage-border: rgba(199, 221, 157, 0.5);
 
-  /* 3. Dusty Rose System (#C4707A) */
-  --color-dusty-rose: #C4707A;         /* Romantic Dusty Rose */
-  --color-rose-soft: #ECD2D6;          /* Tender Petal Blush */
-  --color-rose-light: #FDF4F6;         /* Rose Whisper Tint */
-  --color-rose-border: rgba(196, 112, 122, 0.35);
+  /* 3. Carnation Rose System (#F5C9D4) */
+  --color-dusty-rose: #F5C9D4;         /* Romantic Carnation Rose (#F5C9D4) */
+  --color-rose-soft: #FEE0E9;          /* Tender Petal Blush (#FEE0E9) */
+  --color-rose-light: #FFF1F6;         /* Rose Whisper Tint (#FFF1F6) */
+  --color-rose-deep: #D9889B;          /* Rose Petal Bloom */
+  --color-rose-border: rgba(245, 201, 212, 0.55);
 
-  /* 4. Raspberry System (#9E4568) */
-  --color-raspberry: #9E4568;          /* Royal Crimson Raspberry */
-  --color-raspberry-deep: #7D2E4E;     /* Velvet Berry */
-  --color-raspberry-light: #BD5880;    /* Vibrant Raspberry Bloom */
-  --color-raspberry-soft: #F7EBF0;     /* Pale Berry Tint */
+  /* 4. Deep Rose & Raspberry System */
+  --color-raspberry: #C46D82;          /* Rich Velvet Garden Rose */
+  --color-raspberry-deep: #8E3A4E;     /* Deep Crimson Rose */
+  --color-raspberry-light: #F5C9D4;    /* Vibrant Carnation Bloom */
+  --color-raspberry-soft: #FEE0E9;     /* Pale Blush Tint */
 
-  /* 5. Mauve System (#A66E98) */
-  --color-mauve: #A66E98;              /* Elegant Orchid Mauve */
-  --color-mauve-light: #C498BB;        /* Soft Mauve Bloom */
-  --color-mauve-subtle: #F6EDF4;       /* Whispering Mauve Mist */
-  --color-mauve-border: rgba(166, 110, 152, 0.35);
+  /* 5. Meadow Olive & Deep Foliage System (#8DA65C & Forest Olive) */
+  --color-olive: #8DA65C;              /* Heritage Meadow Olive (#8DA65C) */
+  --color-olive-dark: #5A7034;         /* Rich Leaf Olive */
+  --color-olive-deep: #3A4B20;         /* Deep Forest Olive (AAA Contrast) */
+  --color-olive-light: #A5BD75;        /* Golden Leaf Olive */
+  --color-olive-subtle: #EDF4E0;       /* Pale Sage Tint */
 
-  /* 6. Deep Purple System (#722E78) */
-  --color-deep-purple: #722E78;        /* Majestic Imperial Deep Purple */
-  --color-purple-dark: #4F1C54;        /* Regal Velvet Plum */
-  --color-purple-deep: #350F39;        /* Midnight Plum */
-  --color-purple-midnight: #1E0720;    /* Darkest Royal Amethyst */
-  --color-purple-subtle: #F4EBF5;      /* Lavender Mist */
+  /* Deep Forest Olive & Legacy Compatibility Aliases */
+  --color-forest: #3A4B20;             /* Majestic Forest Olive */
+  --color-forest-deep: #283516;        /* Deep Woodland Charcoal */
+  --color-deep-purple: #3A4B20;        /* Alias -> Deep Forest Olive */
+  --color-purple-dark: #283516;
+  --color-purple-deep: #1E2711;
+  --color-purple-midnight: #151C0C;
+  --color-purple-subtle: #EDF4E0;
 
-  /* Semantic Aliases for Compatibility */
-  --color-forest: var(--color-deep-purple);
-  --color-forest-deep: var(--color-purple-dark);
-  --color-olive: var(--color-deep-purple);
-  --color-olive-dark: var(--color-purple-dark);
-  --color-olive-deep: var(--color-purple-deep);
-  --color-olive-light: var(--color-mauve);
-  --color-olive-subtle: var(--color-purple-subtle);
+  --color-mauve: #8DA65C;              /* Alias -> Meadow Olive */
+  --color-mauve-light: #C7DD9D;        /* Alias -> Garden Sage */
+  --color-mauve-subtle: #EDF4E0;
+  --color-mauve-border: rgba(141, 166, 92, 0.35);
 
-  --color-sage: var(--color-mauve);
-  --color-sage-light: var(--color-mauve-light);
-  --color-sage-subtle: var(--color-mauve-subtle);
+  --color-orange: #8DA65C;             /* Alias -> Meadow Olive */
+  --color-orange-light: #C7DD9D;       /* Alias -> Sage Glow */
+  --color-orange-deep: #5A7034;        /* Rich Forest Olive */
+  --color-orange-glow: rgba(141, 166, 92, 0.35);
+
+  --color-gold: #8DA65C;               /* Meadow Olive Accent (#8DA65C) */
+  --color-gold-light: #C7DD9D;         /* Soft Sage Accent (#C7DD9D) */
+  --color-gold-deep: #5A7034;          /* Deep Leaf Olive */
+  --color-burgundy: #8DA65C;           /* Button / Accent compatibility */
 
   --color-pink: var(--color-dusty-rose);
   --color-pink-soft: var(--color-rose-soft);
   --color-pink-light: var(--color-rose-light);
   --color-pink-deep: var(--color-raspberry);
-  --color-pink-accent: var(--color-raspberry-light);
+  --color-pink-accent: var(--color-rose-deep);
 
-  /* Warm Gilded Champagne Amber (using Orange #F2A25F & Cream #F5DDA9) */
-  --color-gold: #E89A50;
-  --color-gold-light: #F5DDA9;
-  --color-gold-deep: #C97534;
-
-  /* Neutrals */
-  --color-charcoal: #2A1C2B;
-  --color-muted: #725D6B;
-  --color-border-subtle: rgba(242, 162, 95, 0.35);
-  --color-border-pink: rgba(196, 112, 122, 0.4);
-  --color-border-olive: rgba(114, 46, 120, 0.28);
+  /* High-Contrast Readable Neutrals */
+  --color-charcoal: #252D1B;           /* Deep Forest Woodland (AAA Contrast) */
+  --color-muted: #5D6E47;              /* Muted Moss Olive */
+  --color-border-subtle: rgba(141, 166, 92, 0.28);
+  --color-border-pink: rgba(245, 201, 212, 0.55);
+  --color-border-olive: rgba(141, 166, 92, 0.35);
 
   /* Typography */
   --font-serif: 'Cormorant Garamond', Garamond, 'Times New Roman', serif;
   --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-script: 'Pinyon Script', 'Great Vibes', cursive;
 
-  /* Shadows & Depth tailored to Deep Purple, Raspberry & Sunset Amber */
-  --shadow-subtle: 0 4px 20px rgba(114, 46, 120, 0.07);
-  --shadow-card: 0 12px 40px rgba(114, 46, 120, 0.1), 0 2px 6px rgba(196, 112, 122, 0.08);
-  --shadow-envelope: 0 24px 60px rgba(30, 7, 32, 0.4);
-  --shadow-wax: 0 8px 24px rgba(30, 7, 32, 0.5), 0 0 16px rgba(242, 162, 95, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+  /* Shadows & Depth tailored to Meadow Olive & Carnation Rose */
+  --shadow-subtle: 0 4px 20px rgba(58, 75, 32, 0.07);
+  --shadow-card: 0 12px 40px rgba(58, 75, 32, 0.08), 0 2px 6px rgba(245, 201, 212, 0.12);
+  --shadow-envelope: 0 24px 60px rgba(21, 28, 12, 0.35);
+  --shadow-wax: 0 8px 24px rgba(21, 28, 12, 0.35), 0 0 16px rgba(141, 166, 92, 0.35), inset 0 2px 4px rgba(255, 255, 255, 0.4);
 
   /* Transitions */
   --transition-smooth: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
@@ -128,10 +134,10 @@ body {
   color: var(--color-charcoal);
   background-color: var(--color-ivory);
   background-image: 
-    radial-gradient(circle at 12% 8%, rgba(196, 112, 122, 0.09) 0%, transparent 45%),
-    radial-gradient(circle at 88% 20%, rgba(114, 46, 120, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 50% 55%, rgba(242, 162, 95, 0.08) 0%, transparent 60%),
-    radial-gradient(circle at 15% 85%, rgba(166, 110, 152, 0.07) 0%, transparent 50%),
+    radial-gradient(circle at 12% 8%, rgba(245, 201, 212, 0.28) 0%, transparent 45%),
+    radial-gradient(circle at 88% 20%, rgba(199, 221, 157, 0.22) 0%, transparent 50%),
+    radial-gradient(circle at 50% 55%, rgba(254, 224, 233, 0.25) 0%, transparent 60%),
+    radial-gradient(circle at 15% 85%, rgba(141, 166, 92, 0.12) 0%, transparent 50%),
     url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
   overflow-x: hidden;
   width: 100%;
@@ -178,11 +184,11 @@ body {
   position: fixed;
   inset: 0;
   z-index: 2000;
-  background-color: #16041B;
+  background-color: #1A2412;
   background-image: 
-    radial-gradient(circle at 50% 42%, rgba(242, 162, 95, 0.18) 0%, rgba(114, 46, 120, 0.3) 45%, rgba(18, 3, 22, 0.98) 100%),
-    radial-gradient(circle at 18% 22%, rgba(196, 112, 122, 0.12) 0%, transparent 40%),
-    radial-gradient(circle at 82% 78%, rgba(166, 110, 152, 0.14) 0%, transparent 45%),
+    radial-gradient(circle at 50% 42%, rgba(141, 166, 92, 0.28) 0%, rgba(58, 75, 32, 0.48) 45%, rgba(16, 23, 11, 0.98) 100%),
+    radial-gradient(circle at 18% 22%, rgba(245, 201, 212, 0.18) 0%, transparent 40%),
+    radial-gradient(circle at 82% 78%, rgba(199, 221, 157, 0.22) 0%, transparent 45%),
     url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
   display: flex;
   flex-direction: column;
@@ -211,9 +217,9 @@ body {
   top: 1.2rem;
   right: 1.5rem;
   z-index: 2100;
-  background: rgba(114, 46, 120, 0.35);
-  border: 1px solid rgba(245, 221, 169, 0.45);
-  color: rgba(245, 221, 169, 0.8);
+  background: rgba(58, 75, 32, 0.45);
+  border: 1px solid rgba(245, 201, 212, 0.55);
+  color: #FFF1F6;
   font-family: var(--font-sans);
   font-size: 0.7rem;
   letter-spacing: 1.5px;
@@ -227,9 +233,9 @@ body {
 }
 
 .skip-envelope-btn:hover {
-  background: rgba(114, 46, 120, 0.65);
-  border-color: rgba(245, 221, 169, 0.8);
-  color: var(--color-cream);
+  background: rgba(58, 75, 32, 0.75);
+  border-color: #FFF1F6;
+  color: #FFF1F6;
   transform: translateY(-1px);
 }
 
@@ -259,15 +265,15 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  background: linear-gradient(150deg, #FDF9F0 0%, #F5ECE0 60%, #EBDDCB 100%);
+  background: linear-gradient(150deg, #FFF1F6 0%, #FEE0E9 60%, #F5C9D4 100%);
   border-radius: 10px;
   box-shadow: 
-    0 32px 75px rgba(8, 1, 12, 0.65),
-    0 12px 30px rgba(114, 46, 120, 0.3),
-    inset 0 0 0 1px rgba(245, 221, 169, 0.8),
-    inset 0 0 25px rgba(242, 162, 95, 0.12);
+    0 32px 75px rgba(18, 25, 12, 0.65),
+    0 12px 30px rgba(58, 75, 32, 0.3),
+    inset 0 0 0 1px rgba(245, 201, 212, 0.8),
+    inset 0 0 25px rgba(141, 166, 92, 0.12);
   overflow: visible;
-  border: 1px solid rgba(215, 188, 145, 0.85);
+  border: 1px solid rgba(199, 221, 157, 0.85);
 }
 
 /* Subtle deckled gold inner margin */
@@ -276,8 +282,8 @@ body {
   position: absolute;
   inset: 7px;
   border-radius: 6px;
-  border: 1px solid rgba(242, 162, 95, 0.32);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(141, 166, 92, 0.35);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.75);
   pointer-events: none;
   z-index: 5;
 }
@@ -294,18 +300,18 @@ body {
 
 .envelope-fold-left {
   left: 0;
-  background: linear-gradient(135deg, rgba(242, 232, 218, 0.9) 0%, rgba(230, 216, 198, 0.96) 100%);
+  background: linear-gradient(135deg, rgba(254, 224, 233, 0.92) 0%, rgba(245, 201, 212, 0.96) 100%);
   clip-path: polygon(0 0, 100% 50%, 0 100%);
-  box-shadow: 2px 0 10px rgba(60, 35, 18, 0.06);
-  border-left: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 2px 0 10px rgba(35, 45, 20, 0.08);
+  border-left: 1px solid rgba(255, 255, 255, 0.7);
 }
 
 .envelope-fold-right {
   right: 0;
-  background: linear-gradient(225deg, rgba(242, 232, 218, 0.9) 0%, rgba(230, 216, 198, 0.96) 100%);
+  background: linear-gradient(225deg, rgba(254, 224, 233, 0.92) 0%, rgba(245, 201, 212, 0.96) 100%);
   clip-path: polygon(100% 0, 0 50%, 100% 100%);
-  box-shadow: -2px 0 10px rgba(60, 35, 18, 0.06);
-  border-right: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: -2px 0 10px rgba(35, 45, 20, 0.08);
+  border-right: 1px solid rgba(255, 255, 255, 0.7);
 }
 
 /* Bottom upward pocket fold */
@@ -315,9 +321,9 @@ body {
   left: 0;
   width: 100%;
   height: 56%;
-  background: linear-gradient(to top, #EDE0CD 0%, #FAF3E6 100%);
+  background: linear-gradient(to top, #F5C9D4 0%, #FFF1F6 100%);
   clip-path: polygon(0 100%, 50% 30%, 100% 100%);
-  box-shadow: 0 -4px 18px rgba(50, 25, 10, 0.08);
+  box-shadow: 0 -4px 18px rgba(35, 45, 20, 0.08);
   pointer-events: none;
   z-index: 3;
   border-bottom-left-radius: 10px;
@@ -339,8 +345,8 @@ body {
 .envelope-vintage-stamp {
   width: 56px;
   height: 68px;
-  background: #FAF5E8;
-  border: 1.5px dashed #C97534;
+  background: #FFF1F6;
+  border: 1.5px dashed #8DA65C;
   border-radius: 2px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
   display: flex;
@@ -349,7 +355,7 @@ body {
   justify-content: space-between;
   padding: 4px 2px;
   transform: rotate(2deg);
-  background-image: radial-gradient(circle at center, #FFFDF8 0%, #F3E4C8 100%);
+  background-image: radial-gradient(circle at center, #FFF1F6 0%, #FEE0E9 100%);
 }
 
 .stamp-crest {
@@ -363,7 +369,7 @@ body {
   font-family: var(--font-serif);
   font-size: 0.85rem;
   font-weight: 700;
-  color: #722E78;
+  color: #3A4B20;
   line-height: 1;
 }
 
@@ -468,9 +474,9 @@ body {
   left: 0;
   width: 100%;
   height: 55%;
-  background: linear-gradient(180deg, #FBF4E4 0%, #F5E8D3 70%, #EBDACO 100%);
+  background: linear-gradient(180deg, #FFF1F6 0%, #FEE0E9 70%, #F5C9D4 100%);
   clip-path: polygon(0 0, 100% 0, 50% 100%);
-  filter: drop-shadow(0 8px 16px rgba(50, 18, 25, 0.16));
+  filter: drop-shadow(0 8px 16px rgba(35, 45, 20, 0.16));
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
@@ -480,7 +486,7 @@ body {
   inset: 0;
   clip-path: polygon(0 0, 100% 0, 50% 100%);
   pointer-events: none;
-  background: linear-gradient(to bottom, transparent 90%, rgba(242, 162, 95, 0.7) 98%, #D97834 100%);
+  background: linear-gradient(to bottom, transparent 90%, rgba(141, 166, 92, 0.7) 98%, #5A7034 100%);
 }
 
 .envelope-stage.animating .envelope-flap {
@@ -514,14 +520,14 @@ body {
 }
 
 .address-plate-frame {
-  background: rgba(255, 253, 248, 0.95);
+  background: rgba(255, 248, 250, 0.96);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(242, 162, 95, 0.55);
+  border: 1px solid rgba(245, 201, 212, 0.75);
   box-shadow: 
-    0 6px 22px rgba(90, 30, 95, 0.08),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.85),
-    inset 0 0 18px rgba(245, 221, 169, 0.35);
+    0 6px 22px rgba(58, 75, 32, 0.08),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.9),
+    inset 0 0 18px rgba(254, 224, 233, 0.5);
   border-radius: 8px;
   padding: 1.05rem 1.6rem 0.85rem;
   text-align: center;
@@ -543,7 +549,7 @@ body {
 .guest-calligraphy {
   font-family: var(--font-script);
   font-size: clamp(1.9rem, 4.2vw, 2.6rem);
-  color: #55195D;
+  color: #3A4B20;
   line-height: 1.15;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.95);
   white-space: nowrap;
@@ -556,7 +562,7 @@ body {
   font-size: 0.58rem;
   letter-spacing: 2.6px;
   text-transform: uppercase;
-  color: #C97534;
+  color: #5A7034;
   margin-top: 0.35rem;
   font-weight: 500;
 }
@@ -570,10 +576,10 @@ body {
   width: 90px;
   height: 90px;
   border-radius: 50% 48% 52% 49% / 49% 52% 48% 51%;
-  background: radial-gradient(circle at 35% 30%, #BA4E78 0%, #8C2F5D 42%, #58165E 76%, #28062E 100%);
+  background: radial-gradient(circle at 35% 30%, #A5BD75 0%, #8DA65C 38%, #5A7034 72%, #263314 100%);
   box-shadow: 
-    0 14px 34px rgba(12, 1, 15, 0.75),
-    0 4px 14px rgba(114, 46, 120, 0.45),
+    0 14px 34px rgba(18, 25, 12, 0.75),
+    0 4px 14px rgba(58, 75, 32, 0.45),
     inset 0 3px 6px rgba(255, 255, 255, 0.45),
     inset 0 -4px 8px rgba(0, 0, 0, 0.55);
   z-index: 7;
@@ -581,7 +587,7 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border: 1px solid rgba(245, 221, 169, 0.65);
+  border: 1px solid rgba(245, 201, 212, 0.65);
   transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease, filter 0.4s ease, opacity 0.5s ease, background 0.5s ease;
   user-select: none;
 }
@@ -600,8 +606,8 @@ body {
   transform: translate(-50%, -50%) scale(1.08);
   filter: brightness(1.1);
   box-shadow: 
-    0 18px 42px rgba(12, 1, 15, 0.85),
-    0 0 28px rgba(242, 162, 95, 0.55),
+    0 18px 42px rgba(18, 25, 12, 0.85),
+    0 0 28px rgba(141, 166, 92, 0.55),
     inset 0 3px 6px rgba(255, 255, 255, 0.5);
 }
 
@@ -609,7 +615,7 @@ body {
   position: absolute;
   inset: -14px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(242, 162, 95, 0.38) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(141, 166, 92, 0.38) 0%, transparent 70%);
   pointer-events: none;
   animation: waxGlow 2.8s infinite ease-in-out;
 }
@@ -623,7 +629,7 @@ body {
   width: 66px;
   height: 66px;
   border-radius: 50%;
-  border: 1.2px solid rgba(245, 221, 169, 0.85);
+  border: 1.2px solid rgba(245, 201, 212, 0.9);
   box-shadow: 
     inset 0 2px 5px rgba(0, 0, 0, 0.55),
     0 1px 2px rgba(255, 255, 255, 0.25);
@@ -643,7 +649,7 @@ body {
   font-family: var(--font-serif);
   font-size: 1.35rem;
   font-weight: 600;
-  color: var(--color-cream);
+  color: #FFF1F6;
   letter-spacing: 2px;
   line-height: 1;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
@@ -654,7 +660,7 @@ body {
   font-family: var(--font-sans);
   font-size: 0.46rem;
   letter-spacing: 1.8px;
-  color: var(--color-gold);
+  color: #C7DD9D;
   margin-top: 3px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 }
@@ -700,13 +706,13 @@ body {
   align-items: center;
   gap: 0.65rem;
   padding: 0.6rem 1.4rem;
-  background: rgba(30, 8, 35, 0.78);
+  background: rgba(26, 36, 18, 0.88);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(242, 162, 95, 0.5);
+  border: 1px solid rgba(199, 221, 157, 0.55);
   border-radius: 30px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 16px rgba(242, 162, 95, 0.25);
-  color: var(--color-cream);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 16px rgba(141, 166, 92, 0.25);
+  color: #FFF1F6;
   font-family: var(--font-sans);
   font-size: 0.74rem;
   letter-spacing: 2px;
@@ -717,10 +723,10 @@ body {
 }
 
 .prompt-pill:hover {
-  background: rgba(48, 12, 55, 0.9);
-  border-color: var(--color-cream);
+  background: rgba(35, 48, 24, 0.95);
+  border-color: #FEE0E9;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 22px rgba(242, 162, 95, 0.4);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 22px rgba(199, 221, 157, 0.4);
 }
 
 .prompt-sparkle {
@@ -733,7 +739,7 @@ body {
   font-size: 0.95rem;
   font-style: italic;
   letter-spacing: 1px;
-  color: rgba(245, 221, 169, 0.75);
+  color: rgba(245, 201, 212, 0.85);
 }
 
 @keyframes pulseTouch {
@@ -753,12 +759,12 @@ body {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  background: linear-gradient(135deg, #722E78 0%, #4F1C54 100%);
-  border: 1px solid var(--color-orange);
+  background: linear-gradient(135deg, #8DA65C 0%, #5A7034 100%);
+  border: 1px solid var(--color-sage);
   padding: 0.45rem 1rem 0.45rem 0.6rem;
   border-radius: 30px;
   cursor: pointer;
-  box-shadow: 0 8px 24px rgba(47, 14, 52, 0.35), 0 0 12px rgba(242, 162, 95, 0.2);
+  box-shadow: 0 8px 24px rgba(35, 45, 20, 0.35), 0 0 12px rgba(141, 166, 92, 0.25);
   transition: var(--transition-smooth);
   opacity: 0;
   pointer-events: none;
@@ -772,8 +778,8 @@ body.invitation-opened .floating-audio-widget {
 
 .floating-audio-widget:hover {
   transform: translateY(-2px);
-  background: linear-gradient(135deg, #87368E 0%, #5F2365 100%);
-  border-color: var(--color-cream);
+  background: linear-gradient(135deg, #9CB56B 0%, #68823E 100%);
+  border-color: #FFF1F6;
 }
 
 .audio-eq-bars {
@@ -995,16 +1001,16 @@ body.invitation-opened .floating-audio-widget {
   bottom: -15px;
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(135deg, #722E78 0%, #4F1C54 100%);
-  color: var(--color-cream);
-  border: 1.5px solid var(--color-orange);
+  background: linear-gradient(135deg, #8DA65C 0%, #5A7034 100%);
+  color: #FFF1F6;
+  border: 1.5px solid #C7DD9D;
   border-radius: 30px;
   padding: 0.45rem 1.6rem;
   font-family: var(--font-sans);
   font-size: 0.72rem;
   letter-spacing: 3.5px;
   text-transform: uppercase;
-  box-shadow: 0 6px 18px rgba(47, 14, 52, 0.35), 0 0 12px rgba(242, 162, 95, 0.3);
+  box-shadow: 0 6px 18px rgba(35, 45, 20, 0.35), 0 0 12px rgba(141, 166, 92, 0.3);
   z-index: 3;
 }
 
@@ -1575,7 +1581,7 @@ body.invitation-opened .floating-audio-widget {
   bottom: 0;
   left: 50%;
   width: 2px;
-  background: linear-gradient(to bottom, transparent 0%, var(--color-mauve) 10%, var(--color-orange) 90%, transparent 100%);
+  background: linear-gradient(to bottom, transparent 0%, #8DA65C 10%, #F5C9D4 50%, #C7DD9D 90%, transparent 100%);
   transform: translateX(-50%);
 }
 
@@ -1669,7 +1675,7 @@ body.invitation-opened .floating-audio-widget {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 0 5px rgba(242, 162, 95, 0.25);
+  box-shadow: 0 0 0 5px rgba(245, 201, 212, 0.45);
 }
 
 .story-node-inner {
@@ -1801,8 +1807,8 @@ body.invitation-opened .floating-audio-widget {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  background: linear-gradient(135deg, #9E4568 0%, #722E78 100%);
-  color: #FDFBF7;
+  background: linear-gradient(135deg, #8DA65C 0%, #5A7034 100%);
+  color: #FFF1F6;
   font-family: var(--font-sans);
   font-size: 0.75rem;
   letter-spacing: 2.5px;
@@ -1810,25 +1816,25 @@ body.invitation-opened .floating-audio-widget {
   font-weight: 500;
   padding: 0.95rem 1.9rem;
   border-radius: 4px;
-  border: 1px solid var(--color-orange);
+  border: 1px solid #C7DD9D;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(114, 46, 120, 0.3);
+  box-shadow: 0 4px 16px rgba(58, 75, 32, 0.3);
   transition: var(--transition-smooth);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #B24F75 0%, #87368E 100%);
-  border-color: var(--color-cream);
+  background: linear-gradient(135deg, #9CB56B 0%, #68823E 100%);
+  border-color: #FEE0E9;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(114, 46, 120, 0.4), 0 0 14px rgba(242, 162, 95, 0.35);
+  box-shadow: 0 8px 24px rgba(58, 75, 32, 0.4), 0 0 14px rgba(199, 221, 157, 0.45);
 }
 
 .btn-secondary {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  background: #FFF9F3;
+  background: #FFF1F6;
   color: var(--color-deep-purple);
   font-family: var(--font-sans);
   font-size: 0.75rem;
@@ -2780,12 +2786,12 @@ body.invitation-opened .floating-audio-widget {
 
 /* Footer */
 .footer-section {
-  background: linear-gradient(160deg, #25092A 0%, #1A071E 60%, #120415 100%);
-  color: var(--color-ivory);
+  background: linear-gradient(160deg, #253119 0%, #1A2412 60%, #12190C 100%);
+  color: #FFF1F6;
   padding: 6rem 1.5rem 4rem;
   text-align: center;
   position: relative;
-  border-top: 2px solid var(--color-orange);
+  border-top: 2px solid #8DA65C;
   overflow: hidden;
   width: 100%;
   max-width: 100%;
@@ -3184,10 +3190,10 @@ body.invitation-opened .floating-audio-widget {
   left: 0;
   width: 0%;
   height: 3px;
-  background: linear-gradient(90deg, var(--color-burgundy), var(--color-gold-deep), #f5dda9);
+  background: linear-gradient(90deg, #F5C9D4, #8DA65C, #C7DD9D, #FEE0E9);
   z-index: 9999;
   transition: width 0.1s linear;
-  box-shadow: 0 0 8px rgba(212, 175, 105, 0.6);
+  box-shadow: 0 0 8px rgba(141, 166, 92, 0.6);
 }
 
 /* ==========================================================================
@@ -3259,8 +3265,8 @@ body.invitation-opened .floating-audio-widget {
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background: linear-gradient(135deg, var(--color-burgundy) 0%, #6b1224 100%);
-  color: var(--color-gold-light);
+  background: linear-gradient(135deg, #8DA65C 0%, #5A7034 100%);
+  color: #FFF1F6;
   font-family: var(--font-sans);
   font-size: 0.75rem;
   font-weight: 600;
@@ -3268,16 +3274,16 @@ body.invitation-opened .floating-audio-widget {
   text-transform: uppercase;
   text-decoration: none;
   border-radius: 50px;
-  border: 1px solid rgba(212, 175, 105, 0.4);
-  box-shadow: 0 8px 30px rgba(139, 26, 46, 0.5), 0 2px 8px rgba(0,0,0,0.3);
+  border: 1px solid rgba(199, 221, 157, 0.6);
+  box-shadow: 0 8px 30px rgba(58, 75, 32, 0.45), 0 2px 8px rgba(0,0,0,0.2);
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   white-space: nowrap;
 }
 
 #floating-rsvp a:hover {
   transform: translateY(-3px) scale(1.04);
-  box-shadow: 0 14px 40px rgba(139, 26, 46, 0.65), 0 4px 12px rgba(0,0,0,0.35);
-  border-color: rgba(212, 175, 105, 0.75);
+  box-shadow: 0 14px 40px rgba(58, 75, 32, 0.65), 0 4px 12px rgba(0,0,0,0.25);
+  border-color: rgba(245, 201, 212, 0.85);
 }
 
 #floating-rsvp a::before {
@@ -3378,8 +3384,8 @@ body.invitation-opened .floating-audio-widget {
   transform: translateX(-50%) rotate(-1deg);
   width: 50px;
   height: 18px;
-  background: rgba(212, 175, 105, 0.25);
-  border: 1px solid rgba(212, 175, 105, 0.35);
+  background: rgba(199, 221, 157, 0.45);
+  border: 1px solid rgba(141, 166, 92, 0.4);
   border-radius: 2px;
   backdrop-filter: blur(2px);
 }
