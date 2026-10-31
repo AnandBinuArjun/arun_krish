@@ -1776,6 +1776,10 @@ body.invitation-opened .floating-audio-widget {
   letter-spacing: 0.01em;
 }
 
+.story-desc + .story-desc {
+  margin-top: 0.85rem;
+}
+
 .story-photo-wrap {
   width: 44%;
   border-radius: 4px;
