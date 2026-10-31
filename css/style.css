@@ -549,19 +549,16 @@ textarea,
   overflow: hidden;
 }
 
-/* Islamic/Indian Jali Lattice Watermark */
+/* Heritage Royal Damask Texture & Vertical Grain */
 .door-jali-pattern {
   position: absolute;
   inset: 0;
   background-image: 
-    radial-gradient(circle at 50% 50%, rgba(245, 221, 169, 0.14) 2px, transparent 2px),
-    linear-gradient(45deg, rgba(197, 155, 75, 0.08) 25%, transparent 25%),
-    linear-gradient(-45deg, rgba(197, 155, 75, 0.08) 25%, transparent 25%),
-    linear-gradient(135deg, rgba(197, 155, 75, 0.08) 25%, transparent 25%),
-    linear-gradient(-135deg, rgba(197, 155, 75, 0.08) 25%, transparent 25%);
-  background-size: 28px 28px;
-  background-position: 0 0, 14px 0, 14px 0, 0 14px, 0 14px;
-  opacity: 0.65;
+    repeating-linear-gradient(90deg, rgba(245, 221, 169, 0.035) 0px, rgba(245, 221, 169, 0.035) 1px, transparent 1px, transparent 24px),
+    linear-gradient(45deg, rgba(197, 155, 75, 0.06) 25%, transparent 25%, transparent 75%, rgba(197, 155, 75, 0.06) 75%),
+    linear-gradient(-45deg, rgba(197, 155, 75, 0.06) 25%, transparent 25%, transparent 75%, rgba(197, 155, 75, 0.06) 75%);
+  background-size: 24px 100%, 32px 32px, 32px 32px;
+  opacity: 0.75;
   pointer-events: none;
 }
 
@@ -618,28 +615,17 @@ textarea,
 .door-ornament-bl { bottom: 22px; left: 24px; }
 .door-ornament-br { bottom: 22px; right: 24px; }
 
-/* Medallion Cup Inset Behind Medallion Center */
-.door-medallion-cup {
+/* Gilded Center Meeting Astragal Seam */
+.door-astragal {
   position: absolute;
-  top: 50%;
-  width: 52px;
-  height: 104px;
-  transform: translateY(-50%);
-  background: radial-gradient(circle at center, rgba(197, 155, 75, 0.25) 0%, transparent 70%);
-  border: 1px solid rgba(245, 221, 169, 0.4);
+  top: 0;
+  bottom: 0;
+  left: -2px;
+  width: 4px;
+  background: linear-gradient(to right, #9C772F 0%, #F5DDA9 50%, #C59B4B 100%);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6), 0 0 4px rgba(245, 221, 169, 0.45);
   pointer-events: none;
-}
-
-.left-cup {
-  right: 0;
-  border-radius: 52px 0 0 52px;
-  border-right: none;
-}
-
-.right-cup {
-  left: 0;
-  border-radius: 0 52px 52px 0;
-  border-left: none;
+  z-index: 5;
 }
 
 /* ==========================================================================
@@ -724,8 +710,8 @@ textarea,
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 96px;
-  height: 96px;
+  width: 108px;
+  height: 108px;
   border-radius: 50%;
   z-index: 40;
   cursor: pointer;
@@ -783,7 +769,7 @@ textarea,
 .wax-piece-left,
 .medallion-half-left {
   left: 0;
-  border-radius: 96px 0 0 96px;
+  border-radius: 54px 0 0 54px;
   background: linear-gradient(135deg, #FFF1F6 0%, #F5DDA9 45%, #C59B4B 100%);
   box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.8), -2px 0 6px rgba(0, 0, 0, 0.4);
 }
@@ -791,7 +777,7 @@ textarea,
 .wax-piece-right,
 .medallion-half-right {
   right: 0;
-  border-radius: 0 96px 96px 0;
+  border-radius: 0 54px 54px 0;
   background: linear-gradient(225deg, #FFF1F6 0%, #F5DDA9 45%, #C59B4B 100%);
   box-shadow: inset -1px 1px 3px rgba(255, 255, 255, 0.8), 2px 0 6px rgba(0, 0, 0, 0.4);
 }
@@ -827,11 +813,11 @@ textarea,
 .wax-seal-inner,
 .medallion-gold-face {
   position: relative;
-  width: 90px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   background: 
-    radial-gradient(circle at 35% 30%, #FFF1F6 0%, #F5DDA9 35%, #C59B4B 75%, #8B6B2B 100%);
+    radial-gradient(circle at 38% 30%, #FFFDF8 0%, #F5DDA9 32%, #C59B4B 72%, #8B6B2B 100%);
   box-shadow: 
     0 10px 25px rgba(0, 0, 0, 0.75),
     0 0 20px rgba(245, 221, 169, 0.5),
@@ -844,48 +830,55 @@ textarea,
   z-index: 5;
   transition: transform 0.3s ease;
   padding: 4px;
+  box-sizing: border-box;
 }
 
 .medallion-outer-ring {
   position: absolute;
   inset: 4px;
   border-radius: 50%;
-  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  border: 1.5px solid rgba(255, 255, 255, 0.65);
   pointer-events: none;
 }
 
 .medallion-beaded-ring {
   position: absolute;
-  inset: 8px;
+  inset: 7px;
   border-radius: 50%;
-  border: 1px dashed rgba(139, 107, 43, 0.8);
+  border: 1px dashed rgba(139, 107, 43, 0.75);
   pointer-events: none;
 }
 
 .medallion-lotus-vector {
-  filter: drop-shadow(0 1px 2px rgba(139, 107, 43, 0.8));
-  margin-top: 2px;
+  filter: drop-shadow(0 1px 2px rgba(45, 58, 27, 0.25));
+  margin-top: 1px;
+  flex-shrink: 0;
 }
 
 .medallion-initials {
   font-family: var(--font-serif);
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: #2D3A1B;
   letter-spacing: 2px;
   line-height: 1;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7), 0 -1px 1px rgba(0, 0, 0, 0.3);
-  margin-top: 3px;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75), 0 -1px 1px rgba(0, 0, 0, 0.25);
+  margin: 3px 0 2px;
+  white-space: nowrap;
 }
 
 .medallion-date {
   font-family: var(--font-sans);
-  font-size: 0.44rem;
-  letter-spacing: 1.8px;
+  font-size: 0.52rem;
+  letter-spacing: 1.4px;
   color: #3A4B20;
-  font-weight: 600;
-  margin-top: 2px;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+  font-weight: 700;
+  margin-top: 1px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.65);
+  white-space: nowrap;
+  display: block;
+  text-align: center;
+  width: 100%;
 }
 
 /* ==========================================================================
@@ -984,18 +977,35 @@ textarea,
 
   .palace-crest-medallion,
   .wax-seal {
-    width: 82px;
-    height: 82px;
+    width: 96px;
+    height: 96px;
   }
 
   .wax-seal-inner,
   .medallion-gold-face {
-    width: 76px;
-    height: 76px;
+    width: 88px;
+    height: 88px;
+  }
+
+  .wax-piece-left,
+  .medallion-half-left {
+    border-radius: 48px 0 0 48px;
+  }
+
+  .wax-piece-right,
+  .medallion-half-right {
+    border-radius: 0 48px 48px 0;
   }
 
   .medallion-initials {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    margin: 2px 0 1px;
+  }
+
+  .medallion-date {
+    font-size: 0.46rem;
+    letter-spacing: 1.1px;
+    white-space: nowrap;
   }
 
   .sanctuary-names {
@@ -1057,14 +1067,34 @@ textarea,
 
   .palace-crest-medallion,
   .wax-seal {
-    width: 72px;
-    height: 72px;
+    width: 86px;
+    height: 86px;
   }
 
   .wax-seal-inner,
   .medallion-gold-face {
-    width: 66px;
-    height: 66px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .wax-piece-left,
+  .medallion-half-left {
+    border-radius: 43px 0 0 43px;
+  }
+
+  .wax-piece-right,
+  .medallion-half-right {
+    border-radius: 0 43px 43px 0;
+  }
+
+  .medallion-initials {
+    font-size: 1.05rem;
+  }
+
+  .medallion-date {
+    font-size: 0.42rem;
+    letter-spacing: 0.8px;
+    white-space: nowrap;
   }
 
   .sanctuary-names {
