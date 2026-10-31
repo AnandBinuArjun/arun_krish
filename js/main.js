@@ -616,7 +616,7 @@
 
     const title = encodeURIComponent("Arun & Krishna's Wedding Day");
     const details = encodeURIComponent(
-      "Together with their families, Arun & Krishna request the pleasure of your company at their Wedding Celebrations.\n\nOrder of the Day — Tuesday, 8th December 2026:\n• 10:00 AM: Private Marriage Ceremony (Stafford)\n• 12:30 PM: Guests' Arrival (Birmingham)\n• 1:00 PM: Wedding Banquet (Birmingham)\n\nA day of love and new beginnings."
+      "Together with their families, Arun & Krishna request the pleasure of your company at their Wedding Celebrations.\n\nOrder of the Day — Tuesday, 8th December 2026:\n• 10:00 AM: Private Marriage Ceremony\n• 12:30 PM: Guests' Arrival (Birmingham)\n• 1:00 PM: Wedding Banquet (Birmingham)\n\nA day of love and new beginnings."
     );
     const location = encodeURIComponent('Birmingham, England');
 
@@ -1161,22 +1161,6 @@
       }, { threshold: 0.2 });
       rsvpObserver.observe(rsvpSection);
     }
-  }
-
-  /* ==========================================================================
-     POLAROID LIGHTBOX CLICK HANDLER
-     ========================================================================== */
-  function initPolaroidLightbox() {
-    document.querySelectorAll('.polaroid').forEach(card => {
-      card.addEventListener('click', () => {
-        const idx = parseInt(card.dataset.lightboxIndex, 10);
-        if (!isNaN(idx)) {
-          // Re-use existing lightbox logic via the gallery images array
-          const imgs = Array.from(document.querySelectorAll('.polaroid img'));
-          showImage(idx); // defined inside initGallery closure — if available
-        }
-      });
-    });
   }
 
   /* ==========================================================================
