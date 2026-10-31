@@ -170,11 +170,32 @@
     return document.getElementById('wedding-audio');
   }
 
+  let audioFadeTimer = null;
+  function fadeInWeddingSong(audio, targetVolume = 0.4, durationMs = 1500) {
+    if (audioFadeTimer) clearInterval(audioFadeTimer);
+    audio.volume = 0.02;
+    const steps = 25;
+    const interval = durationMs / steps;
+    const stepDelta = (targetVolume - 0.02) / steps;
+    audioFadeTimer = setInterval(() => {
+      if (audio.paused) {
+        clearInterval(audioFadeTimer);
+        return;
+      }
+      if (audio.volume + stepDelta >= targetVolume) {
+        audio.volume = targetVolume;
+        clearInterval(audioFadeTimer);
+      } else {
+        audio.volume = Math.min(targetVolume, audio.volume + stepDelta);
+      }
+    }, interval);
+  }
+
   function playWeddingSong() {
     const audio = getAudioEl();
     if (!audio) return;
 
-    audio.volume = 0.4;
+    fadeInWeddingSong(audio, 0.4, 1500);
     const playPromise = audio.play();
 
     if (playPromise !== undefined) {
@@ -241,6 +262,15 @@
     const audio = getAudioEl();
     if (audio) {
       audio.volume = 0.4;
+      const progressMeter = document.getElementById('audio-progress-meter');
+
+      audio.addEventListener('timeupdate', () => {
+        if (!progressMeter || !audio.duration) return;
+        const percent = Math.min(1, Math.max(0, audio.currentTime / audio.duration));
+        const offset = 100.5 - (percent * 100.5);
+        progressMeter.style.strokeDashoffset = offset;
+      });
+
       audio.addEventListener('play', () => {
         isAudioPlaying = true;
         updateAudioButtonUI(true);
@@ -256,6 +286,7 @@
       audio.addEventListener('ended', () => {
         isAudioPlaying = false;
         updateAudioButtonUI(false);
+        if (progressMeter) progressMeter.style.strokeDashoffset = 100.5;
       });
     }
   }
@@ -530,20 +561,28 @@
   function initCalendarAndCopy() {
     const googleBtn = document.getElementById('add-google-calendar');
     const icsBtn = document.getElementById('download-ics-calendar');
+    const outlookBtn = document.getElementById('add-outlook-calendar');
     const copyAddressBtn = document.getElementById('copy-address-btn');
 
     const title = encodeURIComponent("Arun & Krishna's Wedding Reception");
     const details = encodeURIComponent(
-      "Together with their families, Arun & Krishna request the pleasure of your company at their Wedding Reception & Banquet in Birmingham, England.\n\nSchedule:\n1:00 PM: Guest Arrival & Welcome Drinks (Birmingham)\n1:30 PM: Celebratory Wedding Banquet (Birmingham)\n4:00 PM: Cake Cutting & Live Music\n6:30 PM: Evening Celebrations & Dancing\nMidnight: Carriages & Sparkler Farewell\n\n(Note: Preceded by an intimate private ceremony for close family in Stafford)"
+      "Together with their families, Arun & Krishna request the pleasure of your company at their Wedding Reception & Banquet in Birmingham, England.\n\nSchedule:\n12:30 PM: Guest Arrival & Welcome Drinks (Birmingham)\n1:30 PM: Celebratory Wedding Banquet (Birmingham)\n4:00 PM: Cake Cutting & Live Music\n6:30 PM: Evening Celebrations & Dancing\nMidnight: Carriages & Sparkler Farewell\n\n(Note: Preceded by an intimate private ceremony for close family in Stafford)"
     );
     const location = encodeURIComponent('Birmingham, West Midlands, England');
 
-    const gcalStart = '20261208T130000Z';
-    const gcalEnd = '20261208T235900Z';
+    const gcalStart = '20261208T123000Z';
+    const gcalEnd = '20261209T000000Z';
+    const outlookStart = '2026-12-08T12:30:00Z';
+    const outlookEnd = '2026-12-09T00:00:00Z';
 
     if (googleBtn) {
       googleBtn.href = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${gcalStart}/${gcalEnd}&details=${details}&location=${location}`;
       googleBtn.target = '_blank';
+    }
+
+    if (outlookBtn) {
+      outlookBtn.href = `https://outlook.live.com/calendar/0/deeplink/compose?subject=${title}&body=${details}&location=${location}&startdt=${outlookStart}&enddt=${outlookEnd}`;
+      outlookBtn.target = '_blank';
     }
 
     if (icsBtn) {
@@ -558,8 +597,8 @@
           'BEGIN:VEVENT',
           'UID:wedding-arun-krishna-2026@wedding.com',
           'DTSTAMP:20261208T000000Z',
-          'DTSTART:20261208T130000Z',
-          'DTEND:20261208T235900Z',
+          'DTSTART:20261208T123000Z',
+          'DTEND:20261209T000000Z',
           'SUMMARY:Arun & Krishna\'s Wedding Reception (Birmingham)',
           'DESCRIPTION:Wedding Reception & Celebratory Banquet in Birmingham, England (12:30 PM onwards; preceded by an intimate private ceremony in Stafford).',
           'LOCATION:Birmingham, West Midlands, England',
@@ -1091,6 +1130,107 @@
   }
 
   /* ==========================================================================
+     STORY TIMELINE SCROLL THREAD ANIMATION
+     ========================================================================== */
+  function initStoryScrollProgress() {
+    const timeline = document.querySelector('.story-timeline');
+    const progressBar = document.getElementById('story-timeline-progress');
+    const milestones = document.querySelectorAll('.story-milestone');
+    if (!timeline || !progressBar) return;
+
+    function onScroll() {
+      const rect = timeline.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const startTrigger = windowHeight * 0.75;
+      const totalHeight = rect.height;
+      const scrolled = startTrigger - rect.top;
+      const progressPercent = Math.max(0, Math.min(100, (scrolled / totalHeight) * 100));
+
+      progressBar.style.height = `${progressPercent}%`;
+
+      milestones.forEach((milestone) => {
+        const node = milestone.querySelector('.story-node');
+        if (!node) return;
+        const mRect = milestone.getBoundingClientRect();
+        if (mRect.top < windowHeight * 0.65) {
+          node.classList.add('node-active');
+        } else {
+          node.classList.remove('node-active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* ==========================================================================
+     SHARE INVITATION (NATIVE SHARE & WHATSAPP)
+     ========================================================================== */
+  function initShareButtons() {
+    const shareBtns = [
+      document.getElementById('hero-share-btn'),
+      document.getElementById('card-share-btn')
+    ].filter(Boolean);
+
+    function showShareToast(message) {
+      let toast = document.querySelector('.share-toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.className = 'share-toast';
+        document.body.appendChild(toast);
+      }
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    function shareInvitation() {
+      const shareUrl = window.location.href;
+      const shareData = {
+        title: 'Arun & Krishna Wedding Invitation',
+        text: 'You are cordially invited to celebrate the wedding of Arun & Krishna on Tuesday, 8th December 2026 in Birmingham, England.',
+        url: shareUrl
+      };
+
+      if (navigator.share) {
+        navigator.share(shareData).catch((err) => {
+          if (err.name !== 'AbortError') {
+            copyToClipboard(shareUrl);
+          }
+        });
+      } else {
+        copyToClipboard(shareUrl);
+      }
+    }
+
+    function copyToClipboard(url) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(() => {
+          showShareToast('✨ Invitation link copied to clipboard!');
+        }).catch(() => {
+          fallbackPrompt(url);
+        });
+      } else {
+        fallbackPrompt(url);
+      }
+    }
+
+    function fallbackPrompt(url) {
+      window.prompt('Copy this wedding invitation link:', url);
+    }
+
+    shareBtns.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        shareInvitation();
+      });
+    });
+  }
+
+  /* ==========================================================================
      BOOTSTRAP EVERYTHING ON DOM READY
      ========================================================================== */
   window.addEventListener('DOMContentLoaded', () => {
@@ -1110,6 +1250,8 @@
     initScrollProgress();
     initScrollReveal();
     initFloatingRSVP();
+    initStoryScrollProgress();
+    initShareButtons();
   });
 
 })();

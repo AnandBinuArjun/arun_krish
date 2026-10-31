@@ -785,28 +785,67 @@ body.invitation-opened .floating-audio-widget {
   box-shadow: 0 8px 25px rgba(35, 45, 20, 0.4), 0 0 14px rgba(199, 221, 157, 0.35);
 }
 
+.audio-widget-visual {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.audio-progress-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+
+.audio-progress-bg {
+  fill: none;
+  stroke: rgba(255, 241, 246, 0.22);
+  stroke-width: 2.2;
+}
+
+.audio-progress-meter {
+  fill: none;
+  stroke: #FFF1F6;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-dasharray: 100.5;
+  stroke-dashoffset: 100.5;
+  transition: stroke-dashoffset 0.25s linear;
+  filter: drop-shadow(0 0 3px rgba(255, 241, 246, 0.7));
+}
+
 .audio-eq-bars {
   display: flex;
   align-items: flex-end;
-  gap: 2.5px;
-  height: 16px;
-  width: 15px;
+  gap: 2px;
+  height: 14px;
+  width: 14px;
   flex-shrink: 0;
   padding-bottom: 1px;
+  position: relative;
+  z-index: 2;
+  justify-content: center;
 }
 
 .audio-bar {
-  width: 2.5px;
+  width: 2px;
   background-color: #FFF1F6;
   border-radius: 2px;
   box-shadow: 0 0 3px rgba(255, 255, 255, 0.4);
 }
 
-/* Resting heights when paused — looks like an authentic musical waveform, never 3 flat dots */
-.audio-bar:nth-child(1) { height: 6px; }
-.audio-bar:nth-child(2) { height: 13px; }
-.audio-bar:nth-child(3) { height: 8px; }
-.audio-bar:nth-child(4) { height: 11px; }
+/* Resting heights when paused — looks like an authentic musical waveform, never flat dots */
+.audio-bar:nth-child(1) { height: 5px; }
+.audio-bar:nth-child(2) { height: 11px; }
+.audio-bar:nth-child(3) { height: 7px; }
+.audio-bar:nth-child(4) { height: 9px; }
 
 /* Active dancing audio equalizer when playing */
 .floating-audio-widget.playing .audio-bar:nth-child(1) {
@@ -1727,8 +1766,34 @@ body.invitation-opened .floating-audio-widget {
   background: var(--color-deep-purple);
 }
 
+.story-timeline-progress {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 3px;
+  height: 0%;
+  background: linear-gradient(to bottom, #C7DD9D 0%, #8DA65C 50%, #5A7034 100%);
+  box-shadow: 0 0 10px rgba(199, 221, 157, 0.9), 0 0 4px #8DA65C;
+  transform: translateX(-50%);
+  z-index: 2;
+  transition: height 0.15s ease-out;
+  border-radius: 3px;
+}
+
+.story-node.node-active {
+  border-color: #8DA65C !important;
+  box-shadow: 0 0 0 6px rgba(199, 221, 157, 0.6), 0 0 14px rgba(141, 166, 92, 0.5) !important;
+  transform: translate(-50%, -50%) scale(1.18);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.story-node.node-active .story-node-inner {
+  background: #8DA65C !important;
+  box-shadow: 0 0 6px #FFF1F6;
+}
+
 @media (max-width: 768px) {
   .story-timeline::before { left: 20px; }
+  .story-timeline-progress { left: 20px; }
   .story-milestone, .story-milestone:nth-child(even) {
     flex-direction: column;
     align-items: flex-start;
@@ -2470,6 +2535,57 @@ body.invitation-opened .floating-audio-widget {
     height: 38px;
     font-size: 1.6rem;
   }
+/* Share Pill Button & Toast Notifications */
+.btn-share-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(255, 241, 246, 0.85);
+  border: 1px solid rgba(141, 166, 92, 0.65);
+  color: #3d4a25;
+  padding: 0.52rem 1.15rem;
+  border-radius: 30px;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+}
+.btn-share-pill:hover {
+  background: #8DA65C;
+  color: #FFF1F6;
+  border-color: #5A7034;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(90, 112, 52, 0.3);
+}
+
+.share-toast {
+  position: fixed;
+  bottom: 2.2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(25px);
+  background: linear-gradient(135deg, #3d4a25 0%, #253014 100%);
+  color: #FFF1F6;
+  border: 1px solid rgba(199, 221, 157, 0.85);
+  padding: 0.75rem 1.6rem;
+  border-radius: 30px;
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 16px rgba(199, 221, 157, 0.35);
+  z-index: 99999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.share-toast.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
 }
 
 /* RSVP */

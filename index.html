@@ -153,11 +153,17 @@
   </audio>
 
   <div id="floating-audio-widget" class="floating-audio-widget" role="button" tabindex="0" title="Play 'Oru Kathilola Violin cover by Anand'">
-    <div class="audio-eq-bars" aria-hidden="true">
-      <div class="audio-bar"></div>
-      <div class="audio-bar"></div>
-      <div class="audio-bar"></div>
-      <div class="audio-bar"></div>
+    <div class="audio-widget-visual">
+      <svg class="audio-progress-ring" viewBox="0 0 36 36" aria-hidden="true">
+        <circle class="audio-progress-bg" cx="18" cy="18" r="16"></circle>
+        <circle id="audio-progress-meter" class="audio-progress-meter" cx="18" cy="18" r="16"></circle>
+      </svg>
+      <div class="audio-eq-bars" aria-hidden="true">
+        <div class="audio-bar"></div>
+        <div class="audio-bar"></div>
+        <div class="audio-bar"></div>
+        <div class="audio-bar"></div>
+      </div>
     </div>
     <div class="audio-text-group">
       <span class="audio-track-title">Oru Kathilola</span>
@@ -214,16 +220,20 @@
             </div>
           </div>
 
-          <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+          <div style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
             <a href="#engraved-card" class="btn-primary">Explore Invitation ▾</a>
             <a href="#rsvp" class="btn-secondary">Kindly Reply</a>
+            <button id="hero-share-btn" class="btn-share-pill" type="button" aria-label="Share Wedding Invitation">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/></svg>
+              <span>Share</span>
+            </button>
           </div>
         </div>
 
         <!-- Right Column: Signature Roman Arched Portrait with Double Gold Rim (Pooja Style) -->
         <div class="arched-portrait-frame">
           <div class="arched-img-container">
-            <img src="assets/images/new image/Romantic Indian Couple in a Flower Garden.png" alt="Arun &amp; Krishna in Traditional Kasavu Wedding Attire" class="hero-photo-img" loading="eager">
+            <img src="assets/images/new image/Romantic Indian Couple in a Flower Garden.webp" onerror="this.onerror=null;this.src=this.src.replace(/\.webp$/,'.png')" alt="Arun &amp; Krishna in Traditional Kasavu Wedding Attire" class="hero-photo-img" loading="eager">
           </div>
           <div class="arch-date-badge">08 · 12 · 2026</div>
         </div>
@@ -274,8 +284,12 @@
             <div class="invitation-reception-note">Carriages at midnight in Birmingham</div>
           </div>
 
-          <div style="margin-top: 2.5rem;">
+          <div style="margin-top: 2.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; align-items: center;">
             <a href="#rsvp" class="btn-primary">Kindly Reply (R.S.V.P.)</a>
+            <button id="card-share-btn" class="btn-share-pill" type="button" aria-label="Share Wedding Invitation">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/></svg>
+              <span>Share Invitation</span>
+            </button>
           </div>
 
         </article>
@@ -422,6 +436,7 @@
       </header>
 
       <div class="story-timeline">
+        <div id="story-timeline-progress" class="story-timeline-progress" aria-hidden="true"></div>
 
         <!-- Chapter One -->
         <article class="story-milestone reveal">
@@ -434,7 +449,7 @@
             </p>
           </div>
           <div class="story-photo-wrap">
-            <img src="assets/images/new image/Romantic Elevator Selfie with Hearts.png" alt="Where It All Began - Balaji Temple, Birmingham" loading="lazy">
+            <img src="assets/images/new image/Romantic Elevator Selfie with Hearts.webp" onerror="this.onerror=null;this.src=this.src.replace(/\.webp$/,'.png')" alt="Where It All Began - Balaji Temple, Birmingham" loading="lazy">
           </div>
         </article>
 
@@ -449,7 +464,7 @@
             </p>
           </div>
           <div class="story-photo-wrap">
-            <img src="assets/images/new image/Dreamy South Asian Couple Selfie.png" alt="Seven Days Was Too Long" loading="lazy">
+            <img src="assets/images/new image/Dreamy South Asian Couple Selfie.webp" onerror="this.onerror=null;this.src=this.src.replace(/\.webp$/,'.png')" alt="Seven Days Was Too Long" loading="lazy">
           </div>
         </article>
 
@@ -464,7 +479,7 @@
             </p>
           </div>
           <div class="story-photo-wrap">
-            <img src="assets/images/new image/Romantic Garden Selfie Couple.png" alt="Our Little Adventures to Stratford-upon-Avon" loading="lazy">
+            <img src="assets/images/new image/Romantic Garden Selfie Couple.webp" onerror="this.onerror=null;this.src=this.src.replace(/\.webp$/,'.png')" alt="Our Little Adventures to Stratford-upon-Avon" loading="lazy">
           </div>
         </article>
 
@@ -479,7 +494,7 @@
             </p>
           </div>
           <div class="story-photo-wrap">
-            <img src="assets/images/new image/Dreamy Train Ride Selfie.png" alt="A Little Detour to Stafford" loading="lazy">
+            <img src="assets/images/new image/Dreamy Train Ride Selfie.webp" onerror="this.onerror=null;this.src=this.src.replace(/\.webp$/,'.png')" alt="A Little Detour to Stafford" loading="lazy">
           </div>
         </article>
 
@@ -494,7 +509,7 @@
             </p>
           </div>
           <div class="story-photo-wrap">
-            <img src="assets/images/new image/Romantic Elevator Selfie in Saree.png" alt="The Beginning of Our Forever" loading="lazy">
+            <img src="assets/images/new image/Romantic Elevator Selfie in Saree.webp" onerror="this.onerror=null;this.src=this.src.replace(/\.webp$/,'.png')" alt="The Beginning of Our Forever" loading="lazy">
           </div>
         </article>
 
@@ -592,8 +607,18 @@
         </div>
 
         <div class="calendar-action-bar">
-          <a id="add-google-calendar" href="#" class="btn-primary" rel="noopener">Add to Google Calendar</a>
-          <a id="download-ics-calendar" href="#" class="btn-secondary">Download Apple / Outlook (.ics)</a>
+          <a id="add-google-calendar" href="#" class="btn-primary" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+            Google Calendar
+          </a>
+          <a id="download-ics-calendar" href="#" class="btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.92-2.85-.9.04-1.99.6-2.63 1.35-.57.65-1.06 1.72-.93 2.74 1.01.08 2.02-.49 2.64-1.24z"/></svg>
+            Apple Calendar (.ics)
+          </a>
+          <a id="add-outlook-calendar" href="#" class="btn-secondary" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Outlook Calendar
+          </a>
         </div>
 
       </div>
@@ -864,67 +889,67 @@
       <div class="polaroid-wall">
 
         <div class="polaroid reveal" data-lightbox-index="0">
-          <img src="assets/images/new image/Romantic Indian Couple in a Flower Garden.png" alt="Kasavu Elegance" loading="lazy">
+          <img src="assets/images/new image/Romantic Indian Couple in a Flower Garden.webp" onerror="this.onerror=null;this.src=this.src.replace(/\.webp$/,'.png')" alt="Kasavu Elegance" loading="lazy">
           <span class="polaroid-caption">Kasavu Elegance</span>
         </div>
 
         <div class="polaroid reveal" data-lightbox-index="1">
-          <img src="assets/images/new image/Playful Sunset Kiss by the Window.png" alt="Golden Sunset Kiss" loading="lazy">
+          <img src="assets/images/new image/Playful Sunset Kiss by the Window.webp" onerror="this.onerror=null;this.src=this.src.replace(/\.webp$/,'.png')" alt="Golden Sunset Kiss" loading="lazy">
           <span class="polaroid-caption">Golden Sunset Kiss</span>
         </div>
 
         <div class="polaroid reveal" data-lightbox-index="2">
-          <img src="assets/images/new image/Romantic Elevator Selfie in Saree.png" alt="Saree &amp; Kurta Glow" loading="lazy">
+          <img src="assets/images/new image/Romantic Elevator Selfie in Saree.webp" onerror="this.onerror=null;this.src=this.src.replace(/\.webp$/,'.png')" alt="Saree &amp; Kurta Glow" loading="lazy">
           <span class="polaroid-caption">Saree &amp; Kurta Glow</span>
         </div>
 
         <div class="polaroid reveal" data-lightbox-index="3">
-          <img src="assets/images/new image/Golden-Hour Park Selfie.png" alt="Golden Hour Sunshine" loading="lazy">
+          <img src="assets/images/new image/Golden-Hour Park Selfie.webp" onerror="this.onerror=null;this.src=this.src.replace(/\.webp$/,'.png')" alt="Golden Hour Sunshine" loading="lazy">
           <span class="polaroid-caption">Golden Hour Sunshine</span>
         </div>
 
         <div class="polaroid reveal" data-lightbox-index="4">
-          <img src="assets/images/new image/Playful Parkside Couple Selfie.png" alt="Meadow Picnic Playfulness" loading="lazy">
+          <img src="assets/images/new image/Playful Parkside Couple Selfie.webp" onerror="this.onerror=null;this.src=this.src.replace(/\.webp$/,'.png')" alt="Meadow Picnic Playfulness" loading="lazy">
           <span class="polaroid-caption">Meadow Picnic Playfulness</span>
         </div>
 
         <div class="polaroid reveal" data-lightbox-index="5">
-          <img src="assets/images/new image/Dreamy Train Ride Selfie.png" alt="The Scenic Train Detour" loading="lazy">
+          <img src="assets/images/new image/Dreamy Train Ride Selfie.webp" onerror="this.onerror=null;this.src=this.src.replace(/\.webp$/,'.png')" alt="The Scenic Train Detour" loading="lazy">
           <span class="polaroid-caption">The Scenic Train Detour</span>
         </div>
 
         <div class="polaroid reveal" data-lightbox-index="6">
-          <img src="assets/images/new image/Romantic Elevator Selfie with Hearts.png" alt="Temple Blessings &amp; Tilaks" loading="lazy">
+          <img src="assets/images/new image/Romantic Elevator Selfie with Hearts.webp" onerror="this.onerror=null;this.src=this.src.replace(/\.webp$/,'.png')" alt="Temple Blessings &amp; Tilaks" loading="lazy">
           <span class="polaroid-caption">Temple Blessings &amp; Tilaks</span>
         </div>
 
         <div class="polaroid reveal" data-lightbox-index="7">
-          <img src="assets/images/new image/Romantic Springtime Selfie Under Blossoms.png" alt="Beneath the Blossoms" loading="lazy">
+          <img src="assets/images/new image/Romantic Springtime Selfie Under Blossoms.webp" onerror="this.onerror=null;this.src=this.src.replace(/\.webp$/,'.png')" alt="Beneath the Blossoms" loading="lazy">
           <span class="polaroid-caption">Beneath the Blossoms</span>
         </div>
 
         <div class="polaroid reveal" data-lightbox-index="8">
-          <img src="assets/images/new image/Romantic Garden Selfie Couple.png" alt="Stratford Garden Days" loading="lazy">
+          <img src="assets/images/new image/Romantic Garden Selfie Couple.webp" onerror="this.onerror=null;this.src=this.src.replace(/\.webp$/,'.png')" alt="Stratford Garden Days" loading="lazy">
           <span class="polaroid-caption">Stratford Garden Days</span>
         </div>
 
         <div class="polaroid reveal" data-lightbox-index="9">
-          <img src="assets/images/new image/Blossom-Lit Couple Selfie.png" alt="Pure Joy &amp; Laughter" loading="lazy">
+          <img src="assets/images/new image/Blossom-Lit Couple Selfie.webp" onerror="this.onerror=null;this.src=this.src.replace(/\.webp$/,'.png')" alt="Pure Joy &amp; Laughter" loading="lazy">
           <span class="polaroid-caption">Pure Joy &amp; Laughter</span>
         </div>
 
         <div class="polaroid reveal" data-lightbox-index="10">
-          <img src="assets/images/new image/Dreamy South Asian Couple Selfie.png" alt="Cozy Moments Together" loading="lazy">
+          <img src="assets/images/new image/Dreamy South Asian Couple Selfie.webp" onerror="this.onerror=null;this.src=this.src.replace(/\.webp$/,'.png')" alt="Cozy Moments Together" loading="lazy">
           <span class="polaroid-caption">Cozy Moments Together</span>
         </div>
 
         <div class="polaroid reveal" data-lightbox-index="11">
-          <img src="assets/images/new image/Dreamy Couple Selfie with Heart Doodles.png" alt="Sweetest Smiles" loading="lazy">
+          <img src="assets/images/new image/Dreamy Couple Selfie with Heart Doodles.webp" onerror="this.onerror=null;this.src=this.src.replace(/\.webp$/,'.png')" alt="Sweetest Smiles" loading="lazy">
           <span class="polaroid-caption">Sweetest Smiles</span>
         </div>
 
         <div class="polaroid reveal" data-lightbox-index="12">
-          <img src="assets/images/new image/Cozy Cartoon Couple Cuddle.png" alt="Marvel Movie Cuddles" loading="lazy">
+          <img src="assets/images/new image/Cozy Cartoon Couple Cuddle.webp" onerror="this.onerror=null;this.src=this.src.replace(/\.webp$/,'.png')" alt="Marvel Movie Cuddles" loading="lazy">
           <span class="polaroid-caption">Marvel Movie Cuddles</span>
         </div>
 
