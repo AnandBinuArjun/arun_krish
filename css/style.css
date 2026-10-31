@@ -1911,8 +1911,39 @@ body.invitation-opened .floating-audio-widget {
   line-height: 1.6;
 }
 
+.timeline-location-tag {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-forest);
+  background: rgba(141, 166, 92, 0.16);
+  padding: 0.2rem 0.65rem;
+  border-radius: 12px;
+  margin-bottom: 0.4rem;
+  border: 1px solid rgba(141, 166, 92, 0.3);
+}
+
+.service-footer-tagline {
+  text-align: center;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed rgba(199, 221, 157, 0.6);
+}
+
+.service-tagline-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.45rem;
+  color: var(--color-forest);
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
 .calendar-action-bar {
-  margin-top: 3.5rem;
+  margin-top: 2rem;
   padding-top: 2rem;
   border-top: 1px solid rgba(242, 162, 95, 0.25);
   display: flex;

@@ -597,16 +597,16 @@
     const outlookBtn = document.getElementById('add-outlook-calendar');
     const copyAddressBtn = document.getElementById('copy-address-btn');
 
-    const title = encodeURIComponent("Arun & Krishna's Wedding Reception");
+    const title = encodeURIComponent("Arun & Krishna's Wedding Day");
     const details = encodeURIComponent(
-      "Together with their families, Arun & Krishna request the pleasure of your company at their Wedding Reception & Banquet in Birmingham, England.\n\nSchedule:\n12:30 PM: Guest Arrival & Welcome Drinks (Birmingham)\n1:30 PM: Celebratory Wedding Banquet (Birmingham)\n4:00 PM: Cake Cutting & Live Music\n6:30 PM: Evening Celebrations & Dancing\nMidnight: Carriages & Sparkler Farewell\n\n(Note: Preceded by an intimate private ceremony for close family in Stafford)"
+      "Together with their families, Arun & Krishna request the pleasure of your company at their Wedding Celebrations.\n\nOrder of the Day — Tuesday, 8th December 2026:\n• 10:00 AM: Private Marriage Ceremony (Stafford)\n• 12:30 PM: Guests' Arrival (Birmingham)\n• 1:00 PM: Wedding Banquet (Birmingham)\n\nA day of love and new beginnings."
     );
-    const location = encodeURIComponent('Birmingham, West Midlands, England');
+    const location = encodeURIComponent('Birmingham & Stafford, England');
 
-    const gcalStart = '20261208T123000Z';
-    const gcalEnd = '20261209T000000Z';
-    const outlookStart = '2026-12-08T12:30:00Z';
-    const outlookEnd = '2026-12-09T00:00:00Z';
+    const gcalStart = '20261208T100000Z';
+    const gcalEnd = '20261208T220000Z';
+    const outlookStart = '2026-12-08T10:00:00Z';
+    const outlookEnd = '2026-12-08T22:00:00Z';
 
     if (googleBtn) {
       googleBtn.href = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${gcalStart}/${gcalEnd}&details=${details}&location=${location}`;
@@ -624,17 +624,17 @@
         const icsContent = [
           'BEGIN:VCALENDAR',
           'VERSION:2.0',
-          'PRODID:-//Arun and Krishna//English Wedding Invitation//EN',
+          'PRODID:-//Arun and Krishna//Wedding Invitation//EN',
           'CALSCALE:GREGORIAN',
           'METHOD:PUBLISH',
           'BEGIN:VEVENT',
           'UID:wedding-arun-krishna-2026@wedding.com',
           'DTSTAMP:20261208T000000Z',
-          'DTSTART:20261208T123000Z',
-          'DTEND:20261209T000000Z',
-          'SUMMARY:Arun & Krishna\'s Wedding Reception (Birmingham)',
-          'DESCRIPTION:Wedding Reception & Celebratory Banquet in Birmingham, England (12:30 PM onwards; preceded by an intimate private ceremony in Stafford).',
-          'LOCATION:Birmingham, West Midlands, England',
+          'DTSTART:20261208T100000Z',
+          'DTEND:20261208T220000Z',
+          'SUMMARY:Arun & Krishna\'s Wedding — Order of the Day',
+          'DESCRIPTION:Order of the Day (Tuesday, 8th December 2026):\\n10:00 AM - Private Marriage Ceremony (Stafford)\\n12:30 PM - Guests\' Arrival (Birmingham)\\n1:00 PM - Wedding Banquet (Birmingham)\\n\\nA day of love and new beginnings.',
+          'LOCATION:Birmingham & Stafford, England',
           'STATUS:CONFIRMED',
           'END:VEVENT',
           'END:VCALENDAR'
