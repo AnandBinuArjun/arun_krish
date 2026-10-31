@@ -136,6 +136,7 @@
         isEnvelopeOpen = true;
         waxSeal.classList.add('cracked');
         envelopeStage.classList.add('animating');
+        playWeddingSong();
         // Instant reveal with no delay
         revealInvitation();
       });
@@ -202,7 +203,10 @@
   }
 
   function toggleAudio() {
-    if (isAudioPlaying) {
+    const audio = getAudioEl();
+    if (!audio) return;
+
+    if (!audio.paused) {
       pauseWeddingSong();
     } else {
       playWeddingSong();
@@ -240,7 +244,15 @@
         isAudioPlaying = true;
         updateAudioButtonUI(true);
       });
+      audio.addEventListener('playing', () => {
+        isAudioPlaying = true;
+        updateAudioButtonUI(true);
+      });
       audio.addEventListener('pause', () => {
+        isAudioPlaying = false;
+        updateAudioButtonUI(false);
+      });
+      audio.addEventListener('ended', () => {
         isAudioPlaying = false;
         updateAudioButtonUI(false);
       });

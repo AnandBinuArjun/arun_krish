@@ -148,17 +148,21 @@
        FLOATING EQUALIZER MUSIC CONTROLLER (DHEERA DHEERA — MAGADHEERA)
        ========================================================================== -->
   <audio id="wedding-audio" loop preload="auto">
-    <source src="assets/audio/dheera_dheera.m4a" type="audio/mp4">
-    <source src="assets/audio/dheera_dheera.opus" type="audio/ogg; codecs=opus">
+    <source src="assets/audio/dheera_dheera.m4a?v=2" type="audio/mp4">
+    <source src="assets/audio/dheera_dheera.opus?v=2" type="audio/ogg; codecs=opus">
   </audio>
 
   <div id="floating-audio-widget" class="floating-audio-widget" role="button" tabindex="0" title="Play 'Oru Kathilola Violin cover by Anand'">
-    <div class="audio-eq-bars">
+    <div class="audio-eq-bars" aria-hidden="true">
+      <div class="audio-bar"></div>
       <div class="audio-bar"></div>
       <div class="audio-bar"></div>
       <div class="audio-bar"></div>
     </div>
-    <span class="audio-label">Oru Kathilola Violin cover by Anand</span>
+    <div class="audio-text-group">
+      <span class="audio-track-title">Oru Kathilola</span>
+      <span class="audio-track-artist">Violin cover by Anand</span>
+    </div>
   </div>
 
   <!-- ==========================================================================
