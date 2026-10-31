@@ -1455,14 +1455,14 @@ body.invitation-opened .floating-audio-widget {
 }
 
 /* ==========================================================================
-   4-CARD "THE DAY ITSELF" OVERVIEW (POOJA REFERENCE STYLE)
+   "THE DAY ITSELF" WEDDING DETAILS OVERVIEW (POOJA REFERENCE STYLE)
    ========================================================================== */
 
 .the-day-overview-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.2rem;
-  max-width: 1100px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 960px;
   margin: 3.5rem auto 0;
 }
 
@@ -1512,12 +1512,9 @@ body.invitation-opened .floating-audio-widget {
 
 @media (max-width: 860px) {
   .the-day-overview-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 520px) {
-  .the-day-overview-grid {
     grid-template-columns: 1fr;
+    max-width: 460px;
+    gap: 1.2rem;
   }
 }
 
