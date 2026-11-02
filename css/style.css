@@ -2681,6 +2681,17 @@ body.invitation-opened .floating-audio-widget {
   margin-bottom: 3.5rem;
 }
 
+.dress-code-single {
+  max-width: 720px;
+  margin: 0 auto 3.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.dress-code-single .dress-code-card {
+  width: 100%;
+}
+
 .dress-code-card {
   background: var(--color-ivory);
   border: 1px solid var(--color-border-subtle);
@@ -2712,6 +2723,18 @@ body.invitation-opened .floating-audio-widget {
   color: var(--color-muted);
   line-height: 1.65;
   margin-bottom: 1.8rem;
+}
+
+.dress-desc-celebration {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-style: italic;
+  color: var(--color-forest);
+  line-height: 1.75;
+  margin-bottom: 0;
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .palette-swatches {
@@ -2748,36 +2771,42 @@ body.invitation-opened .floating-audio-widget {
 
 .etiquette-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
 }
 
 .etiquette-box {
   background: var(--color-parchment);
   border: 1px solid rgba(184, 155, 94, 0.25);
   border-radius: 4px;
-  padding: 1.8rem;
+  padding: 2.2rem 1.8rem;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.etiquette-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(90, 112, 52, 0.08);
 }
 
 .etiquette-box-icon {
   width: 36px;
   height: 36px;
-  margin: 0 auto 0.8rem;
+  margin: 0 auto 0.9rem;
   color: var(--color-gold-deep);
 }
 
 .etiquette-box h4 {
   font-family: var(--font-serif);
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   color: var(--color-forest);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.65rem;
 }
 
 .etiquette-box p {
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   color: var(--color-muted);
-  line-height: 1.55;
+  line-height: 1.65;
 }
 
 @media (max-width: 768px) {
@@ -3561,6 +3590,56 @@ body.invitation-opened .floating-audio-widget {
   .wishes-form-wrap {
     padding: 1.2rem;
   }
+
+  /* Dress Code & Details Section Responsiveness */
+  .dress-code-single {
+    padding: 0 0.5rem;
+    margin-bottom: 2.2rem;
+  }
+  .dress-code-card {
+    padding: 2.2rem 1.4rem;
+  }
+  .dress-desc-celebration {
+    font-size: 1.18rem;
+    line-height: 1.65;
+  }
+  .etiquette-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .etiquette-box {
+    padding: 1.8rem 1.25rem;
+  }
+  .etiquette-box h4 {
+    font-size: 1.25rem;
+  }
+  .etiquette-box p {
+    font-size: 0.92rem;
+  }
+
+  /* Venue Highlights & Map Actions */
+  .venue-highlights li {
+    align-items: flex-start;
+  }
+  .bullet-crest {
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+  .map-action-pill-bar {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+  .map-action-pill-bar .btn-primary,
+  .map-action-pill-bar .btn-secondary {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+  .the-day-overview-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
 }
 
 /* Compact phones & handhelds (max-width: 550px) */
@@ -3812,6 +3891,23 @@ body.invitation-opened .floating-audio-widget {
     width: 100%;
     max-width: 260px;
     margin: 0 auto;
+  }
+  .dress-code-card {
+    padding: 1.6rem 0.85rem;
+  }
+  .dress-desc-celebration {
+    font-size: 1.02rem;
+    line-height: 1.55;
+  }
+  .etiquette-box {
+    padding: 1.4rem 0.85rem;
+  }
+  .etiquette-box h4 {
+    font-size: 1.15rem;
+  }
+  .etiquette-box p {
+    font-size: 0.88rem;
+    line-height: 1.5;
   }
   #floating-rsvp {
     bottom: calc(0.85rem + env(safe-area-inset-bottom, 0px));
