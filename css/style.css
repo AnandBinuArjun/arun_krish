@@ -208,6 +208,9 @@ textarea,
 .palace-gatefold-stage {
   position: fixed;
   inset: 0;
+  height: 100vh;
+  height: 100dvh;
+  min-height: -webkit-fill-available;
   z-index: 2000;
   background-color: #121A0C;
   background-image: 
@@ -223,6 +226,7 @@ textarea,
   transition: opacity 0.85s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.85s;
   perspective: 2000px;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .envelope-stage.opened {
@@ -288,12 +292,14 @@ textarea,
 .palace-portal-wrapper {
   position: relative;
   width: min(90vw, 480px);
-  height: min(74vh, 590px);
+  height: min(74vh, 70dvh, 590px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
   cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
   perspective: 1800px;
   transform-style: preserve-3d;
   transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.3, 1), filter 0.6s ease;
@@ -715,6 +721,8 @@ textarea,
   border-radius: 50%;
   z-index: 40;
   cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -831,6 +839,7 @@ textarea,
   transition: transform 0.3s ease;
   padding: 4px;
   box-sizing: border-box;
+  pointer-events: none;
 }
 
 .medallion-outer-ring {
@@ -914,7 +923,15 @@ textarea,
   text-transform: uppercase;
   font-weight: 600;
   cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
   transition: all 0.35s ease;
+}
+
+.prompt-pill *,
+.gatefold-pill * {
+  pointer-events: none;
 }
 
 .prompt-pill:hover,
@@ -946,159 +963,343 @@ textarea,
 
 /* Mobile & Tablet Fine-Tuning for Royal Gatefold Archway */
 @media (max-width: 600px) {
+  .envelope-stage,
+  .palace-gatefold-stage {
+    padding: 0.5rem 0.5rem calc(0.5rem + env(safe-area-inset-bottom, 0px));
+    justify-content: center;
+  }
+
   .envelope-wrapper,
   .palace-portal-wrapper {
-    width: min(92vw, 420px);
-    height: min(74vh, 530px);
-    margin-top: 1.5rem;
+    width: min(84vw, 350px);
+    height: min(58vh, 56dvh, 440px);
+    margin-top: 1.6rem;
   }
 
   .palace-arch-crown {
-    top: -38px;
-    width: 108%;
+    top: -26px;
+    width: 104%;
+    max-width: 360px;
   }
 
   .palace-arch-frame {
-    border-radius: 200px 200px 12px 12px;
+    height: calc(100% - 16px);
+    border-radius: 175px 175px 12px 12px;
   }
 
   .palace-inner-sanctuary {
-    border-radius: 197px 197px 10px 10px;
-    padding: 2.2rem 1.2rem 4rem;
+    border-radius: 172px 172px 10px 10px;
+    padding: 1.5rem 0.85rem 1.4rem;
+    justify-content: center;
+  }
+
+  .sanctuary-crest-emblem {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 0.4rem;
+  }
+
+  .sanctuary-title {
+    font-size: 0.6rem;
+    letter-spacing: 2.2px;
+    margin-bottom: 0.2rem;
+  }
+
+  .sanctuary-names {
+    font-size: clamp(1.35rem, 5.2vw, 1.7rem);
+    line-height: 1.15;
+  }
+
+  .sanctuary-subtitle {
+    font-size: 0.62rem;
+    letter-spacing: 1.4px;
+    margin-top: 0.25rem;
+  }
+
+  .sanctuary-date {
+    font-size: clamp(1.1rem, 4.4vw, 1.38rem);
+    margin-top: 0.35rem;
   }
 
   .gatefold-door.door-left {
-    border-radius: 197px 0 0 10px;
+    border-radius: 172px 0 0 10px;
   }
 
   .gatefold-door.door-right {
-    border-radius: 0 197px 10px 0;
+    border-radius: 0 172px 10px 0;
+  }
+
+  /* Controlled door swing on mobile so doors stay visible without clipping offscreen */
+  .envelope-stage.animating .gatefold-door.door-left,
+  .envelope-stage.opened .gatefold-door.door-left {
+    transform: perspective(1000px) rotateY(-96deg);
+    filter: brightness(0.72) drop-shadow(12px 8px 18px rgba(0, 0, 0, 0.7));
+  }
+
+  .envelope-stage.animating .gatefold-door.door-right,
+  .envelope-stage.opened .gatefold-door.door-right {
+    transform: perspective(1000px) rotateY(96deg);
+    filter: brightness(0.72) drop-shadow(-12px 8px 18px rgba(0, 0, 0, 0.7));
   }
 
   .palace-crest-medallion,
   .wax-seal {
-    width: 96px;
-    height: 96px;
-  }
-
-  .wax-seal-inner,
-  .medallion-gold-face {
     width: 88px;
     height: 88px;
   }
 
+  .wax-seal-inner,
+  .medallion-gold-face {
+    width: 82px;
+    height: 82px;
+  }
+
   .wax-piece-left,
   .medallion-half-left {
-    border-radius: 48px 0 0 48px;
+    border-radius: 44px 0 0 44px;
   }
 
   .wax-piece-right,
   .medallion-half-right {
-    border-radius: 0 48px 48px 0;
+    border-radius: 0 44px 44px 0;
+  }
+
+  .medallion-lotus-vector {
+    width: 28px;
+    height: 18px;
   }
 
   .medallion-initials {
-    font-size: 1.2rem;
-    margin: 2px 0 1px;
+    font-size: 1.12rem;
+    margin: 1px 0;
   }
 
   .medallion-date {
-    font-size: 0.46rem;
-    letter-spacing: 1.1px;
+    font-size: 0.44rem;
+    letter-spacing: 0.9px;
     white-space: nowrap;
   }
 
-  .sanctuary-names {
-    font-size: 1.7rem;
-  }
-
-  .sanctuary-crest-emblem {
-    width: 62px;
-    height: 62px;
-  }
-
   .gatefold-guest-plaque {
-    bottom: 18px;
-    width: 90%;
+    bottom: 12px;
+    width: 88%;
+  }
+
+  .guest-plaque-frame {
+    padding: 0.6rem 0.75rem;
+  }
+
+  .guest-invitation-badge {
+    font-size: 0.54rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.2rem;
   }
 
   .gatefold-guest-plaque .guest-calligraphy {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
+  }
+
+  .gatefold-guest-plaque .guest-subtitle {
+    font-size: 0.58rem;
+    margin-top: 0.25rem;
+  }
+
+  .palace-gatefold-prompt {
+    margin-top: 0.75rem;
+    gap: 0.35rem;
   }
 
   .prompt-pill,
   .gatefold-pill {
-    font-size: 0.68rem;
-    padding: 0.55rem 1.2rem;
-    letter-spacing: 1.8px;
+    font-size: 0.65rem;
+    padding: 0.45rem 1.1rem;
+    letter-spacing: 1.5px;
   }
 
   .prompt-sub {
-    font-size: 0.85rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.4px;
+  }
+
+  .skip-envelope-btn,
+  .palace-skip-btn {
+    top: 0.75rem;
+    right: 0.85rem;
+    padding: 0.32rem 0.75rem;
+    font-size: 0.62rem;
+    letter-spacing: 1.4px;
   }
 }
 
 @media (max-width: 380px) {
   .envelope-wrapper,
   .palace-portal-wrapper {
-    width: 94vw;
-    height: 70vh;
+    width: min(86vw, 310px);
+    height: min(54vh, 52dvh, 390px);
+    margin-top: 1.2rem;
   }
 
   .palace-arch-crown {
-    top: -30px;
+    top: -22px;
+    width: 104%;
+    max-width: 320px;
   }
 
   .palace-arch-frame {
-    border-radius: 165px 165px 10px 10px;
+    border-radius: 150px 150px 10px 10px;
+    height: calc(100% - 14px);
   }
 
   .palace-inner-sanctuary {
-    border-radius: 162px 162px 8px 8px;
+    border-radius: 147px 147px 8px 8px;
+    padding: 1.1rem 0.6rem 1.1rem;
   }
 
   .gatefold-door.door-left {
-    border-radius: 162px 0 0 8px;
+    border-radius: 147px 0 0 8px;
   }
 
   .gatefold-door.door-right {
-    border-radius: 0 162px 8px 0;
+    border-radius: 0 147px 8px 0;
+  }
+
+  .envelope-stage.animating .gatefold-door.door-left,
+  .envelope-stage.opened .gatefold-door.door-left {
+    transform: perspective(900px) rotateY(-93deg);
+  }
+
+  .envelope-stage.animating .gatefold-door.door-right,
+  .envelope-stage.opened .gatefold-door.door-right {
+    transform: perspective(900px) rotateY(93deg);
   }
 
   .palace-crest-medallion,
   .wax-seal {
-    width: 86px;
-    height: 86px;
+    width: 76px;
+    height: 76px;
   }
 
   .wax-seal-inner,
   .medallion-gold-face {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
   }
 
   .wax-piece-left,
   .medallion-half-left {
-    border-radius: 43px 0 0 43px;
+    border-radius: 38px 0 0 38px;
   }
 
   .wax-piece-right,
   .medallion-half-right {
-    border-radius: 0 43px 43px 0;
+    border-radius: 0 38px 38px 0;
+  }
+
+  .medallion-lotus-vector {
+    width: 24px;
+    height: 15px;
   }
 
   .medallion-initials {
-    font-size: 1.05rem;
+    font-size: 0.95rem;
   }
 
   .medallion-date {
-    font-size: 0.42rem;
-    letter-spacing: 0.8px;
+    font-size: 0.38rem;
+    letter-spacing: 0.6px;
     white-space: nowrap;
   }
 
+  .sanctuary-crest-emblem {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.3rem;
+  }
+
+  .sanctuary-title {
+    font-size: 0.55rem;
+    letter-spacing: 1.8px;
+  }
+
   .sanctuary-names {
-    font-size: 1.45rem;
+    font-size: 1.3rem;
+  }
+
+  .sanctuary-subtitle {
+    font-size: 0.56rem;
+  }
+
+  .sanctuary-date {
+    font-size: 1.1rem;
+    margin-top: 0.25rem;
+  }
+
+  .gatefold-guest-plaque {
+    bottom: 8px;
+    width: 90%;
+  }
+
+  .guest-plaque-frame {
+    padding: 0.45rem 0.6rem;
+  }
+
+  .gatefold-guest-plaque .guest-calligraphy {
+    font-size: 1.02rem;
+  }
+
+  .palace-gatefold-prompt {
+    margin-top: 0.5rem;
+    gap: 0.25rem;
+  }
+
+  .prompt-pill,
+  .gatefold-pill {
+    padding: 0.38rem 0.9rem;
+    font-size: 0.58rem;
+    letter-spacing: 1.2px;
+  }
+
+  .prompt-sub {
+    font-size: 0.64rem;
+  }
+}
+
+/* Height-constrained mobile screens (short viewports / mobile landscape / active browser chrome) */
+@media (max-height: 700px) {
+  .envelope-wrapper,
+  .palace-portal-wrapper {
+    height: min(60vh, 58dvh, 410px);
+    margin-top: 1.2rem;
+  }
+
+  .palace-gatefold-prompt {
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-height: 600px) {
+  .envelope-wrapper,
+  .palace-portal-wrapper {
+    height: min(64vh, 60dvh, 340px);
+    margin-top: 0.75rem;
+  }
+
+  .palace-gatefold-prompt {
+    margin-top: 0.35rem;
+  }
+
+  .prompt-sub {
+    display: none;
+  }
+
+  .palace-inner-sanctuary {
+    padding: 0.9rem 0.5rem 0.9rem;
+  }
+
+  .sanctuary-crest-emblem {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 0.2rem;
   }
 }
 

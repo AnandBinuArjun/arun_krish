@@ -121,8 +121,17 @@
       } catch (e) { }
     }
 
+    let revealTimer = null;
+
     function openEnvelope() {
-      if (isEnvelopeOpen) return;
+      // If already animating, a subsequent tap/touch instantly reveals invitation
+      if (isEnvelopeOpen) {
+        if (envelopeStage.classList.contains('animating') && !envelopeStage.classList.contains('opened')) {
+          if (revealTimer) clearTimeout(revealTimer);
+          revealInvitation();
+        }
+        return;
+      }
       isEnvelopeOpen = true;
 
       window.scrollTo(0, 0);
@@ -139,41 +148,47 @@
       waxSeal.classList.add('cracked');
       envelopeStage.classList.add('animating');
 
+      // Update prompt text to give responsive feedback
+      const promptPillBtn = document.getElementById('prompt-pill-btn');
+      if (promptPillBtn) {
+        const textSpan = promptPillBtn.querySelector('span:nth-child(2)');
+        if (textSpan) textSpan.textContent = 'Entering Royal Palace...';
+      }
+
       // 2. Play Audio Melody ('Dheera Dheera')
       playWeddingSong();
 
       // 3. Trigger Grand Cascade of Falling Petals
       try { burstPetals(45); } catch (e) { }
 
-      // 4. Reveal Palace Invitation & Top Section as Doors Open
-      setTimeout(revealInvitation, 1000);
+      // 4. Reveal Palace Invitation & Top Section as Doors Open (giving mobile users time to enjoy the inner archway)
+      revealTimer = setTimeout(revealInvitation, 1650);
     }
 
     const promptPillBtn = document.getElementById('prompt-pill-btn');
 
-    waxSeal.addEventListener('click', (e) => {
-      e.stopPropagation();
-      openEnvelope();
-    });
+    // Robust touch & click trigger helper for iOS Safari, Android, and Desktop
+    function attachTrigger(el) {
+      if (!el) return;
+      let lastTouchTime = 0;
 
-    waxSeal.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
+      el.addEventListener('touchend', (e) => {
+        lastTouchTime = Date.now();
+        e.stopPropagation();
         openEnvelope();
-      }
-    });
+      }, { passive: true });
 
-    envelopeWrapper.addEventListener('click', openEnvelope);
-    envelopeWrapper.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
+      el.addEventListener('click', (e) => {
+        // Prevent duplicate firing if touchend just triggered
+        if (Date.now() - lastTouchTime < 450) {
+          e.stopPropagation();
+          return;
+        }
+        e.stopPropagation();
         openEnvelope();
-      }
-    });
+      });
 
-    if (promptPillBtn) {
-      promptPillBtn.addEventListener('click', openEnvelope);
-      promptPillBtn.addEventListener('keydown', (e) => {
+      el.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
           openEnvelope();
@@ -181,17 +196,24 @@
       });
     }
 
+    attachTrigger(waxSeal);
+    attachTrigger(envelopeWrapper);
+    attachTrigger(promptPillBtn);
+
     // Skip button (top-right corner)
     const skipBtn = document.getElementById('skip-envelope-btn');
     if (skipBtn) {
-      skipBtn.addEventListener('click', () => {
+      const handleSkip = (e) => {
+        if (e) e.stopPropagation();
         isEnvelopeOpen = true;
+        if (revealTimer) clearTimeout(revealTimer);
         waxSeal.classList.add('cracked');
         envelopeStage.classList.add('animating');
         playWeddingSong();
-        // Instant reveal with no delay
         revealInvitation();
-      });
+      };
+      skipBtn.addEventListener('click', handleSkip);
+      skipBtn.addEventListener('touchend', handleSkip, { passive: true });
     }
 
     // Keyboard shortcut: Escape or Enter to skip to invitation
@@ -204,15 +226,22 @@
     // Replay opening button
     const replayBtn = document.getElementById('replay-envelope-btn');
     if (replayBtn) {
-      replayBtn.addEventListener('click', () => {
+      const handleReplay = () => {
         isEnvelopeOpen = false;
+        if (revealTimer) clearTimeout(revealTimer);
         waxSeal.classList.remove('cracked');
         envelopeStage.classList.remove('animating', 'opened', 'done');
         pageWrapper.classList.remove('revealed');
         document.body.classList.remove('invitation-opened');
         document.body.style.overflow = 'hidden';
+        if (promptPillBtn) {
+          const textSpan = promptPillBtn.querySelector('span:nth-child(2)');
+          if (textSpan) textSpan.textContent = 'Tap the Golden Crest to Enter';
+        }
         window.scrollTo(0, 0);
-      });
+      };
+      replayBtn.addEventListener('click', handleReplay);
+      replayBtn.addEventListener('touchend', handleReplay, { passive: true });
     }
   }
 
