@@ -12,7 +12,7 @@
     couple: 'Arun & Krishna',
     dateISO: '2026-12-08T10:00:00Z',
     venue: 'Reception & Banquet: Birmingham, West Midlands, England',
-    hashtag: '#ArunWedsKrishna2026',
+    hashtag: '#Arun Ka Krishna',
     // ── Google Sheets RSVP endpoint ──────────────────────────────────────────
     // Paste your deployed Apps Script Web App URL here after following setup:
     googleSheetUrl: 'https://script.google.com/macros/s/AKfycbyooym-pJs1QtyvhS3j1NI3oTtdSg1e72lawFXQv-CKegGl-6g882QgV4MeOv6Hcj_J/exec'
