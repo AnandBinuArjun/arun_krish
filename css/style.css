@@ -3944,6 +3944,14 @@ body.invitation-opened .floating-audio-widget {
   color: rgba(212, 175, 105, 0.9);
 }
 
+.footer-best-wishes {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: rgba(245, 221, 169, 0.8);
+  margin-top: 1rem;
+}
+
 /* ==========================================================================
    MOBILE & TABLET RESPONSIVENESS SUITE (320px – 768px)
    ========================================================================== */
@@ -4685,7 +4693,6 @@ body.invitation-opened .floating-audio-widget {
     display: none !important;
   }
 }
-
 
 
 
