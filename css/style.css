@@ -1723,7 +1723,7 @@ body.invitation-opened .floating-audio-widget {
   background: #FFFFFF;
   border: 1px solid var(--color-border-subtle);
   border-radius: 12px;
-  padding: 3rem 2.2rem;
+  padding: 2.5rem 1.8rem 2.2rem;
   text-align: center;
   box-shadow: var(--shadow-card);
   position: relative;
@@ -1793,10 +1793,18 @@ body.invitation-opened .floating-audio-widget {
 
 .profile-full-name {
   font-family: var(--font-serif);
-  font-size: 2.2rem;
+  font-size: clamp(1.85rem, 3vw, 2.25rem);
   color: var(--color-olive-dark);
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.35rem;
   font-weight: 500;
+  line-height: 1.25;
+}
+
+.profile-ornament {
+  color: var(--color-gold-deep);
+  font-size: 0.95rem;
+  opacity: 0.65;
+  margin-top: 0.2rem;
 }
 
 
